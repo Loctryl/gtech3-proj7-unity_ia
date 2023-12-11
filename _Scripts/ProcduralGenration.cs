@@ -19,6 +19,24 @@ public static class ProcduralGenration
         }
         return path;
     }   
+
+    public static List<Vector2Int> RandomWalkCorridor(Vector2Int startpostion, int corridorLenght)
+    {        
+        List<Vector2Int> corridor = new List<Vector2Int>();
+        var direction = Direction2D.GetRandomCardinalDirection();
+        var currentPostion = startpostion;
+        corridor.Add(currentPostion);
+
+        for (int i = 0; i < corridorLenght; i++)
+        {
+            currentPostion += direction;
+            corridor.Add(currentPostion);
+        }
+
+        return corridor;
+        
+     
+    }
 }
 
 public static class Direction2D
