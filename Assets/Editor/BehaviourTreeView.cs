@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine.UIElements;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor;
+using UnityEngine;
 
 public class BehaviourTreeView : GraphView {
 	public Action<NodeView> onNodeSelected;
@@ -22,6 +23,16 @@ public class BehaviourTreeView : GraphView {
 
 		var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/BehaviourTreeEditor.uss");
 		styleSheets.Add(styleSheet);
+
+		Undo.undoRedoPerformed += OnUndoRedo;
+	}
+
+	private void OnUndoRedo() { 
+		if (tree == null) {
+			Debug.Log("tree est nul");
+		}
+		PopulateView(tree);
+		AssetDatabase.SaveAssets();
 	}
 
 	NodeView FindNodeView(Node node) {
@@ -29,6 +40,7 @@ public class BehaviourTreeView : GraphView {
 	}
 
 	public void PopulateView(BehaviourTree tree) {
+		
 		this.tree = tree;
 
 		graphViewChanged -= OnGraphViewChanged;

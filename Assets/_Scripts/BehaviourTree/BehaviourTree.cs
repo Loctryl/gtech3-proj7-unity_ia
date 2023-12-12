@@ -39,34 +39,46 @@ public class BehaviourTree : ScriptableObject
     public void AddChild(Node parent, Node child) {
         DecoratorNode decoratorNode = parent as DecoratorNode;
         if (decoratorNode) {
+            Undo.RecordObject(decoratorNode, "Behaviour Tree (AddChild)");
             decoratorNode.child = child;
+            EditorUtility.SetDirty(decoratorNode);
         }
         
         RootNode rootNode = parent as RootNode;
         if (rootNode) {
+            Undo.RecordObject(rootNode, "Behaviour Tree (AddChild)");
             rootNode.child = child;
+            EditorUtility.SetDirty(rootNode);
         }
         
         CompositeNode compositeNode = parent as CompositeNode;
         if (compositeNode) {
+            Undo.RecordObject(compositeNode, "Behaviour Tree (AddChild)");
             compositeNode.children.Add(child);
+            EditorUtility.SetDirty(compositeNode);
         }
     }
     
     public void RemoveChild(Node parent, Node child) {
         DecoratorNode decoratorNode = parent as DecoratorNode;
         if (decoratorNode) {
+            Undo.RecordObject(decoratorNode, "Behaviour Tree (RemoveChild)");
             decoratorNode.child = null;
+            EditorUtility.SetDirty(decoratorNode);
         }
         
         RootNode rootNode = parent as RootNode;
         if (rootNode) {
+            Undo.RecordObject(rootNode, "Behaviour Tree (RemoveChild)");
             rootNode.child = null;
+            EditorUtility.SetDirty(rootNode);
         }
         
         CompositeNode compositeNode = parent as CompositeNode;
         if (compositeNode) {
+            Undo.RecordObject(compositeNode, "Behaviour Tree (RemoveChild)");
             compositeNode.children.Remove(child);
+            EditorUtility.SetDirty(compositeNode);
         }
     }
     

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -61,8 +63,10 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node {
 	
 	public override void SetPosition(Rect newPos) {
 		base.SetPosition(newPos);
+		Undo.RecordObject(node, "Behaviour Tree (Set Position)");
 		node.position.x = newPos.xMin;
 		node.position.y = newPos.yMin;
+		EditorUtility.SetDirty(node);
 	}
 
 	public override void OnSelected() {
