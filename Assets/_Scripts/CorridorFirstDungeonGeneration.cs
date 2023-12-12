@@ -13,6 +13,14 @@ public class SimplaeCorridorGenerator : SimpleRandomWalkDungeonGenerator
     [Range(0.1f, 1)]
     private float roomPercent = 0.8f;
 
+    private Dictionary<Vector2Int, HashSet<Vector2Int>> roomDictionnary = new Dictionary<Vector2Int, HashSet<Vector2Int>>();
+
+    private HashSet<Vector2Int> floorPositions, corridorPositions;
+
+    private List<Color> roomColors = new List<Color>();
+    [SerializeField]
+    private bool showRoomGizmo = false, showCorridorGizmo;
+
     protected override void RunProceduralGeneration()
     {
         CorridorFirstGeneration();
@@ -110,7 +118,7 @@ public class SimplaeCorridorGenerator : SimpleRandomWalkDungeonGenerator
         foreach (var position in floorPositions)
         {
             int neighboursCount = 0;
-            foreach (var direction in Direction2D.cardinalDirectionList)
+            foreach (var direction in Direction2D.cardinalDirectionsList)
             {
                 if (floorPositions.Contains(position + direction))
                 {
@@ -123,15 +131,13 @@ public class SimplaeCorridorGenerator : SimpleRandomWalkDungeonGenerator
             }
         }
         return deadEnd;
-    }   
+    }
 
     private List<List<Vector2Int>> CreateCorridor(HashSet<Vector2Int> floorPositions, HashSet<Vector2Int> potentialRoomPositions)
     {
         var currentPosition = startPosition;
         potentialRoomPositions.Add(currentPosition);
-
         List<List<Vector2Int>> corridors = new List<List<Vector2Int>>();
-        
         for (int i = 0; i < corridorCount; i++)
         {
             var corridor = ProcduralGenration.RandomWalkCorridor(currentPosition, corridorLength);
@@ -141,6 +147,7 @@ public class SimplaeCorridorGenerator : SimpleRandomWalkDungeonGenerator
             floorPositions.UnionWith(corridor);
 
         }
+        corridorPositions = new HashSet<Vector2Int>(floorPositions);
         return corridors;
     }
 
@@ -150,12 +157,26 @@ public class SimplaeCorridorGenerator : SimpleRandomWalkDungeonGenerator
         int roomToCreateCount = Mathf.RoundToInt(potentialRoomPositions.Count * roomPercent);
 
         List<Vector2Int> roomToCreate = potentialRoomPositions.OrderBy(x => Guid.NewGuid()).Take(roomToCreateCount).ToList();
+        ClearRoomData();
 
         foreach (var roomPosition in roomToCreate)
         {
             var roomFloor = RunRandomWalk(randomWalkParameters, roomPosition);
+            SaveRoomData(roomPosition, roomFloor);
             roomPositions.UnionWith(roomFloor);
         }
         return roomPositions;
-    }   
+    }
+
+    private void SaveRoomData(Vector2Int roomPosition, HashSet<Vector2Int> roomFloor)
+    {
+        roomDictionnary[roomPosition] = roomFloor;
+        roomColors.Add(UnityEngine.Random.ColorHSV());
+    }
+
+    private void ClearRoomData()
+    {
+       roomDictionnary.Clear();
+        roomColors.Clear();
+    }
 }
