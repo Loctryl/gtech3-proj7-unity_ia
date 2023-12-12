@@ -8,8 +8,8 @@ namespace SpellSystem
         
     public class Spell : MonoBehaviour
     {
-        [SerializeField] private Elements element;
-        [SerializeField] private SpellType spellType = SpellType.Undefined;
+        [SerializeField] public Elements element;
+        [SerializeField] public SpellType spellType = SpellType.Undefined;
         [SerializeField] private float cooldown = 1;
         [SerializeField] private int damage;
         [SerializeField] private float stunDuration;

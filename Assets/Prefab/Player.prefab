@@ -111,5 +111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b144cc47da9a6024b89957edf7c0244c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input:
+    m_Name: Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 24f9d0b7-48cc-4b44-a0c0-c7d2cf6dad28
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   spells:
   - {fileID: 0}
