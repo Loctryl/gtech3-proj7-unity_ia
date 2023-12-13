@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RootNode : Node {
-	public Node child;
+	[HideInInspector] public Node child;
 	protected override void OnEnter() {
 		
 	}
