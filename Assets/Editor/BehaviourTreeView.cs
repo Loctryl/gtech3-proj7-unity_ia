@@ -13,6 +13,7 @@ public class BehaviourTreeView : GraphView {
 	}
 
 	private BehaviourTree tree;
+	public static BehaviourTree b;
 
 	public BehaviourTreeView() {
 		Insert(0, new GridBackground());
@@ -30,8 +31,10 @@ public class BehaviourTreeView : GraphView {
 	}
 
 	private void OnUndoRedo() {
-		PopulateView(tree);
-		AssetDatabase.SaveAssets();
+		if (tree != null) {
+			PopulateView(tree);
+			AssetDatabase.SaveAssets();
+		}
 	}
 
 	NodeView FindNodeView(Node node) {
@@ -40,7 +43,8 @@ public class BehaviourTreeView : GraphView {
 
 	internal void PopulateView(BehaviourTree tree) {
 		this.tree = tree;
-
+		b = tree;
+		
 		graphViewChanged -= OnGraphViewChanged;
 		DeleteElements(graphElements);
 		graphViewChanged += OnGraphViewChanged;
