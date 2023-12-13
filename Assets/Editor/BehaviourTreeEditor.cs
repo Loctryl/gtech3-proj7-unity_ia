@@ -7,6 +7,10 @@ using UnityEngine.UIElements;
 public class BehaviourTreeEditor : EditorWindow {
 	private BehaviourTreeView treeView;
 	private InspectorView inspectorView;
+	private IMGUIContainer blackBoardView;
+
+	private SerializedObject treeObject;
+	private SerializedProperty blackBoardProperty;
 
 	[MenuItem("Window/Behaviour Tree Editor/Editor")]
 	public static void OpenWindow() {
@@ -35,8 +39,14 @@ public class BehaviourTreeEditor : EditorWindow {
 
 		treeView = root.Q<BehaviourTreeView>();
 		inspectorView = root.Q<InspectorView>();
+		blackBoardView = root.Q<IMGUIContainer>();
+		blackBoardView.onGUIHandler = () => {
+			treeObject.Update();
+			EditorGUILayout.PropertyField(blackBoardProperty);
+			treeObject.ApplyModifiedProperties();
+		};
+		
 		treeView.onNodeSelected = OnNodeSelectionChanged;
-
 		OnSelectionChange();
 	}
 
@@ -79,6 +89,11 @@ public class BehaviourTreeEditor : EditorWindow {
 			treeView.PopulateView(tree);
 		else if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID())) {
 			treeView.PopulateView(tree);
+		}
+
+		if (tree != null) {
+			treeObject = new SerializedObject(tree);
+			blackBoardProperty = treeObject.FindProperty("blackBoard");
 		}
 	}
 

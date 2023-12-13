@@ -15,7 +15,8 @@ public abstract class Node : ScriptableObject
     [HideInInspector] public bool started = false;
     [HideInInspector] public string guid;
     [HideInInspector] public Vector2 position;
-
+    [HideInInspector] public BlackBoard blackBoard;
+    
     public State Update()
     {
         if(!started)
