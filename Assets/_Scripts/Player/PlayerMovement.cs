@@ -1,37 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] 
-    float moveSpeed = 5f;
-
-
-    DefaultInput defaultInput;
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] private InputActionReference movement;
+    
     Vector2 movementInput;
-    Rigidbody2D rb;
 
     private void Awake()
     {
-        defaultInput = new DefaultInput();
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void OnEnable()
-    {
-        defaultInput.Enable();
-
-        defaultInput.Player.Move.performed += OnMovement;
-        defaultInput.Player.Move.canceled += OnMovement;
-
-
+        movement.action.performed += OnMovement;
+        movement.action.canceled += OnMovement;
     }
 
     private void OnDisable()
     {
-        defaultInput.Disable();
-    }   
+        movement.action.performed -= OnMovement;
+        movement.action.canceled -= OnMovement;
+    }
 
     private void OnMovement(InputAction.CallbackContext context)
     {
