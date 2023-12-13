@@ -75,4 +75,15 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node {
 			onNodeSelected.Invoke(this);
 		}
 	}
+
+	public void SortChildren() {
+		CompositeNode compositeNode = node as CompositeNode;
+		if (compositeNode) {
+			compositeNode.children.Sort(SortByVerticalPosition);
+		}
+	}
+
+	private int SortByVerticalPosition(Node up, Node down) {
+		return up.position.y < down.position.y ? -1 : 1;
+	}
 }

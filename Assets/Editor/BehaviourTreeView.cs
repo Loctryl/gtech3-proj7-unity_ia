@@ -8,7 +8,9 @@ using UnityEngine;
 
 public class BehaviourTreeView : GraphView {
 	public Action<NodeView> onNodeSelected;
-	public new class UxmlFactory : UxmlFactory<BehaviourTreeView, GraphView.UxmlTraits> { }
+
+	public new class UxmlFactory : UxmlFactory<BehaviourTreeView, GraphView.UxmlTraits> {
+	}
 
 	private BehaviourTree tree;
 
@@ -27,10 +29,7 @@ public class BehaviourTreeView : GraphView {
 		Undo.undoRedoPerformed += OnUndoRedo;
 	}
 
-	private void OnUndoRedo() { 
-		if (tree == null) {
-			Debug.Log("tree est nul");
-		}
+	private void OnUndoRedo() {
 		PopulateView(tree);
 		AssetDatabase.SaveAssets();
 	}
@@ -39,8 +38,7 @@ public class BehaviourTreeView : GraphView {
 		return GetNodeByGuid(node.guid) as NodeView;
 	}
 
-	public void PopulateView(BehaviourTree tree) {
-		
+	internal void PopulateView(BehaviourTree tree) {
 		this.tree = tree;
 
 		graphViewChanged -= OnGraphViewChanged;
@@ -52,9 +50,9 @@ public class BehaviourTreeView : GraphView {
 			EditorUtility.SetDirty(tree);
 			AssetDatabase.SaveAssets();
 		}
-		
+
 		tree.nodes.ForEach(n => CreateNodeView(n));
-		
+
 		tree.nodes.ForEach(n => {
 			var children = tree.GetChildren(n);
 			children.ForEach(child => {
@@ -65,11 +63,11 @@ public class BehaviourTreeView : GraphView {
 				AddElement(edge);
 			});
 		});
-
 	}
 
 	public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter) {
-		return ports.ToList().Where(endPort => endPort.direction != startPort.direction && endPort.node != startPort.node).ToList();
+		return ports.ToList().Where(endPort => endPort.direction != startPort.direction && endPort.node != startPort.node)
+			.ToList();
 	}
 
 	private GraphViewChange OnGraphViewChanged(GraphViewChange graphViewChange) {
@@ -79,7 +77,7 @@ public class BehaviourTreeView : GraphView {
 				if (nodeView != null) {
 					tree.DeleteNode(nodeView.node);
 				}
-				
+
 				Edge edge = elem as Edge;
 				if (edge != null) {
 					NodeView parentView = edge.output.node as NodeView;
@@ -97,6 +95,11 @@ public class BehaviourTreeView : GraphView {
 			});
 		}
 
+		if (graphViewChange.movedElements != null)
+			nodes.ForEach((n) => {
+				NodeView view = n as NodeView;
+				view.SortChildren();
+			});
 		return graphViewChange;
 	}
 
@@ -106,12 +109,12 @@ public class BehaviourTreeView : GraphView {
 		foreach (var type in types) {
 			evt.menu.AppendAction($"[{type.BaseType.Name}] {type.Name}", (a) => CreateNode(type));
 		}
-		
+
 		types = TypeCache.GetTypesDerivedFrom<CompositeNode>();
 		foreach (var type in types) {
 			evt.menu.AppendAction($"[{type.BaseType.Name}] {type.Name}", (a) => CreateNode(type));
 		}
-		
+
 		types = TypeCache.GetTypesDerivedFrom<DecoratorNode>();
 		foreach (var type in types) {
 			evt.menu.AppendAction($"[{type.BaseType.Name}] {type.Name}", (a) => CreateNode(type));

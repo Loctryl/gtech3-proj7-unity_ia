@@ -40,9 +40,44 @@ public class BehaviourTreeEditor : EditorWindow {
 		OnSelectionChange();
 	}
 
+	private void OnEnable() {
+		EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+		EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+	}
+
+	private void OnDisable() {
+		EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+
+	}
+	
+	private void OnPlayModeStateChanged(PlayModeStateChange obj) {
+		switch (obj) {
+			case PlayModeStateChange.EnteredEditMode:
+				OnSelectionChange();
+				break;
+			case PlayModeStateChange.ExitingEditMode:
+				break;
+			case PlayModeStateChange.EnteredPlayMode:
+				OnSelectionChange();
+				break;
+			case PlayModeStateChange.ExitingPlayMode:
+				break;
+			default:
+				throw new ArgumentOutOfRangeException(nameof(obj), obj, null);
+		}
+	}
+
+
 	private void OnSelectionChange() {
 		BehaviourTree tree = Selection.activeObject as BehaviourTree;
-		if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID())) {
+		if (!tree && Selection.activeGameObject) {
+			BehaviourTreeRunner runner = Selection.activeGameObject.GetComponent<BehaviourTreeRunner>();
+			if (runner) tree = runner.tree;
+		}
+		
+		if(Application.isPlaying && tree)
+			treeView.PopulateView(tree);
+		else if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID())) {
 			treeView.PopulateView(tree);
 		}
 	}
