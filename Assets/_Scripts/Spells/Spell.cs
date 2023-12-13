@@ -11,14 +11,5 @@ namespace SpellSystem
         [SerializeField] public Elements element;
         [SerializeField] public SpellType spellType = SpellType.Undefined;
         [SerializeField] private float cooldown = 1;
-        [SerializeField] private int damage;
-        [SerializeField] private float stunDuration;
-        [SerializeField] private float knockBack;
-
-
-        public void OnHit(GameObject go)
-        {
-            Destroy(go);
-        }
     }
 }

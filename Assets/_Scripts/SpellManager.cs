@@ -13,6 +13,8 @@ public class SpellManager : MonoBehaviour
     [SerializeField] private InputActionReference spell2;
     [SerializeField] private InputActionReference spell3;
     [SerializeField] private InputActionReference spell4;
+
+    [SerializeField] private Player player;
     
     private SpellType _choosedType = SpellType.Undefined;
 
@@ -40,7 +42,7 @@ public class SpellManager : MonoBehaviour
         }
         else
         {
-            LaunchSpell(GetComponent<Player>().elements[0]);
+            LaunchSpell(player.elements[0]);
         }
     }
 
@@ -64,7 +66,7 @@ public class SpellManager : MonoBehaviour
         }
         else
         {
-            LaunchSpell(GetComponent<Player>().elements[1]);
+            LaunchSpell(player.elements[1]);
         }
     }
 

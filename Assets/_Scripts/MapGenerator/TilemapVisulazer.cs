@@ -1,18 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class TilemapVisulazer : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap floorTilmap, wallTilemap;
+    private Tilemap floorTilmap, wallTilemap, objectTilmap;
     [SerializeField]
     private TileBase floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornnerDownLeft,
         wallInnerCornnerDownRight, wallDiagonalCornerDownRight, wallDiagonalCornnerDownLeft,
-        wallDiagonalUpRight, wallDiagonalUpLeft;
+        wallDiagonalUpRight, wallDiagonalUpLeft, objetTile1, objectTile2;
+    
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
@@ -65,6 +70,7 @@ public class TilemapVisulazer : MonoBehaviour
 
     public void Clear()
     {
+        objectTilmap.ClearAllTiles();
         floorTilmap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
     }
@@ -109,5 +115,35 @@ public class TilemapVisulazer : MonoBehaviour
         {
             PaintSinlgleTile(wallTilemap, tile, position);
         }
+    }
+
+    internal void PaintSingleObject(HashSet<Vector2Int> floorPositions, List<BoundsInt> Roomlist)
+    {
+        var rngNb = Random.Range(0, floorPositions.Count);
+        var position = floorPositions.ElementAt(rngNb);
+        int wichObject = Random.Range(0, 1);
+        foreach (var room in Roomlist)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                switch (wichObject)
+                {
+                    case 0: 
+                        PaintSinlgleTile(objectTilmap, objetTile1, position);
+                        break;
+                        case 1:
+                            PaintSinlgleTile(objectTilmap, objectTile2, position);
+                        break;
+                    default:
+                        break;
+                }
+                wichObject = Random.Range(0, 1);
+                rngNb = Random.Range(0, floorPositions.Count);
+                position = floorPositions.ElementAt(rngNb);
+               
+            }
+
+        }
+        
     }
 }
