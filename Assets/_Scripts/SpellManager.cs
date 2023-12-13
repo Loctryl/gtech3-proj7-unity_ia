@@ -18,18 +18,18 @@ public class SpellManager : MonoBehaviour
 
     private void Awake()
     {
-        spell1.action.performed += OnSpell1;
-        spell2.action.performed += OnSpell2;
-        spell3.action.performed += OnSpell3;
-        spell4.action.performed += OnSpell4;
+        spell1.action.started += OnSpell1;
+        spell2.action.started += OnSpell2;
+        spell3.action.started += OnSpell3;
+        spell4.action.started += OnSpell4;
     }
 
     private void OnDestroy()
     {
-        spell1.action.performed -= OnSpell1;
-        spell2.action.performed -= OnSpell2;
-        spell3.action.performed -= OnSpell3;
-        spell4.action.performed -= OnSpell4;
+        spell1.action.started -= OnSpell1;
+        spell2.action.started -= OnSpell2;
+        spell3.action.started -= OnSpell3;
+        spell4.action.started -= OnSpell4;
     }
 
     private void OnSpell1(InputAction.CallbackContext context)
@@ -82,15 +82,14 @@ public class SpellManager : MonoBehaviour
 
     private void LaunchSpell(Elements element)
     {   
-        Debug.Log("here");
         foreach (var spell in spells)
         {
             Spell spellInst = spell.GetComponent<Spell>();
             if (!spellInst) continue;
             if (spellInst.element != element || spellInst.spellType != _choosedType) continue;
             Instantiate(spell);
-            return;
         }
+        _choosedType = SpellType.Undefined;
     }
     
 
