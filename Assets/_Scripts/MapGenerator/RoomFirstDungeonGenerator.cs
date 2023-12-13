@@ -16,6 +16,9 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField]
     private bool randomWalkRoom = false;
 
+    [SerializeField]
+    GameObject player;
+
 
     protected override void RunProceduralGeneration()
     {
@@ -43,13 +46,19 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         {
             roomCenters.Add((Vector2Int)Vector2Int.RoundToInt(room.center));
         }
-
+         var spawnPoint = new Vector2Int();
+        spawnPoint = roomCenters[0];
+        var ExitPoint = new Vector2Int();
+        ExitPoint = roomCenters[roomCenters.Count - 1];
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters, floor);
         floor.UnionWith(corridors);
 
         tilemapVisulazer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tilemapVisulazer);
         ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
+        ItemGenerator.CreateSpawnPoint(tilemapVisulazer, spawnPoint);
+        ItemGenerator.CreateExitPoint(tilemapVisulazer, ExitPoint);
+        player.transform.position = new Vector3(spawnPoint.x, spawnPoint.y, -5);
     }
 
     private HashSet<Vector2Int> CreateRoomRandomly(List<BoundsInt> roomList)

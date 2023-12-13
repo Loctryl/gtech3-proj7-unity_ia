@@ -12,9 +12,9 @@ using Random = UnityEngine.Random;
 public class TilemapVisulazer : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap floorTilmap, wallTilemap, objectTilmap;
+    private Tilemap floorTilmap, wallTilemap, objectTilmap, TravelTilemap;
     [SerializeField]
-    private TileBase floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornnerDownLeft,
+    private TileBase SpawnPointTile, ExitPointTile, floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornnerDownLeft,
         wallInnerCornnerDownRight, wallDiagonalCornerDownRight, wallDiagonalCornnerDownLeft,
         wallDiagonalUpRight, wallDiagonalUpLeft, objetTile1, objectTile2;
     
@@ -73,6 +73,7 @@ public class TilemapVisulazer : MonoBehaviour
         objectTilmap.ClearAllTiles();
         floorTilmap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
+        TravelTilemap.ClearAllTiles();
     }
 
     internal void PaintSingleCornerWall(Vector2Int position, string bynaryType)
@@ -145,5 +146,17 @@ public class TilemapVisulazer : MonoBehaviour
 
         }
         
+    }
+
+    internal void PaintSpawnPoint(Vector2Int spawnPoint)
+    {
+        
+       PaintSinlgleTile(TravelTilemap, SpawnPointTile, spawnPoint);
+
+    }
+
+    internal void PaintExitPoint(Vector2Int exitPoint)
+    {
+        PaintSinlgleTile(TravelTilemap, ExitPointTile, exitPoint);
     }
 }
