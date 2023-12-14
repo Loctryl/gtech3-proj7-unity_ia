@@ -10,10 +10,10 @@ public class ChaseState : BaseState {
 	}
 
 	public override void OnUpdate() {
-		Vector3 dir = player.transform.position - machine.transform.position;
+		Vector3 dir = player.transform.position - self.transform.position;
 		dir.Normalize();
 
-		machine.transform.position += dir * Time.deltaTime;
+		self.transform.position += dir * Time.deltaTime;
 	}
 
 	public override void OnExit() {
