@@ -5216,6 +5216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f315183bfc57076448b8d1e2ff119c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomGenerator: {fileID: 1934381067}
+  levelEnd: 0
 --- !u!50 &1031273377
 Rigidbody2D:
   serializedVersion: 4
@@ -5255,7 +5257,7 @@ TilemapCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
