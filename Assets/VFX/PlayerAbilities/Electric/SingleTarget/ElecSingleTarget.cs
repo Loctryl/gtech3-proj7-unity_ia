@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.VFX.Utility;
 
-public class TestElecCC : MonoBehaviour
+public class ElecSL : MonoBehaviour
 {
     [SerializeField] public GameObject prefab;
     GameObject go;
     Transform closestEnemy;
 
-    int MaxChainAmount = 4;
     public int currChainPos = 1;
     float maxDist = 8;
     void Start()
@@ -67,14 +66,6 @@ public class TestElecCC : MonoBehaviour
                 closestDistanceSqr = dSqrToTarget;
                 bestTarget = potentialTarget;
             }
-        }
-
-        if (currChainPos < MaxChainAmount && bestTarget != null)
-        {
-            bestTarget.gameObject.AddComponent<TestElecCC>();
-            TestElecCC targetSpell = bestTarget.gameObject.GetComponent<TestElecCC>();
-            targetSpell.IncreaseChainPos(currChainPos);
-            targetSpell.prefab = prefab;
         }
 
         Debug.LogWarning(bestTarget);

@@ -53,12 +53,13 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _TwirlAmount: 8
+    - _bits: 32
     - _disolve: 0.851
     - _noisePower: 1
     - _noiseScale: 20
     - _noiseSpeed: 1
     m_Colors:
-    - _Color: {r: 1.2043284, g: 3.8107111, b: 2.323299, a: 1}
+    - _Color: {r: 4.7996216, g: 4.7996216, b: 4.7996216, a: 1}
     - _TwirlCenter: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _TwirlSpeed: {r: 0, g: 0.5, b: 0, a: 0}
     - _noiseSpeed: {r: 0, g: -1.56, b: 0, a: 0}
