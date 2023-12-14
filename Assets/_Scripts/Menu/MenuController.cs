@@ -35,6 +35,12 @@ public class MenuController : MonoBehaviour
     [SerializeField]
     private float defaultBrightness = 1;
 
+    [Space(10)]
+    [SerializeField]
+    private TMP_Dropdown qualityDropdown;
+    [SerializeField]
+    private Toggle fullscreenToggle;
+
     private int _qualityLevel;
     private bool _isFullscreen;
     private float _brightnessLevel;
@@ -163,20 +169,28 @@ public class MenuController : MonoBehaviour
             volumeTextValue.text = defaultVolume.ToString("0.0");
             VolumeApply();
         }
-        else if (menuType == "Gameplay")
+        if (menuType == "Gameplay")
         {
             mainControllerSen = Mathf.RoundToInt(defaultControllerSen);
             ControllerSenSlider.value = defaultControllerSen;
             ControllerSenTextValue.text = defaultControllerSen.ToString("0");
-            GameplayApply();
+            GameplayApply();    
         }
-        else if (menuType == "Graphics")
+        if (menuType == "Graphics")
         {
-            _qualityLevel = QualitySettings.GetQualityLevel();
-            _isFullscreen = Screen.fullScreen;
-            _brightnessLevel = defaultBrightness;
             BrightnessSlider.value = defaultBrightness;
             BrightnessTextValue.text = defaultBrightness.ToString("0.0");
+
+            qualityDropdown.value = 1;
+            QualitySettings.SetQualityLevel(1);
+
+            fullscreenToggle.isOn = true;
+            Screen.fullScreen = false;
+
+            Resolution currentResolution = Screen.currentResolution;
+            Screen.SetResolution(currentResolution.width, currentResolution.height, Screen.fullScreen);
+            resolutionDropdown.value = resolutions.Length;
+
             GraphicsApply();
         }
     }

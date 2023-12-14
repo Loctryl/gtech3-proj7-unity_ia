@@ -3717,6 +3717,8 @@ MonoBehaviour:
   BrightnessTextValue: {fileID: 423580526}
   BrightnessSlider: {fileID: 615435034}
   defaultBrightness: 1
+  qualityDropdown: {fileID: 282346629}
+  fullscreenToggle: {fileID: 2026844870}
   ConfirmationPrompt: {fileID: 397538456}
   nameGameLevel: Game
   noSavedGameMenu: {fileID: 844569251}
@@ -5394,7 +5396,7 @@ GameObject:
   - component: {fileID: 806257190}
   - component: {fileID: 806257189}
   m_Layer: 5
-  m_Name: Resolutiontext
+  m_Name: QualityText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5439,7 +5441,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resolution
+  m_text: 'Quality
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
