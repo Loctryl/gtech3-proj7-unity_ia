@@ -37,7 +37,8 @@ public class FollowCursor : MonoBehaviour
     private void OnStickPos(InputAction.CallbackContext context)
     {
         Vector2 mousPos = context.ReadValue<Vector2>();
-        RotateObject(mousPos);
+        if( Mathf.Abs(mousPos.x) > 0.5 || Mathf.Abs(mousPos.y) > 0.5)
+            RotateObject(mousPos);
     }
 
     private void RotateObject(Vector2 position)
