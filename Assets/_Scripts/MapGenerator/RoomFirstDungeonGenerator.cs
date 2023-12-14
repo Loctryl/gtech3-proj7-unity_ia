@@ -20,8 +20,16 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     GameObject player;
 
 
-    protected override void RunProceduralGeneration()
+
+
+    private void Start()
     {
+        tilemapVisulazer.Clear();
+        RunProceduralGeneration();
+    }
+    public override void RunProceduralGeneration()
+    {
+        tilemapVisulazer.Clear();
         CreateRoom();
     }
 

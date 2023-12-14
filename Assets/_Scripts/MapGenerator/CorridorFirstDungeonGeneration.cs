@@ -19,7 +19,7 @@ public class SimplaeCorridorGenerator : SimpleRandomWalkDungeonGenerator
     private List<Color> roomColors = new List<Color>();
     
 
-    protected override void RunProceduralGeneration()
+    public  override void RunProceduralGeneration()
     {
         CorridorFirstGeneration();
     }
