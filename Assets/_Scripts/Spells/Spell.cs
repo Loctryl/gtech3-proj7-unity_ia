@@ -10,6 +10,7 @@ namespace SpellSystem
     {
         public Elements element;
         public SpellType spellType = SpellType.Undefined;
+        public SpawnType spawnType;
         [SerializeField] private float cooldown = 1;
     }
 }

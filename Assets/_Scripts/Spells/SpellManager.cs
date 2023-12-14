@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 
 public class SpellManager : MonoBehaviour
 {
+    [SerializeField] private Transform arrow;
     [SerializeField] private GameObject[] spells;
     [SerializeField] private InputActionReference spell1;
     [SerializeField] private InputActionReference spell2;
@@ -89,7 +90,18 @@ public class SpellManager : MonoBehaviour
             Spell spellInst = spell.GetComponent<Spell>();
             if (!spellInst) continue;
             if (spellInst.element != element || spellInst.spellType != _choosedType) continue;
-            Instantiate(spell);
+            switch(spellInst.spawnType)
+            {
+                case SpawnType.Self:
+                    Instantiate(spell, transform);
+                    break;
+                case SpawnType.Direction:
+                    Instantiate(spell, transform.position, arrow.rotation); 
+                    break;
+                case SpawnType.Distance:
+                    Instantiate(spell, arrow.position, Quaternion.identity);
+                    break;
+            }
         }
         _choosedType = SpellType.Undefined;
     }

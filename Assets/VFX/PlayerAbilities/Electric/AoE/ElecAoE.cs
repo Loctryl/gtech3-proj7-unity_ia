@@ -8,6 +8,7 @@ public class ElecAoE : MonoBehaviour
     [SerializeField] List<GameObject> mVFXs = new();
 
     float deltaTime;
+    float lifetimeOffset = 0.4f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,11 @@ public class ElecAoE : MonoBehaviour
             {
                 obj.transform.GetChild(0).gameObject.SetActive(true);
             }
+        }
+
+        if (deltaTime >= mVFXs[0].GetComponent<VisualEffect>().GetFloat("Lifetime")+ lifetimeOffset)
+        {
+            Destroy(this.transform.gameObject);
         }
     }
 }
