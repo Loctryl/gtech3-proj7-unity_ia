@@ -9,22 +9,24 @@ public class TestElecCC : MonoBehaviour
     [SerializeField] public GameObject prefab;
     GameObject go;
     Transform closestEnemy;
+    [SerializeField] GameObject temp;
 
-    int MaxChainAmount = 4;
+    public int MaxChainAmount = 4;
     public int currChainPos = 1;
-    float maxDist = 8;
+    public float maxDist = 8;
+    float deltaTime;
     void Start()
     {
         SetTargets();
     }
     void SetTargets()
     {
-        go = Instantiate(prefab, this.transform);
         closestEnemy = GetClosestViableEnemy();
         if (closestEnemy != null)
         {
-            go.GetComponent<VisualEffect>().SetVector3("Pos1", transform.position);
-            go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.position);
+            go = Instantiate(prefab, transform);
+            go.GetComponent<VisualEffect>().SetVector3("Pos1", transform.parent.position);
+            go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.parent.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos3", closestEnemy.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos4", closestEnemy.position);
         }
@@ -37,47 +39,58 @@ public class TestElecCC : MonoBehaviour
     {
         if (closestEnemy != null)
         {
-            go.GetComponent<VisualEffect>().SetVector3("Pos1", transform.position);
-            go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.position);
+            deltaTime += Time.deltaTime;
+            if (deltaTime >= transform.GetChild(0).GetComponent<VisualEffect>().GetFloat("Duration"))
+            {
+                Destroy(transform.gameObject);
+            }
+            go.GetComponent<VisualEffect>().SetVector3("Pos1", transform.parent.position);
+            go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.parent.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos3", closestEnemy.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos4", closestEnemy.position);
         }
+        else Destroy(transform.gameObject);
     }
     Transform GetClosestViableEnemy()
     {
         GameObject enemyParent = GameObject.Find("enemies");
 
         Transform bestTarget = null;
-        float closestDistanceSqr = Mathf.Infinity;
-        Vector3 currentPosition = transform.position;
+        float closestDistance = Mathf.Infinity;
+        Vector3 currentPosition = transform.parent.position;
         List<Transform> enemies = new();
+        
         for (int i = 0; i < enemyParent.transform.childCount; i++)
         {
             enemies.Add(enemyParent.transform.GetChild(i));
         }
+        
         foreach (Transform potentialTarget in enemies)
         {
-            if (potentialTarget.GetComponent<TestElecCC>() != null) continue;
-            Debug.Log("lul");
+            if (potentialTarget.Find("ElecCC") != null) continue;
             Vector3 directionToTarget = potentialTarget.position - currentPosition;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
             float distance = directionToTarget.magnitude;
-            if (dSqrToTarget < closestDistanceSqr && distance < maxDist)
+            if (distance < closestDistance && distance < maxDist)
             {
-                closestDistanceSqr = dSqrToTarget;
+                closestDistance = distance;
                 bestTarget = potentialTarget;
             }
         }
 
         if (currChainPos < MaxChainAmount && bestTarget != null)
         {
-            bestTarget.gameObject.AddComponent<TestElecCC>();
-            TestElecCC targetSpell = bestTarget.gameObject.GetComponent<TestElecCC>();
+            GameObject go = Instantiate(temp, bestTarget.transform);
+            go.name = "ElecCC";
+            go.AddComponent<TestElecCC>();
+            go.transform.position = bestTarget.transform.position;
+            TestElecCC targetSpell = go.GetComponent<TestElecCC>();
             targetSpell.IncreaseChainPos(currChainPos);
             targetSpell.prefab = prefab;
+            targetSpell.temp = temp;
+            //targetSpell.SetTargets();
+            Debug.Log(bestTarget.name);
         }
 
-        Debug.LogWarning(bestTarget);
         return bestTarget;
     }
 }

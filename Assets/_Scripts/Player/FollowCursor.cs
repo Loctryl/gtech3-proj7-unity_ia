@@ -27,9 +27,7 @@ public class FollowCursor : MonoBehaviour
     private void OnMousPos(InputAction.CallbackContext context)
     {
         Vector2 mousPos = context.ReadValue<Vector2>();
-        Debug.Log("mousePos Screen :" + mousPos.x + " , "+ mousPos.y);
         mousPos = camera.ScreenToWorldPoint(mousPos);
-        Debug.Log("mousePos World :" + mousPos.x + " , "+ mousPos.y);
         
         RotateObject(mousPos - new Vector2(playerTransform.position.x, playerTransform.position.y));
     }

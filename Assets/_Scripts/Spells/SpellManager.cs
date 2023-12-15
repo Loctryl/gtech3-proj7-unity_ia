@@ -93,7 +93,7 @@ public class SpellManager : MonoBehaviour
             switch(spellInst.spawnType)
             {
                 case SpawnType.Self:
-                    Instantiate(spell, transform);
+                    Instantiate(spell, player.transform);
                     break;
                 case SpawnType.Direction:
                     Instantiate(spell, transform.position, arrow.rotation); 

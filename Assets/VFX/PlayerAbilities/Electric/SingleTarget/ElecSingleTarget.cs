@@ -9,8 +9,6 @@ public class ElecSL : MonoBehaviour
     [SerializeField] public GameObject prefab;
     GameObject go;
     Transform closestEnemy;
-
-    public int currChainPos = 1;
     float maxDist = 8;
     void Start()
     {
@@ -27,10 +25,6 @@ public class ElecSL : MonoBehaviour
             go.GetComponent<VisualEffect>().SetVector3("Pos3", closestEnemy.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos4", closestEnemy.position);
         }
-    }
-    public void IncreaseChainPos(int curchain)
-    {
-        currChainPos = curchain + 1;
     }
     void Update()
     {
@@ -57,7 +51,6 @@ public class ElecSL : MonoBehaviour
         foreach (Transform potentialTarget in enemies)
         {
             if (potentialTarget.GetComponent<TestElecCC>() != null) continue;
-            Debug.Log("lul");
             Vector3 directionToTarget = potentialTarget.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             float distance = directionToTarget.magnitude;
