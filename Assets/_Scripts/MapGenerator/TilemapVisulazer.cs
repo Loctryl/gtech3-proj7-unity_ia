@@ -12,23 +12,29 @@ using Random = UnityEngine.Random;
 public class TilemapVisulazer : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap floorTilmap, wallTilemap, objectTilmap, TravelTilemap;
+    private Tilemap floorTilmap, wallTilemap, objectTilmap, TravelSpawn, TravelExit;
     [SerializeField]
-    private TileBase SpawnPointTile, ExitPointTile, floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornnerDownLeft,
+    private TileBase SpawnPointTile, ExitPointTile, 
+        floorTile1, floorTile2, floorTile3, floorTile4, floorTile5, floorTile6, floorTile7, floorTile8, floorTile9, floorTile10, floorTile11, floorTile12, floorTile13, floorTile14, 
+        wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornnerDownLeft,
         wallInnerCornnerDownRight, wallDiagonalCornerDownRight, wallDiagonalCornnerDownLeft,
         wallDiagonalUpRight, wallDiagonalUpLeft, objetTile1, objectTile2;
     
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
-        PaintTiles(floorPositions, floorTilmap, floorTile);
+      PaintTiles(floorPositions, floorTilmap);
     }
 
-    private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile)
+    private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap)
     {
+        int rngNb;
+        TileBase[] floorTile = new TileBase[14] { floorTile1, floorTile2, floorTile3, floorTile4, floorTile5, floorTile6, floorTile7, floorTile8, floorTile9, floorTile10, floorTile11, floorTile12, floorTile13, floorTile14 };
+
         foreach (var position in positions)
         {
-            PaintSinlgleTile(tilemap, tile, position);
+            rngNb = Random.Range(0, 13);
+            PaintSinlgleTile(tilemap, floorTile[rngNb], position);
         }
     }
 
@@ -73,7 +79,8 @@ public class TilemapVisulazer : MonoBehaviour
         objectTilmap.ClearAllTiles();
         floorTilmap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
-        TravelTilemap.ClearAllTiles();
+        TravelExit.ClearAllTiles();
+        TravelSpawn.ClearAllTiles();
     }
 
     internal void PaintSingleCornerWall(Vector2Int position, string bynaryType)
@@ -151,12 +158,12 @@ public class TilemapVisulazer : MonoBehaviour
     internal void PaintSpawnPoint(Vector2Int spawnPoint)
     {
         
-       PaintSinlgleTile(TravelTilemap, SpawnPointTile, spawnPoint);
+       PaintSinlgleTile(TravelSpawn, SpawnPointTile, spawnPoint);
 
     }
 
     internal void PaintExitPoint(Vector2Int exitPoint)
     {
-        PaintSinlgleTile(TravelTilemap, ExitPointTile, exitPoint);
+        PaintSinlgleTile(TravelExit, ExitPointTile, exitPoint);
     }
 }

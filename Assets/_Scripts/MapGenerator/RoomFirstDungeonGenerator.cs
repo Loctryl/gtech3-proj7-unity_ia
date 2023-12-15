@@ -20,8 +20,16 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     GameObject player;
 
 
-    protected override void RunProceduralGeneration()
+
+
+    private void Start()
     {
+        tilemapVisulazer.Clear();
+        RunProceduralGeneration();
+    }
+    public override void RunProceduralGeneration()
+    {
+        tilemapVisulazer.Clear();
         CreateRoom();
     }
 
@@ -58,7 +66,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
         ItemGenerator.CreateSpawnPoint(tilemapVisulazer, spawnPoint);
         ItemGenerator.CreateExitPoint(tilemapVisulazer, ExitPoint);
-        player.transform.position = new Vector3(spawnPoint.x, spawnPoint.y, -5);
+        player.transform.position = new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, -5);
     }
 
     private HashSet<Vector2Int> CreateRoomRandomly(List<BoundsInt> roomList)
