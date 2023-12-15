@@ -180,6 +180,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f48e949c554fa942a7e3800a7b1e905, type: 3}
+--- !u!1 &470467939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 693214632950744879, guid: 2f48e949c554fa942a7e3800a7b1e905, type: 3}
+  m_PrefabInstance: {fileID: 470467938}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &565574363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -191,7 +196,7 @@ PrefabInstance:
     - target: {fileID: 1962639238167660275, guid: 1eeda0fbfcf72db48b173df8c77562ab, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 470467939}
     - target: {fileID: 8781189980901309050, guid: 1eeda0fbfcf72db48b173df8c77562ab, type: 3}
       propertyPath: m_Name
       value: Boss
@@ -433,7 +438,7 @@ PrefabInstance:
     - target: {fileID: 5230723914110392493, guid: d425dac955c6eae47a5163257acbd836, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 470467939}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

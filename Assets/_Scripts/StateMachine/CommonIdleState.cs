@@ -14,11 +14,12 @@ public class CommonIdleState : BaseState {
 		delay += Time.deltaTime;
 		if (delay >= 5) {
 			delay = 0;
-			dir = new Vector3(Random.Range(-1,2),Random.Range(-1,2),0);
+			dir = new Vector2(Random.Range(-1,2),Random.Range(-1,2));
+			self.GetComponent<Rigidbody2D>().velocity = dir;
 		}
 
-		if (delay <= moveTime) {
-			self.transform.position += dir * Time.deltaTime;
+		if (delay >= moveTime) {
+			self.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
 		}
 	}
 
