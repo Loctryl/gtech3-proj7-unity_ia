@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,5 +25,9 @@ public class Golem : Enemy {
             stateMachine.SwitchState(new CommonIdleState());
         else if(dist <= attackRange && !(stateMachine.currentState is GolemAttackState))
             stateMachine.SwitchState(new GolemAttackState(player));
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        stateMachine.SwitchState(new GolemAttackState(player));
     }
 }
