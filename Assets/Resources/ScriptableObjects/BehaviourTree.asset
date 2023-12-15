@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7079511920916065865
+--- !u!114 &-2986068850422054437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,66 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b943e18c76a0a0945a001c7d4d0dbba9, type: 3}
-  m_Name: DebugLogNode
+  m_Script: {fileID: 11500000, guid: 5783f6c84e488e241ae698b22242fd8e, type: 3}
+  m_Name: MoveNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: a393107acf12fa4449ec7ee6c40eae4a
-  position: {x: 846.6263, y: 222.14713}
+  guid: 5caf1921960c86e458f9e549251d31ba
+  position: {x: 521.3, y: 48.00004}
   blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
+    gameObject: {fileID: 0}
     moveToObject: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
     speed: 0
     isAlive: 0
-  message: 3
---- !u!114 &-5290643952992714644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497cb1db86de69e448f7cb1805bf8ea0, type: 3}
-  m_Name: WaitNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 57565ffa41df8674aa69790ea78f5c78
-  position: {x: 846.6263, y: -97.852875}
-  blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    speed: 0
-    isAlive: 0
-  duration: 1
---- !u!114 &-4387636386709627063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b943e18c76a0a0945a001c7d4d0dbba9, type: 3}
-  m_Name: DebugLogNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: d06f574aab2ecc6499d0a55eb09bfdba
-  position: {x: 846.6263, y: 10.147148}
-  blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    speed: 0
-    isAlive: 0
-  message: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,89 +37,13 @@ MonoBehaviour:
   treeState: 0
   nodes:
   - {fileID: 7651350199170382312}
-  - {fileID: 207558330569219961}
-  - {fileID: 8836575506122872307}
-  - {fileID: -5290643952992714644}
   - {fileID: 6701116303238780184}
-  - {fileID: -4387636386709627063}
-  - {fileID: 3926336345343459153}
-  - {fileID: -7079511920916065865}
-  - {fileID: 5633147081057342558}
+  - {fileID: -2986068850422054437}
   blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    speed: 0
-    isAlive: 0
---- !u!114 &207558330569219961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b943e18c76a0a0945a001c7d4d0dbba9, type: 3}
-  m_Name: DebugLogNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 1cbca4da1e1a90d44ae4998a673ac522
-  position: {x: 846.6263, y: -209.85287}
-  blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    speed: 0
-    isAlive: 0
-  message: 1
---- !u!114 &3926336345343459153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497cb1db86de69e448f7cb1805bf8ea0, type: 3}
-  m_Name: WaitNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 7e2bc9c7df5ceec41a6c0ae9107bd6be
-  position: {x: 846.6263, y: 123.14712}
-  blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    speed: 0
-    isAlive: 0
-  duration: 1
---- !u!114 &5633147081057342558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497cb1db86de69e448f7cb1805bf8ea0, type: 3}
-  m_Name: WaitNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 949ed3408a5901940a276b0a76c66024
-  position: {x: 846.6263, y: 337.14716}
-  blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    speed: 0
-    isAlive: 0
-  duration: 1
+    gameObject: {fileID: 8781189980901309050, guid: 1eeda0fbfcf72db48b173df8c77562ab, type: 3}
+    moveToObject: {fileID: 8857444021709210251, guid: e3f36ff85c8375a4c9cdc56518a7acd9, type: 3}
+    speed: 5
+    isAlive: 1
 --- !u!114 &6701116303238780184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,12 +61,11 @@ MonoBehaviour:
   guid: 611dd56902091af49a9004f6edfc1a65
   position: {x: 266.62622, y: 48.147114}
   blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
+    gameObject: {fileID: 0}
     moveToObject: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
     speed: 0
     isAlive: 0
-  child: {fileID: 8836575506122872307}
+  child: {fileID: -2986068850422054437}
 --- !u!114 &7651350199170382312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,38 +83,8 @@ MonoBehaviour:
   guid: aedf8958e59e0ae439a08419aa5e46ba
   position: {x: 45.62623, y: 47.147137}
   blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
+    gameObject: {fileID: 0}
     moveToObject: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
     speed: 0
     isAlive: 0
   child: {fileID: 6701116303238780184}
---- !u!114 &8836575506122872307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b2f57e7a4d906468e0c210aa75fb6a, type: 3}
-  m_Name: SequencerNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 73526ffb265ec844ba0d290e6bc0c157
-  position: {x: 472.62625, y: 46.14716}
-  blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    speed: 0
-    isAlive: 0
-  children:
-  - {fileID: 207558330569219961}
-  - {fileID: -5290643952992714644}
-  - {fileID: -4387636386709627063}
-  - {fileID: 3926336345343459153}
-  - {fileID: -7079511920916065865}
-  - {fileID: 5633147081057342558}
