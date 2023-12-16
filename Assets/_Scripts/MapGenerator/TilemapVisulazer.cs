@@ -79,7 +79,13 @@ public class TilemapVisulazer : MonoBehaviour
 
     public void Clear()
     {
-        
+        GameObject[] light;
+        light = GameObject.FindGameObjectsWithTag("Light");
+        foreach (var item in light)
+        {
+            DestroyImmediate(item);
+        }
+
         objectTilmap.ClearAllTiles();
         floorTilmap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
