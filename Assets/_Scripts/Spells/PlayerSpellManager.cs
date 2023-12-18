@@ -18,6 +18,26 @@ public class PlayerSpellManager : SpellManager
     
     private SpellType _choosedType = SpellType.Undefined;
 
+    #region CoolDown
+    
+    public float SingleTargetCooldown;
+    public float AreaOfEffectCooldown;
+    public float CrowdControlCooldown;
+    public float UtilityCooldown;
+    
+    public float SingleTargetTimer = 0;
+    public float AreaOfEffectTimer = 0;
+    public float CrowdControlTimer = 0;
+    public float UtilityTimer = 0;
+    
+    public bool IsSingleTargetCooldown = false;
+    public bool IsAreaOfEffectCooldown = false;
+    public bool IsCrowdControlCooldown = false;
+    public bool IsUtilityCooldown = false;
+    
+    #endregion
+    
+    
     private void Awake()
     {
         base.Awake();

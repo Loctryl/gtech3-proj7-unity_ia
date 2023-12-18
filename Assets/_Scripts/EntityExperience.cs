@@ -59,15 +59,4 @@ public class EntityExperience : MonoBehaviour
         currentLevel = level;
     }
 
-
-    private float tempTimer;
-    private void Update()
-    {
-        tempTimer += Time.deltaTime;
-        if (tempTimer > 2)
-        {
-            LevelUp();
-            tempTimer = 0;
-        }
-    }
 }
