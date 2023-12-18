@@ -472,13 +472,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b144cc47da9a6024b89957edf7c0244c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 0}
-  spells:
-  - {fileID: 8155829645666612102, guid: ba4f68ce5edb5c749b8c9822495a8ded, type: 3}
+  spellsPrefab:
+  - {fileID: 8815367952385961281, guid: 89b6022d874cfed408334e0efbd7de31, type: 3}
+  - {fileID: 7857035708013300040, guid: a5b66b42fcdd3de4ea2b2374f7be99fc, type: 3}
+  - {fileID: 5621558254979491026, guid: 5b476a61a8575824bbd2480d9d34dc6e, type: 3}
+  - {fileID: 7480606996366009648, guid: 6e50a8255ee068d438675a3e57417281, type: 3}
+  - {fileID: 6110177013614247222, guid: 63808bef54ece984c8043211f2eb95bc, type: 3}
+  - {fileID: 209639444477328866, guid: 5bd7dbe01539a9a49856f3f1ee3df7b8, type: 3}
+  - {fileID: 4960554260205689241, guid: e572c2cf526d2cb4a890551c132863b8, type: 3}
+  - {fileID: 5118302108849088092, guid: d14dbd587c6cfda43ba614fb0f201e8d, type: 3}
+  damageScalingRatio: 0
   spell1: {fileID: 3473893102802761388, guid: 9f2a4101d0582254db0d62d047de5050, type: 3}
   spell2: {fileID: -1554094488012288696, guid: 9f2a4101d0582254db0d62d047de5050, type: 3}
   spell3: {fileID: -5260264162178463460, guid: 9f2a4101d0582254db0d62d047de5050, type: 3}
   spell4: {fileID: 226437422956010876, guid: 9f2a4101d0582254db0d62d047de5050, type: 3}
+  arrow: {fileID: 1357882417265228398}
   player: {fileID: 4149738088793837380}
 --- !u!1 &8028418700916816792
 GameObject:
@@ -597,6 +605,7 @@ GameObject:
   - component: {fileID: 1242226692461902497}
   - component: {fileID: 4149738088793837380}
   - component: {fileID: 6100524551472297076}
+  - component: {fileID: 4582558674800351348}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -632,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2150687c48b681646ab47ab04e9f89c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elements: 0000000000000000
+  elements: 0400000003000000
 --- !u!114 &6100524551472297076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,3 +656,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   hpEffect: {fileID: 7458998778295284173, guid: 3d0c542bc7fb55945b1831d5d62776db, type: 3}
+--- !u!114 &4582558674800351348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993532950614305075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f69a7d4c89f4754e835416f4f0a7216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpScalingRatio: 1.2
+  healthScalingRatio: 1.2
+  damageScalingRatio: 1.2
+  entityHealth: {fileID: 6100524551472297076}
+  spellManager: {fileID: 5152979603401074350}

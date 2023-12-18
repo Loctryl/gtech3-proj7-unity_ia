@@ -57,7 +57,10 @@ VisualEffect:
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 4.5, y: 4.5, z: 4.5}
+        m_Name: Scale
+        m_Overridden: 1
     m_Vector4f:
       m_Array:
       - m_Value: {x: 0, y: 2.5660377, z: 0.8209459, w: 0}
@@ -136,7 +139,6 @@ MonoBehaviour:
   spellType: 2
   spawnType: 2
   currCooldown: 0
-  playable: 0
   cooldown: 1
 --- !u!114 &6167780266634664915
 MonoBehaviour:
@@ -150,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cdb4c6ac8c6a742963432d9a984b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 8
+  Range: 4.5
   AttractionForce: 0.6
 --- !u!1 &7990556549213816909
 GameObject:

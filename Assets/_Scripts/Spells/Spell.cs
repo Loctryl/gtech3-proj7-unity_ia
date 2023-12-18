@@ -13,5 +13,6 @@ namespace SpellSystem
         public SpawnType spawnType;
         public float currCooldown;
         [SerializeField] private float cooldown = 1;
+        public float damageRatio;
     }
 }
