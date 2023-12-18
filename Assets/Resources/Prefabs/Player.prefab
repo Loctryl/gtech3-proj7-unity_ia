@@ -597,6 +597,7 @@ GameObject:
   - component: {fileID: 1242226692461902497}
   - component: {fileID: 4149738088793837380}
   - component: {fileID: 6100524551472297076}
+  - component: {fileID: 4582558674800351348}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -647,3 +648,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   hpEffect: {fileID: 7458998778295284173, guid: 3d0c542bc7fb55945b1831d5d62776db, type: 3}
+--- !u!114 &4582558674800351348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993532950614305075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f69a7d4c89f4754e835416f4f0a7216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scalingRatio: 1.1
+  entityHealth: {fileID: 6100524551472297076}
