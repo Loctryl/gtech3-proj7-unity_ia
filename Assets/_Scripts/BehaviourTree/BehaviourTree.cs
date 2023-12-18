@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 [CreateAssetMenu()]
 public class BehaviourTree : ScriptableObject
@@ -23,70 +22,86 @@ public class BehaviourTree : ScriptableObject
     public Node CreateNode(System.Type type) {
         Node node = ScriptableObject.CreateInstance(type) as Node;
         node.name = type.Name;
-        node.guid = GUID.Generate().ToString();
+#if UNITY_EDITOR
+        node.guid = UnityEditor.GUID.Generate().ToString();
         
-        Undo.RecordObject(this, "Behaviour Tree (CreateNode)");
+        UnityEditor.Undo.RecordObject(this, "Behaviour Tree (CreateNode)");
         nodes.Add(node);
 
         if (!Application.isPlaying) {
-            AssetDatabase.AddObjectToAsset(node, this);
+            UnityEditor.AssetDatabase.AddObjectToAsset(node, this);
         }
-        Undo.RegisterCreatedObjectUndo(node, "BehaviourTree (CreateNode)");
-        AssetDatabase.SaveAssets();
+        UnityEditor.Undo.RegisterCreatedObjectUndo(node, "BehaviourTree (CreateNode)");
+        UnityEditor.AssetDatabase.SaveAssets();
+#endif
         return node;
     }
 
     public void DeleteNode(Node node) {
-        Undo.RecordObject(this, "Behaviour Tree (DeleteNode)");
+#if UNITY_EDITOR
+        UnityEditor.Undo.RecordObject(this, "Behaviour Tree (DeleteNode)");
         nodes.Remove(node);
         //AssetDatabase.RemoveObjectFromAsset(node);
-        Undo.DestroyObjectImmediate(node);
-        AssetDatabase.SaveAssets();
+        UnityEditor.Undo.DestroyObjectImmediate(node);
+        UnityEditor.AssetDatabase.SaveAssets();
+#endif
     }
 
     public void AddChild(Node parent, Node child) {
         DecoratorNode decoratorNode = parent as DecoratorNode;
         if (decoratorNode) {
-            Undo.RecordObject(decoratorNode, "Behaviour Tree (AddChild)");
+#if UNITY_EDITOR
+            UnityEditor.Undo.RecordObject(decoratorNode, "Behaviour Tree (AddChild)");
             decoratorNode.child = child;
-            EditorUtility.SetDirty(decoratorNode);
+            UnityEditor.EditorUtility.SetDirty(decoratorNode);
+#endif
         }
         
         RootNode rootNode = parent as RootNode;
         if (rootNode) {
-            Undo.RecordObject(rootNode, "Behaviour Tree (AddChild)");
+#if UNITY_EDITOR
+            UnityEditor.Undo.RecordObject(rootNode, "Behaviour Tree (AddChild)");
             rootNode.child = child;
-            EditorUtility.SetDirty(rootNode);
+            UnityEditor.EditorUtility.SetDirty(rootNode);
+#endif
         }
         
         CompositeNode compositeNode = parent as CompositeNode;
         if (compositeNode) {
-            Undo.RecordObject(compositeNode, "Behaviour Tree (AddChild)");
+#if UNITY_EDITOR
+            UnityEditor.Undo.RecordObject(compositeNode, "Behaviour Tree (AddChild)");
             compositeNode.children.Add(child);
-            EditorUtility.SetDirty(compositeNode);
+            UnityEditor.EditorUtility.SetDirty(compositeNode);
+#endif
         }
     }
     
     public void RemoveChild(Node parent, Node child) {
         DecoratorNode decoratorNode = parent as DecoratorNode;
         if (decoratorNode) {
-            Undo.RecordObject(decoratorNode, "Behaviour Tree (RemoveChild)");
+#if UNITY_EDITOR
+            UnityEditor.Undo.RecordObject(decoratorNode, "Behaviour Tree (RemoveChild)");
             decoratorNode.child = null;
-            EditorUtility.SetDirty(decoratorNode);
+            UnityEditor.EditorUtility.SetDirty(decoratorNode);
+#endif
         }
         
         RootNode rootNode = parent as RootNode;
         if (rootNode) {
-            Undo.RecordObject(rootNode, "Behaviour Tree (RemoveChild)");
+#if UNITY_EDITOR
+            UnityEditor.Undo.RecordObject(rootNode, "Behaviour Tree (RemoveChild)");
             rootNode.child = null;
-            EditorUtility.SetDirty(rootNode);
+            UnityEditor.EditorUtility.SetDirty(rootNode);
+#endif
         }
         
         CompositeNode compositeNode = parent as CompositeNode;
         if (compositeNode) {
-            Undo.RecordObject(compositeNode, "Behaviour Tree (RemoveChild)");
+#if UNITY_EDITOR
+            UnityEditor.Undo.RecordObject(compositeNode, "Behaviour Tree (RemoveChild)");
             compositeNode.children.Remove(child);
-            EditorUtility.SetDirty(compositeNode);
+            UnityEditor.EditorUtility.SetDirty(compositeNode);
+#endif
         }
     }
     

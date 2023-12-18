@@ -19,7 +19,7 @@ public class CommonChaseState : BaseState {
 		Vector3 dir = player.transform.position - self.transform.position;
 		dir.Normalize();
 
-		self.transform.position += dir * (Time.deltaTime * speed);
+		self.GetComponent<Rigidbody2D>().velocity = dir * speed;
 	}
 
 	public override void OnExit() {
