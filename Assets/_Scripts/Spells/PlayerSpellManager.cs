@@ -13,12 +13,14 @@ public class PlayerSpellManager : SpellManager
     [SerializeField] private InputActionReference spell3;
     [SerializeField] private InputActionReference spell4;
 
+    [SerializeField] private Transform arrow;
     [SerializeField] private Player player;
     
     private SpellType _choosedType = SpellType.Undefined;
 
     private void Awake()
     {
+        base.Awake();
         spell1.action.started += OnSpell1;
         spell2.action.started += OnSpell2;
         spell3.action.started += OnSpell3;
@@ -94,6 +96,23 @@ public class PlayerSpellManager : SpellManager
         _choosedType = SpellType.Undefined;
     }
 
+    protected override void LaunchSpell(GameObject spell)
+    {
+        Spell spellInst = spell.GetComponent<Spell>();
+        switch (spellInst.spawnType)
+        {
+            case SpawnType.Self:
+                Instantiate(spell, player.transform.position, arrow.rotation, player.transform);
+                break;
+            case SpawnType.Direction:
+                Instantiate(spell, player.transform.position, arrow.rotation);
+                break;
+            case SpawnType.Distance:
+                Instantiate(spell, arrow.position, Quaternion.identity);
+                break;
+        }
+        spellInst.damageRatio = Mathf.Pow(damageScalingRatio, spellsList[spell]);
+    }
     public override void LevelUp()
     {
         
