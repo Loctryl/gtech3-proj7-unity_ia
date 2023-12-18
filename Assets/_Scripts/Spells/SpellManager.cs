@@ -37,6 +37,7 @@ public class SpellManager : MonoBehaviour
 
     private void OnSpell1(InputAction.CallbackContext context)
     {
+        Debug.Log("Spell1");
         if (_choosedType == SpellType.Undefined)
         {
             _choosedType = SpellType.SingleTarget;
@@ -73,6 +74,7 @@ public class SpellManager : MonoBehaviour
 
     private void OnSpell4(InputAction.CallbackContext context)
     {
+        Debug.Log("spell4");    
         if (_choosedType == SpellType.Undefined)
         {
             _choosedType = SpellType.AreaOfEffect;
