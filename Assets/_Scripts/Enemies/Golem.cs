@@ -19,15 +19,17 @@ public class Golem : Enemy {
         base.Update();
         float dist = CalculateDist(player.transform, this.transform);
         
-        if (dist <= chaseRange && dist > attackRange && !(stateMachine.currentState is CommonChaseState)) 
-            stateMachine.SwitchState(new CommonChaseState(player));
-        else if(dist > chaseRange && !(stateMachine.currentState is CommonIdleState))
+        if(dist > chaseRange && !(stateMachine.currentState is CommonIdleState))
             stateMachine.SwitchState(new CommonIdleState());
-        else if(dist <= attackRange && !(stateMachine.currentState is GolemAttackState))
-            stateMachine.SwitchState(new GolemAttackState(player));
     }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionEnter2D(Collision2D other) {
+        agent.isStopped = true;
+        stateMachine.SwitchState(new GolemAttackState(player));
+    }
+
+    private void OnCollisionExit2D(Collision2D other) {
+        agent.isStopped = false;
         stateMachine.SwitchState(new GolemAttackState(player));
     }
 }
