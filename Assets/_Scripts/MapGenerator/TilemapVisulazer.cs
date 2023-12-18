@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Rendering;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Tilemaps;
@@ -18,7 +19,9 @@ public class TilemapVisulazer : MonoBehaviour
         floorTile1, floorTile2, floorTile3, floorTile4, floorTile5, floorTile6, floorTile7, floorTile8, floorTile9, floorTile10, floorTile11, floorTile12, floorTile13, floorTile14, 
         wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornnerDownLeft,
         wallInnerCornnerDownRight, wallDiagonalCornerDownRight, wallDiagonalCornnerDownLeft,
-        wallDiagonalUpRight, wallDiagonalUpLeft, objetTile1, objectTile2;
+        wallDiagonalUpRight, wallDiagonalUpLeft, objetTile1, objectTile2, ObjectLightTile;
+    [SerializeField]
+    private GameObject Light;
     
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
@@ -76,6 +79,13 @@ public class TilemapVisulazer : MonoBehaviour
 
     public void Clear()
     {
+        GameObject[] light;
+        light = GameObject.FindGameObjectsWithTag("Light");
+        foreach (var item in light)
+        {
+            Destroy(item);
+        }
+
         objectTilmap.ClearAllTiles();
         floorTilmap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
@@ -129,11 +139,19 @@ public class TilemapVisulazer : MonoBehaviour
     {
         var rngNb = Random.Range(0, floorPositions.Count);
         var position = floorPositions.ElementAt(rngNb);
-        int wichObject = Random.Range(0, 1);
+        int wichObject = Random.Range(0, 2);
+        GameObject light;
+
+    
+
+
+
         foreach (var room in Roomlist)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 5; i++)
             {
+                wichObject = Random.Range(0, 4);
+
                 switch (wichObject)
                 {
                     case 0: 
@@ -142,10 +160,14 @@ public class TilemapVisulazer : MonoBehaviour
                         case 1:
                             PaintSinlgleTile(objectTilmap, objectTile2, position);
                         break;
+                        case 2:
+                            PaintSinlgleTile(objectTilmap, ObjectLightTile, position);
+                            light = Instantiate(Light, new Vector3(position.x + 0.56f,position.y + 0.56f, 0), Quaternion.identity);
+                        
+                        break;
                     default:
                         break;
                 }
-                wichObject = Random.Range(0, 1);
                 rngNb = Random.Range(0, floorPositions.Count);
                 position = floorPositions.ElementAt(rngNb);
                
