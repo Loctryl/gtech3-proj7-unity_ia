@@ -12,18 +12,6 @@ namespace SpellSystem
         public SpellType spellType = SpellType.Undefined;
         public SpawnType spawnType;
         public float currCooldown;
-        public bool playable;
         [SerializeField] private float cooldown = 1;
-
-
-        private void Update()
-        {
-            if (currCooldown < cooldown)
-            {
-                playable = false;
-                currCooldown += Time.deltaTime;
-            }
-            if(currCooldown >= cooldown) playable = true;
-        }
     }
 }

@@ -9,19 +9,21 @@ public class ElecSL : MonoBehaviour
     [SerializeField] public GameObject prefab;
     GameObject go;
     Transform closestEnemy;
-    float maxDist = 8;
+    public float range = 5;
+    public float autoAimRange = 2;
+    float deltaTime;
     void Start()
     {
         SetTargets();
     }
     void SetTargets()
     {
-        go = Instantiate(prefab, this.transform);
         closestEnemy = GetClosestViableEnemy();
         if (closestEnemy != null)
         {
-            go.GetComponent<VisualEffect>().SetVector3("Pos1", transform.position);
-            go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.position);
+            go = Instantiate(prefab, transform);
+            go.GetComponent<VisualEffect>().SetVector3("Pos1", transform.parent.position);
+            go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.parent.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos3", closestEnemy.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos4", closestEnemy.position);
         }
@@ -30,15 +32,24 @@ public class ElecSL : MonoBehaviour
     {
         if (closestEnemy != null)
         {
-            go.GetComponent<VisualEffect>().SetVector3("Pos1", transform.position);
-            go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.position);
+            deltaTime += Time.deltaTime;
+            if (deltaTime >= transform.GetChild(0).GetComponent<VisualEffect>().GetFloat("Duration"))
+            {
+                Destroy(transform.gameObject);
+            }
+            go.GetComponent<VisualEffect>().SetVector3("Pos1", transform.parent.position);
+            go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.parent.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos3", closestEnemy.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos4", closestEnemy.position);
         }
+        else Destroy(transform.gameObject);
     }
     Transform GetClosestViableEnemy()
     {
         GameObject enemyParent = GameObject.Find("enemies");
+
+        Vector3 direction = transform.rotation * Vector3.up * range;
+        Debug.Log(direction);
 
         Transform bestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
@@ -50,18 +61,16 @@ public class ElecSL : MonoBehaviour
         }
         foreach (Transform potentialTarget in enemies)
         {
-            if (potentialTarget.GetComponent<TestElecCC>() != null) continue;
             Vector3 directionToTarget = potentialTarget.position - currentPosition;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
             float distance = directionToTarget.magnitude;
-            if (dSqrToTarget < closestDistanceSqr && distance < maxDist)
+            Vector3 autoAimDistance = potentialTarget.position - direction;
+            float AimDistance = autoAimDistance.magnitude;
+            if (distance < closestDistanceSqr && distance < range && AimDistance < autoAimRange)
             {
-                closestDistanceSqr = dSqrToTarget;
+                closestDistanceSqr = distance;
                 bestTarget = potentialTarget;
             }
         }
-
-        Debug.LogWarning(bestTarget);
         return bestTarget;
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4510132788512198050}
   - component: {fileID: 7123236889072508774}
+  - component: {fileID: -2516194968668816561}
   m_Layer: 0
   m_Name: ElecSingleTarget
   m_TagString: Untagged
@@ -45,3 +46,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 603128000732356829, guid: 333e84b09f442594fba4200b60939c9d, type: 3}
+--- !u!114 &-2516194968668816561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4960554260205689241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af91b4922d0e1d4cb5d39f2d2e8e317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: 4
+  spellType: 0
+  spawnType: 1
+  currCooldown: 0
+  playable: 0
+  cooldown: 1
