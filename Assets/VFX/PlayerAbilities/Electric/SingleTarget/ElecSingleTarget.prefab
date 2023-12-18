@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 603128000732356829, guid: 333e84b09f442594fba4200b60939c9d, type: 3}
+  spellRange: 7
+  aimRange: 4
+  autoAimRange: 5
 --- !u!114 &-2516194968668816561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +63,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: 4
   spellType: 0
-  spawnType: 1
+  spawnType: 0
   currCooldown: 0
-  playable: 0
   cooldown: 1

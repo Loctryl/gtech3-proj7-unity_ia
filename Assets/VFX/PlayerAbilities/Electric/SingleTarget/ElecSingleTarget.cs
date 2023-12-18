@@ -9,8 +9,9 @@ public class ElecSL : MonoBehaviour
     [SerializeField] public GameObject prefab;
     GameObject go;
     Transform closestEnemy;
-    public float range = 5;
-    public float autoAimRange = 2;
+    public float spellRange = 10;
+    public float aimRange = 4;
+    public float autoAimRange = 5;
     float deltaTime;
     void Start()
     {
@@ -48,11 +49,11 @@ public class ElecSL : MonoBehaviour
     {
         GameObject enemyParent = GameObject.Find("enemies");
 
-        Vector3 direction = transform.rotation * Vector3.up * range;
+        Vector3 direction = transform.rotation * Vector3.up * aimRange + transform.position - new Vector3(0,0,transform.position.z);
         Debug.Log(direction);
 
         Transform bestTarget = null;
-        float closestDistanceSqr = Mathf.Infinity;
+        float closestDistance = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
         List<Transform> enemies = new();
         for (int i = 0; i < enemyParent.transform.childCount; i++)
@@ -61,16 +62,19 @@ public class ElecSL : MonoBehaviour
         }
         foreach (Transform potentialTarget in enemies)
         {
-            Vector3 directionToTarget = potentialTarget.position - currentPosition;
-            float distance = directionToTarget.magnitude;
-            Vector3 autoAimDistance = potentialTarget.position - direction;
-            float AimDistance = autoAimDistance.magnitude;
-            if (distance < closestDistanceSqr && distance < range && AimDistance < autoAimRange)
+            Vector3 posToTarget = potentialTarget.position - currentPosition;
+            float distance = posToTarget.magnitude;
+            Vector3 aimToTarget = potentialTarget.position - direction;
+            float AimDistance = aimToTarget.magnitude;
+
+            if (AimDistance < closestDistance && distance < spellRange && AimDistance < autoAimRange)
             {
-                closestDistanceSqr = distance;
+                Debug.Log("ok");
+                closestDistance = AimDistance;
                 bestTarget = potentialTarget;
             }
         }
+        Debug.Log(bestTarget);
         return bestTarget;
     }
 }

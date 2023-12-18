@@ -16,7 +16,7 @@ public class SpellManager : MonoBehaviour
     [SerializeField] private InputActionReference spell4;
 
     [SerializeField] private Player player;
-    
+
     private SpellType _choosedType = SpellType.Undefined;
 
     private void Awake()
@@ -84,19 +84,19 @@ public class SpellManager : MonoBehaviour
     }
 
     private void LaunchSpell(Elements element)
-    {   
+    {
         foreach (var spell in spells)
         {
             Spell spellInst = spell.GetComponent<Spell>();
             if (!spellInst) continue;
             if (spellInst.element != element || spellInst.spellType != _choosedType) continue;
-            switch(spellInst.spawnType)
+            switch (spellInst.spawnType)
             {
                 case SpawnType.Self:
-                    Instantiate(spell, player.transform);
+                    Instantiate(spell, player.transform.position, arrow.rotation, player.transform);
                     break;
                 case SpawnType.Direction:
-                    Instantiate(spell, transform.position, arrow.rotation); 
+                    Instantiate(spell, player.transform.position, arrow.rotation);
                     break;
                 case SpawnType.Distance:
                     Instantiate(spell, arrow.position, Quaternion.identity);
@@ -105,17 +105,17 @@ public class SpellManager : MonoBehaviour
         }
         _choosedType = SpellType.Undefined;
     }
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
