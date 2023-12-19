@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BehaviourTreeRunner : MonoBehaviour {
 	public BehaviourTree tree;
-
 	
 	public GameObject player;
 

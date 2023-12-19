@@ -2,19 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GolemAttackState : BaseState {
-	private GameObject player;
-
-	public GolemAttackState(GameObject p) {
-		player = p;
-	}
+public class SpiderIdleState : BaseState
+{
 	public override void OnEnter() {
 		
 	}
 
 	public override void OnUpdate() {
-		//player take damage
-		Debug.Log("Taper !");
+		//play animator idle
 	}
 
 	public override void OnExit() {

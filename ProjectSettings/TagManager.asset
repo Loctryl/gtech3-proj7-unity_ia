@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemies
-  - Light
   layers:
   - Default
   - TransparentFX
@@ -13,8 +12,11 @@ TagManager:
   - Player
   - Water
   - UI
+  - Ennemies
+  - Flying
   - Minimap
   - wall
+  - Spider
   - Light
   - 
   - 
