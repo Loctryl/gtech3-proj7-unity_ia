@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7544910925910704323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54db4f43ccc8aa2489874bdbe4bc01a3, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 68a09c70137c0554d8bc7b60118e8808
+  position: {x: 75, y: -51.59999}
+  blackBoard:
+    gameObject: {fileID: 0}
+    moveToObject: {fileID: 0}
+    speed: 0
+  child: {fileID: 1707986409892446518}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0751f87f773b3954faae6b510d29b386, type: 3}
+  m_Name: BossBehaviourTree
+  m_EditorClassIdentifier: 
+  rootNode: {fileID: -7544910925910704323}
+  treeState: 0
+  nodes:
+  - {fileID: -7544910925910704323}
+  - {fileID: 1707986409892446518}
+  blackBoard:
+    gameObject: {fileID: 0}
+    moveToObject: {fileID: 0}
+    speed: 0
+--- !u!114 &1707986409892446518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6806aa8d81b03e34f9318e3ad1cf825d, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 571c51a72dced704c84c0ffc6a4e6da9
+  position: {x: 237.96, y: -52}
+  blackBoard:
+    gameObject: {fileID: 0}
+    moveToObject: {fileID: 0}
+    speed: 0
+  child: {fileID: 0}
