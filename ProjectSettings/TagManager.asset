@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemies
+  - Light
   layers:
   - Default
   - TransparentFX
@@ -18,10 +19,7 @@ TagManager:
   - wall
   - Spider
   - Light
-  - 
-  - 
-  - 
-  - 
+  - Projectile
   - 
   - 
   - 
