@@ -25,8 +25,6 @@ public class Golem : Enemy {
         }
         else 
             animator.SetBool("IsInRange", false);
-        
-
     }
 
     public void Shoot() {
