@@ -52,7 +52,7 @@ public class ElecSL : MonoBehaviour
     {
         GameObject enemyParent = GameObject.Find("enemies");
 
-        Vector3 direction = transform.rotation * Vector3.up * aimRange + transform.position - new Vector3(0,0,transform.position.z);
+        Vector3 direction = transform.rotation * Vector3.up * aimRange + transform.position;
 
         Transform bestTarget = null;
         float closestDistance = Mathf.Infinity;
@@ -75,6 +75,7 @@ public class ElecSL : MonoBehaviour
                 bestTarget = potentialTarget;
             }
         }
+        Debug.Log(bestTarget);
         return bestTarget;
     }
 }
