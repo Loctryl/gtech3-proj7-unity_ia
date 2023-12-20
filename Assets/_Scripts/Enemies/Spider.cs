@@ -20,15 +20,20 @@ public class Spider : Enemy {
 	public override void Update()
 	{
 		base.Update();
+
+		float dist = CalculateDist(player.transform, this.transform);
+		
+		if(dist >= 2 && (stateMachine.currentState is SpiderAttackState))
+			stateMachine.SwitchState(new CommonChaseState(player));
 	}
 	
 	private void OnCollisionEnter2D(Collision2D other) {
-		agent.isStopped = true;
-		stateMachine.SwitchState(new SpiderAttackState(player));
+		if (other.gameObject == player) 
+			stateMachine.SwitchState(new SpiderAttackState(player, playerHealth));
 	}
 
 	private void OnCollisionExit2D(Collision2D other) {
-		agent.isStopped = false;
-		stateMachine.SwitchState(new CommonChaseState(player));
+		if (other.gameObject == player)
+			stateMachine.SwitchState(new CommonChaseState(player));
 	}
 }

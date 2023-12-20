@@ -5,17 +5,24 @@ using UnityEngine;
 public class SpiderAttackState : BaseState
 {
     private GameObject player;
+    private EntityHealth playerHealth;
+    private float delay;
 
-    public SpiderAttackState(GameObject p) {
+    public SpiderAttackState(GameObject p, EntityHealth pH) {
         player = p;
+        playerHealth = pH;
     }
     public override void OnEnter() {
-        player.GetComponentInChildren<EntityHealth>().Damage(self.GetComponent<Spider>().damage);
+        playerHealth.Damage(self.GetComponent<Spider>().damage);
     }
 
     public override void OnUpdate() {
-        //player take damage
+        delay += Time.deltaTime;
         
+        if (delay >= 2) {
+            delay = 0;
+            playerHealth.Damage(self.GetComponent<Spider>().damage);
+        }
     }
 
     public override void OnExit() {

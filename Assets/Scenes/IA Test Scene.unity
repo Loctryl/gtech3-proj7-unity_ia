@@ -893,10 +893,16 @@ MonoBehaviour:
   wallDiagonalCornnerDownLeft: {fileID: 0}
   wallDiagonalUpRight: {fileID: 0}
   wallDiagonalUpLeft: {fileID: 0}
-  objetTile1: {fileID: 0}
-  objectTile2: {fileID: 0}
+  Deco1: {fileID: 0}
+  Deco2: {fileID: 0}
+  Deco3: {fileID: 0}
+  Deco4: {fileID: 0}
+  Deco5: {fileID: 0}
+  Deco6: {fileID: 0}
   ObjectLightTile: {fileID: 0}
   Light: {fileID: 0}
+  Enemie1: {fileID: 0}
+  Enemie2: {fileID: 0}
 --- !u!1001 &945752154
 PrefabInstance:
   m_ObjectHideFlags: 0
