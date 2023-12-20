@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour {
     public int health;
     public int speed;
 
-    [HideInInspector] public NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     public StateMachine stateMachine;
     // Start is called before the first frame update

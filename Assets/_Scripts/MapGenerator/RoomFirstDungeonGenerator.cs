@@ -69,10 +69,10 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         //ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
         ItemGenerator.CreateSpawnPoint(tilemapVisulazer, spawnPoint);
         ItemGenerator.CreateExitPoint(tilemapVisulazer, ExitPoint);
+        navMesh.GetComponent<NavMeshSurface>().BuildNavMesh();
         ItemGenerator.CreateEnemiesSpawnPoint(tilemapVisulazer, floor, roomList);
         
-/*        navMesh.GetComponent<NavMeshSurface>().BuildNavMesh();
-*/        
+        
         player.transform.position = new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, -5);
     }
 
