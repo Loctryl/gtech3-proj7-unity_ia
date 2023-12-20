@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Spider : Enemy {
 	[SerializeField] private int attackRange;
+	[SerializeField] public int damage;
 	[HideInInspector] public bool isTrigger;
 
 	// Start is called before the first frame update

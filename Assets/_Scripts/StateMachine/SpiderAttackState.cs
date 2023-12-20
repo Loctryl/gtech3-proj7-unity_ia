@@ -10,12 +10,12 @@ public class SpiderAttackState : BaseState
         player = p;
     }
     public override void OnEnter() {
-		
+        player.GetComponentInChildren<EntityHealth>().Damage(self.GetComponent<Spider>().damage);
     }
 
     public override void OnUpdate() {
         //player take damage
-        Debug.Log("Coup de crocs");
+        
     }
 
     public override void OnExit() {

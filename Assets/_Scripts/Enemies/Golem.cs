@@ -7,7 +7,6 @@ public class Golem : Enemy {
     [SerializeField] private float attackRange = 10;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject projectile;
-    [SerializeField] private int fireTimes;
     
     // Start is called before the first frame update
     public override void Start()
