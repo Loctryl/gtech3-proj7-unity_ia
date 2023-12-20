@@ -18,6 +18,8 @@ public class CommonChaseState : BaseState {
 		speed = self.GetComponent<Enemy>().speed;
 		rBody = self.GetComponent<Rigidbody2D>();
 		agent = self.GetComponent<Enemy>().agent;
+
+		agent.isStopped = false;
 	}
 
 	public override void OnUpdate() {
@@ -27,6 +29,6 @@ public class CommonChaseState : BaseState {
 	}
 
 	public override void OnExit() {
-		
+		agent.isStopped = true;
 	}
 }

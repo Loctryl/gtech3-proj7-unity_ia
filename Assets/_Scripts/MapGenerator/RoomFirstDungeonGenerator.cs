@@ -68,12 +68,14 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         WallGenerator.CreateWalls(floor, tilemapVisulazer);
         //ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
         ItemGenerator.CreateSpawnPoint(tilemapVisulazer, spawnPoint);
+        
         ItemGenerator.CreateExitPoint(tilemapVisulazer, ExitPoint);
         navMesh.GetComponent<NavMeshSurface>().BuildNavMesh();
+        
         ItemGenerator.CreateEnemiesSpawnPoint(tilemapVisulazer, floor, roomList);
         
         
-        player.transform.position = new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, -5);
+        player.transform.position = new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, 20);
     }
 
     private HashSet<Vector2Int> CreateRoomRandomly(List<BoundsInt> roomList)

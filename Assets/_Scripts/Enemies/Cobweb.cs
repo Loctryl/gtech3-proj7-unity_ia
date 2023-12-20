@@ -19,7 +19,7 @@ public class Cobweb : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D other) {
 		
-		var p = player.GetComponentInChildren<PlayerMovement>();
+		var p = other.GetComponentInChildren<PlayerMovement>();
 		if (p != null) 
 		{
 			p.moveSpeed /= 2;
