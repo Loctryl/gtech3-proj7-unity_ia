@@ -1,13 +1,14 @@
-using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.iOS.LowLevel;
+using UnityEngine.UI;
 
 public class SpellCD : MonoBehaviour
 {
 
-/*
+
     [SerializeField]
     private Image ImageCD;
     [SerializeField]
@@ -15,6 +16,8 @@ public class SpellCD : MonoBehaviour
 
     [SerializeField]
     private SpellManager spellManager;
+
+
 
     void Start()
     {
@@ -29,9 +32,9 @@ public class SpellCD : MonoBehaviour
 
     public bool UseSpell()
     {
-        if (s)
+        if (spellManager)
         {
 
         }
-    }*/
+    }
 }
