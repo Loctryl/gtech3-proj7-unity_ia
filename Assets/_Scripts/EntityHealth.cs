@@ -4,15 +4,15 @@ using Random = UnityEngine.Random;
 
 public class EntityHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHp;
+    [SerializeField] public int maxHp;
     [SerializeField] private GameObject hpEffect;
     
     public int currentHp { get; private set; }
     public bool isAlive { get; private set; }
-
-    public int GetMaxHp(){return maxHp;}
+    
     private void Awake()
     {
+        currentHp = maxHp;
         isAlive = true;
     }
 

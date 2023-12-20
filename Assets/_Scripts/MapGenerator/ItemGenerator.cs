@@ -21,4 +21,9 @@ public  static class ItemGenerator
     {
         tilemapVisulazer.PaintExitPoint(exitPoint);
     }
+
+    internal static void CreateEnemiesSpawnPoint(TilemapVisulazer tilemapVisulazer, HashSet<Vector2Int> floorPositions, List<BoundsInt> RoomList)
+    {
+        tilemapVisulazer.PaintEnemiesSpawnPoint(floorPositions, RoomList);
+    }
 }

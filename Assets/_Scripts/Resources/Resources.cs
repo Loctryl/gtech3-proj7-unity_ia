@@ -22,5 +22,12 @@ namespace Resources
         Utility,
         Undefined
     }
+
+    public enum SpawnType
+    {
+        Self,
+        Direction,
+        Distance
+    }
     
 }
