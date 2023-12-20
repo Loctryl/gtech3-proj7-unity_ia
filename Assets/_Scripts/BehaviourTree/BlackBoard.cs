@@ -8,4 +8,7 @@ public class BlackBoard {
     public GameObject moveToObject;
     
     public float speed;
+
+    public Dictionary<string, object> dataContext = new Dictionary<string, object>();
+    
 }

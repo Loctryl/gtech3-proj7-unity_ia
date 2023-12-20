@@ -20,7 +20,6 @@ MonoBehaviour:
     gameObject: {fileID: 0}
     moveToObject: {fileID: 0}
     speed: 0
-    isAlive: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,11 +38,11 @@ MonoBehaviour:
   - {fileID: 7651350199170382312}
   - {fileID: 6701116303238780184}
   - {fileID: -2986068850422054437}
+  - {fileID: 9141271859398604734}
   blackBoard:
     gameObject: {fileID: 8781189980901309050, guid: 1eeda0fbfcf72db48b173df8c77562ab, type: 3}
     moveToObject: {fileID: 8857444021709210251, guid: e3f36ff85c8375a4c9cdc56518a7acd9, type: 3}
     speed: 5
-    isAlive: 1
 --- !u!114 &6701116303238780184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,12 +58,11 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 611dd56902091af49a9004f6edfc1a65
-  position: {x: 266.62622, y: 48.147114}
+  position: {x: 268, y: 48}
   blackBoard:
     gameObject: {fileID: 0}
     moveToObject: {fileID: 0}
     speed: 0
-    isAlive: 0
   child: {fileID: -2986068850422054437}
 --- !u!114 &7651350199170382312
 MonoBehaviour:
@@ -86,5 +84,25 @@ MonoBehaviour:
     gameObject: {fileID: 0}
     moveToObject: {fileID: 0}
     speed: 0
-    isAlive: 0
   child: {fileID: 6701116303238780184}
+--- !u!114 &9141271859398604734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de8de0177932faf42b32da44b2710ecc, type: 3}
+  m_Name: PartitionerNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 23e645ca5bfe29040a38b5fea9e7864a
+  position: {x: 750.2, y: 58.04}
+  blackBoard:
+    gameObject: {fileID: 0}
+    moveToObject: {fileID: 0}
+    speed: 0
+  children: []
