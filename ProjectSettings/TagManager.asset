@@ -16,9 +16,9 @@ TagManager:
   - Minimap
   - wall
   - Light
-  - 
-  - 
-  - 
+  - PlayerSpell
+  - Enemy
+  - EnemySpell
   - 
   - 
   - 

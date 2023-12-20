@@ -1,3 +1,4 @@
+using SpellSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,28 @@ public class TornadoBehaviour : MonoBehaviour
 {
     public float Range;
     public float AttractionForce;
+    public int damagePerTick;
+    public float tickTime;
     float deltaTime;
+
+    private Coroutine coroutine;
+
+    private IEnumerator TryTickEnemiesInRange()
+    {
+        while (true)
+        {
+            foreach (var enemy in GetEnemiesInRange())
+            {
+                enemy.GetComponent<EntityHealth>().Damage(Mathf.RoundToInt(damagePerTick * GetComponent<Spell>().damageRatio));
+            }
+            yield return new WaitForSeconds(tickTime);
+        }
+    }
+
+    private void Start()
+    {
+        coroutine = StartCoroutine(TryTickEnemiesInRange());
+    }
     void Update()
     {
         deltaTime += Time.deltaTime;
@@ -21,6 +43,11 @@ public class TornadoBehaviour : MonoBehaviour
         {
             Destroy(transform.gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        StopCoroutine(coroutine);
     }
     List<Transform> GetEnemiesInRange()
     {
@@ -40,7 +67,6 @@ public class TornadoBehaviour : MonoBehaviour
             {
                 targets.Add(potentialTarget);
             }
-            Debug.Log(potentialTarget.name + distance);
         }
         return targets;
     }

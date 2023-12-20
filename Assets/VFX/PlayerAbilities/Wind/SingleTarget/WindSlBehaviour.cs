@@ -1,3 +1,4 @@
+using SpellSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,9 @@ public class WindSlBehaviour : MonoBehaviour
 {
     float deltaTime;
     float duration;
+    public float damage;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +24,11 @@ public class WindSlBehaviour : MonoBehaviour
         {
             Destroy(transform.gameObject);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        EntityHealth entityHealth;
+        if (collision.TryGetComponent(out entityHealth)) entityHealth.Damage(Mathf.RoundToInt(damage * GetComponent<Spell>().damageRatio));
     }
 }

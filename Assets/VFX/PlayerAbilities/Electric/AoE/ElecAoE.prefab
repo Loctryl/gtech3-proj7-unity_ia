@@ -245,8 +245,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 132865681749962975}
-  - component: {fileID: 4832150284210209708}
-  m_Layer: 0
+  - component: {fileID: 709087135472389763}
+  - component: {fileID: 4068339778731137939}
+  m_Layer: 9
   m_Name: Hitbox (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,13 +269,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7005149927427054351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &4832150284210209708
-SphereCollider:
+--- !u!114 &709087135472389763
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467193845296865393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd26f3eada7daf4b9a038161e48f4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aoEspell: {fileID: 300863890127486435}
+--- !u!58 &4068339778731137939
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467193845296865393}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -283,12 +299,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!1 &2772980294420696058
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,8 +562,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 53741583878931086}
-  - component: {fileID: 4868298943940307010}
-  m_Layer: 0
+  - component: {fileID: 394603896158857629}
+  - component: {fileID: 218443164802012119}
+  m_Layer: 9
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,13 +586,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8709683373365169186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &4868298943940307010
-SphereCollider:
+--- !u!114 &394603896158857629
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5112356795620377886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd26f3eada7daf4b9a038161e48f4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aoEspell: {fileID: 300863890127486435}
+--- !u!58 &218443164802012119
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5112356795620377886}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -572,12 +616,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!1 &5726293163399229178
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,8 +643,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5699176152399918153}
-  - component: {fileID: 3179931900140017463}
-  m_Layer: 0
+  - component: {fileID: 7452146036197921466}
+  - component: {fileID: 6946334557625065786}
+  m_Layer: 9
   m_Name: Hitbox (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,13 +667,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8095213950816366071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3179931900140017463
-SphereCollider:
+--- !u!114 &7452146036197921466
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5726293163399229178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd26f3eada7daf4b9a038161e48f4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aoEspell: {fileID: 300863890127486435}
+--- !u!58 &6946334557625065786
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5726293163399229178}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -625,12 +697,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!1 &5818067086074044986
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,8 +724,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1384740123584641534}
-  - component: {fileID: 8905173563649454422}
-  m_Layer: 0
+  - component: {fileID: 2867976129449085320}
+  - component: {fileID: 118561319519787252}
+  m_Layer: 9
   m_Name: Hitbox (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,13 +748,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7047957416331806116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &8905173563649454422
-SphereCollider:
+--- !u!114 &2867976129449085320
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5818067086074044986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd26f3eada7daf4b9a038161e48f4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aoEspell: {fileID: 300863890127486435}
+--- !u!58 &118561319519787252
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818067086074044986}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -678,12 +778,24 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
 --- !u!1 &6110177013614247222
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +852,8 @@ MonoBehaviour:
   - {fileID: 229710988091617468}
   - {fileID: 2772980294420696058}
   - {fileID: 7383515929835006693}
+  baseDamage: 5
+  damage: 0
 --- !u!114 &3337663867854549386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,6 +871,7 @@ MonoBehaviour:
   spawnType: 2
   currCooldown: 0
   cooldown: 5
+  damageRatio: 1
 --- !u!1 &7383515929835006693
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,8 +999,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5689637441657959893}
-  - component: {fileID: 6282795809001883953}
-  m_Layer: 0
+  - component: {fileID: 5858487547715808801}
+  - component: {fileID: 760123686393679956}
+  m_Layer: 9
   m_Name: Hitbox (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,13 +1023,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7539246679470802299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6282795809001883953
-SphereCollider:
+--- !u!114 &5858487547715808801
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7737711423320304739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cd26f3eada7daf4b9a038161e48f4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aoEspell: {fileID: 300863890127486435}
+--- !u!58 &760123686393679956
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737711423320304739}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -922,9 +1053,21 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.5
