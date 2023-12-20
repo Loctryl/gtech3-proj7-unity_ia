@@ -29,7 +29,7 @@ public class Golem : Enemy {
     public void Shoot() {
         Vector2 dir = player.transform.position - transform.position;
         dir.Normalize();
-        GameObject bullet = Instantiate(projectile, new Vector3(transform.position.x, transform.position.y,-5), transform.rotation);
+        GameObject bullet = Instantiate(projectile, new Vector3(transform.position.x, transform.position.y,20), transform.rotation);
         float angle = Vector2.Angle(Vector2.up, dir);
         bullet.transform.Rotate(Vector3.forward, angle);
         bullet.GetComponent<Rigidbody2D>().velocity = dir * 10;

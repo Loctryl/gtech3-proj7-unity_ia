@@ -6,6 +6,7 @@ using UnityEditor.Rendering;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -24,9 +25,11 @@ public class TilemapVisulazer : MonoBehaviour
     [SerializeField]
     private GameObject Light;
     [SerializeField]
-    private GameObject Enemie1;
+    private GameObject Cobweb;
     [SerializeField]
-    private GameObject Enemie2;
+    private GameObject Enemy1;
+    [SerializeField]
+    private GameObject Enemy2;
 
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
@@ -228,18 +231,21 @@ public class TilemapVisulazer : MonoBehaviour
         
         foreach (var room in roomList)
         {
-            wichObject = Random.Range(0, 2);
+            wichObject = Random.Range(0, 3);
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
 
                 switch (wichObject)
                 {
                     case 0:
-                        Enemie = Instantiate(Enemie1, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity);
+                        Enemie = Instantiate(Cobweb, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity);
                         break;
                     case 1:
-                        Enemie = Instantiate(Enemie2, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
+                        Enemie = Instantiate(Enemy1, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
+                        break;
+                    case 2:
+                        Enemie = Instantiate(Enemy2, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
                         break;
                     default:
                         break;
