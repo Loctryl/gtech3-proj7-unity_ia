@@ -118,6 +118,7 @@ public class PlayerSpellManager : SpellManager
             Spell spellInst = spell.GetComponent<Spell>();
             if (spellInst.element != element || spellInst.spellType != _choosedType) continue;
             
+
             LaunchSpell(spell);
 
             switch (spellInst.spellType)

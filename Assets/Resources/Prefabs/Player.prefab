@@ -488,18 +488,19 @@ MonoBehaviour:
   spell4: {fileID: 226437422956010876, guid: 9f2a4101d0582254db0d62d047de5050, type: 3}
   arrow: {fileID: 1357882417265228398}
   player: {fileID: 4149738088793837380}
-  SingleTargetCooldown: 0
-  AreaOfEffectCooldown: 0
-  CrowdControlCooldown: 0
-  UtilityCooldown: 0
-  SingleTargetTimer: 0
-  AreaOfEffectTimer: 0
-  CrowdControlTimer: 0
-  UtilityTimer: 0
-  IsSingleTargetCooldown: 0
-  IsAreaOfEffectCooldown: 0
-  IsCrowdControlCooldown: 0
-  IsUtilityCooldown: 0
+  spellCD: {fileID: 0}
+  singleTargetCooldown: 0
+  areaOfEffectCooldown: 0
+  crowdControlCooldown: 0
+  utilityCooldown: 0
+  singleTargetTimer: 10
+  areaOfEffectTimer: 10
+  crowdControlTimer: 10
+  utilityTimer: 10
+  isSingleTargetCooldown: 0
+  isAreaOfEffectCooldown: 0
+  isCrowdControlCooldown: 0
+  isUtilityCooldown: 0
 --- !u!1 &8028418700916816792
 GameObject:
   m_ObjectHideFlags: 0

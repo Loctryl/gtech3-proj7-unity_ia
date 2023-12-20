@@ -48,7 +48,7 @@ MonoBehaviour:
   prefab: {fileID: 603128000732356829, guid: 333e84b09f442594fba4200b60939c9d, type: 3}
   spellRange: 10
   aimRange: 3
-  autoAimRange: 3
+  autoAimRange: 2
   damage: 12
 --- !u!114 &-2516194968668816561
 MonoBehaviour:
@@ -65,6 +65,5 @@ MonoBehaviour:
   element: 4
   spellType: 0
   spawnType: 0
-  currCooldown: 0
   cooldown: 1
   damageRatio: 0
