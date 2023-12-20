@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3114363012528977759}
   - component: {fileID: 1115473764759558703}
-  - component: {fileID: 5230723914110392493}
   - component: {fileID: 6601963772272719411}
   - component: {fileID: 2614656096244731187}
+  - component: {fileID: 5230723914110392493}
+  - component: {fileID: 7372398515936783049}
   m_Layer: 6
   m_Name: Golem
   m_TagString: Enemies
@@ -87,24 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5230723914110392493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273181442890739987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e39ad004af8a144ba87bbaf5ce7e8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  speed: 0
-  agent: {fileID: 0}
-  attackRange: 7
-  animator: {fileID: 6601963772272719411}
-  projectile: {fileID: 3897307396744981713, guid: 0df3d5542658b6344b2ab78bd74286a8, type: 3}
 --- !u!95 &6601963772272719411
 Animator:
   serializedVersion: 5
@@ -171,3 +154,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.8}
   m_EdgeRadius: 0
+--- !u!114 &5230723914110392493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273181442890739987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54e39ad004af8a144ba87bbaf5ce7e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  agent: {fileID: 0}
+  attackRange: 7
+  animator: {fileID: 6601963772272719411}
+  projectile: {fileID: 3897307396744981713, guid: 0df3d5542658b6344b2ab78bd74286a8, type: 3}
+--- !u!114 &7372398515936783049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273181442890739987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3852953e9fc5f5c488a7e44efd029fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 20
+  hpEffect: {fileID: 7458998778295284173, guid: 3d0c542bc7fb55945b1831d5d62776db, type: 3}

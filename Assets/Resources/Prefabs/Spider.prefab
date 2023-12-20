@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2346184837313380232}
   - component: {fileID: 1994176524020688303}
   - component: {fileID: 6323693409962557547}
+  - component: {fileID: 6999019132938535745}
   m_Layer: 6
   m_Name: Spider
   m_TagString: Enemies
@@ -173,7 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d825f08a6ce5e95449887228bfec8ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4
   speed: 4
   agent: {fileID: 6323693409962557547}
   attackRange: 1
@@ -201,6 +201,20 @@ NavMeshAgent:
   m_BaseOffset: 0.25
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6999019132938535745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826649651686475194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3852953e9fc5f5c488a7e44efd029fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 10
+  hpEffect: {fileID: 7458998778295284173, guid: 3d0c542bc7fb55945b1831d5d62776db, type: 3}
 --- !u!1 &9182014514577630487
 GameObject:
   m_ObjectHideFlags: 0
