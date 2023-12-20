@@ -5,6 +5,7 @@ using Resources;
 using UnityEngine;
 using SpellSystem;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerSpellManager : SpellManager
 {
@@ -20,20 +21,20 @@ public class PlayerSpellManager : SpellManager
 
     #region CoolDown
     
-    public float SingleTargetCooldown;
-    public float AreaOfEffectCooldown;
-    public float CrowdControlCooldown;
-    public float UtilityCooldown;
+    public float singleTargetCooldown;
+    public float areaOfEffectCooldown;
+    public float crowdControlCooldown;
+    public float utilityCooldown;
     
-    public float SingleTargetTimer = 0;
-    public float AreaOfEffectTimer = 0;
-    public float CrowdControlTimer = 0;
-    public float UtilityTimer = 0;
+    public float singleTargetTimer = 0;
+    public float areaOfEffectTimer = 0;
+    public float crowdControlTimer = 0;
+    public float utilityTimer = 0;
     
-    public bool IsSingleTargetCooldown = false;
-    public bool IsAreaOfEffectCooldown = false;
-    public bool IsCrowdControlCooldown = false;
-    public bool IsUtilityCooldown = false;
+    public bool isSingleTargetCooldown = false;
+    public bool isAreaOfEffectCooldown = false;
+    public bool isCrowdControlCooldown = false;
+    public bool isUtilityCooldown = false;
     
     #endregion
     
@@ -59,6 +60,7 @@ public class PlayerSpellManager : SpellManager
     {
         if (_choosedType == SpellType.Undefined)
         {
+            if (isSingleTargetCooldown) return;
             _choosedType = SpellType.SingleTarget;
         }
         else
@@ -71,6 +73,7 @@ public class PlayerSpellManager : SpellManager
     {
         if (_choosedType == SpellType.Undefined)
         {
+            if (isCrowdControlCooldown) return;
             _choosedType = SpellType.CrowdControl;
         }
         else
@@ -83,6 +86,7 @@ public class PlayerSpellManager : SpellManager
     {
         if (_choosedType == SpellType.Undefined)
         {
+            if (isUtilityCooldown) return;
             _choosedType = SpellType.Utility;
         }
         else
@@ -95,6 +99,7 @@ public class PlayerSpellManager : SpellManager
     {
         if (_choosedType == SpellType.Undefined)
         {
+            if (isAreaOfEffectCooldown) return;
             _choosedType = SpellType.AreaOfEffect;
         }
         else
@@ -109,9 +114,40 @@ public class PlayerSpellManager : SpellManager
         foreach (var spell in spellsPrefab)
         {
             Spell spellInst = spell.GetComponent<Spell>();
-            if (!spellInst) continue;
             if (spellInst.element != element || spellInst.spellType != _choosedType) continue;
+            
             LaunchSpell(spell);
+
+            switch (spellInst.spellType)
+            {
+                case SpellType.SingleTarget:
+                {
+                    singleTargetCooldown = spellInst.cooldown;
+                    isSingleTargetCooldown = true;
+                    break;
+                }
+                case SpellType.AreaOfEffect:
+                {
+                    areaOfEffectCooldown = spellInst.cooldown;
+                    isAreaOfEffectCooldown = true;
+                    break;
+                }
+                case SpellType.CrowdControl:
+                {
+                    crowdControlCooldown = spellInst.cooldown;
+                    isCrowdControlCooldown = true;
+                    break;
+                }
+                case SpellType.Utility:
+                {
+                    utilityCooldown = spellInst.cooldown;
+                    isUtilityCooldown = true;
+                    break;
+                }
+                
+                default:
+                    break;
+            }
         }
         _choosedType = SpellType.Undefined;
     }
@@ -135,6 +171,56 @@ public class PlayerSpellManager : SpellManager
     }
     public override void LevelUp()
     {
+        
+    }
+
+    private void Update()
+    {
+        Debug.Log("ST CD : " + singleTargetTimer);
+        Debug.Log("AOE CD : " + areaOfEffectTimer);
+        Debug.Log("CC CD : " + crowdControlTimer);
+        Debug.Log("UT CD : " + utilityTimer);
+        
+        if(isSingleTargetCooldown)
+        {
+            singleTargetTimer += Time.deltaTime;
+            if (singleTargetTimer >= singleTargetCooldown)
+            {
+                isSingleTargetCooldown = false;
+                singleTargetTimer = 0;
+            }
+        }
+        
+        if(isAreaOfEffectCooldown)
+        {
+            areaOfEffectTimer += Time.deltaTime;
+            if (areaOfEffectTimer >= areaOfEffectCooldown)
+            {
+                isAreaOfEffectCooldown = false;
+                areaOfEffectTimer = 0;
+            }
+        }
+        
+        if(isCrowdControlCooldown)
+        {
+            crowdControlTimer += Time.deltaTime;
+            if (crowdControlTimer >= crowdControlCooldown)
+            {
+                isCrowdControlCooldown = false;
+                crowdControlTimer = 0;
+            }
+        }
+        
+        if(isUtilityCooldown)
+        {
+            utilityTimer += Time.deltaTime;
+            if (utilityTimer >= utilityCooldown)
+            {
+                isUtilityCooldown = false;
+                utilityTimer = 0;
+            }
+        }
+        
         
     }
 }
