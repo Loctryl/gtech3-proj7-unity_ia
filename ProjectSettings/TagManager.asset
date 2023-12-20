@@ -13,13 +13,13 @@ TagManager:
   - Player
   - Water
   - UI
+  - Ennemies
+  - Flying
   - Minimap
   - wall
+  - Spider
   - Light
-  - PlayerSpell
-  - Enemy
-  - EnemySpell
-  - 
+  - Projectile
   - 
   - 
   - 

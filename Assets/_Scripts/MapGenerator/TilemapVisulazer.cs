@@ -19,10 +19,15 @@ public class TilemapVisulazer : MonoBehaviour
         floorTile1, floorTile2, floorTile3, floorTile4, floorTile5, floorTile6, floorTile7, floorTile8, floorTile9, floorTile10, floorTile11, floorTile12, floorTile13, floorTile14, 
         wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornnerDownLeft,
         wallInnerCornnerDownRight, wallDiagonalCornerDownRight, wallDiagonalCornnerDownLeft,
-        wallDiagonalUpRight, wallDiagonalUpLeft, objetTile1, objectTile2, ObjectLightTile;
+        wallDiagonalUpRight, wallDiagonalUpLeft, 
+        Deco1, Deco2, Deco3, Deco4, Deco5, Deco6, ObjectLightTile;
     [SerializeField]
     private GameObject Light;
-    
+    [SerializeField]
+    private GameObject Enemie1;
+    [SerializeField]
+    private GameObject Enemie2;
+
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
@@ -79,12 +84,19 @@ public class TilemapVisulazer : MonoBehaviour
 
     public void Clear()
     {
-        GameObject[] light;
-        light = GameObject.FindGameObjectsWithTag("Light");
-        foreach (var item in light)
+        GameObject[] objToDestroy;
+        objToDestroy = GameObject.FindGameObjectsWithTag("Light");
+        foreach (var item in objToDestroy)
         {
             Destroy(item);
         }
+        objToDestroy = GameObject.FindGameObjectsWithTag("Enemies");
+        foreach (var item in objToDestroy)
+        {
+            Destroy(item);
+        }
+
+
 
         objectTilmap.ClearAllTiles();
         floorTilmap.ClearAllTiles();
@@ -137,9 +149,10 @@ public class TilemapVisulazer : MonoBehaviour
 
     internal void PaintSingleObject(HashSet<Vector2Int> floorPositions, List<BoundsInt> Roomlist)
     {
+        
         var rngNb = Random.Range(0, floorPositions.Count);
         var position = floorPositions.ElementAt(rngNb);
-        int wichObject = Random.Range(0, 2);
+        int wichObject = Random.Range(0, 6);
         GameObject light;
 
     
@@ -155,12 +168,24 @@ public class TilemapVisulazer : MonoBehaviour
                 switch (wichObject)
                 {
                     case 0: 
-                        PaintSinlgleTile(objectTilmap, objetTile1, position);
+                        PaintSinlgleTile(objectTilmap, Deco1, position);
                         break;
                         case 1:
-                            PaintSinlgleTile(objectTilmap, objectTile2, position);
+                            PaintSinlgleTile(objectTilmap, Deco2, position);
                         break;
                         case 2:
+                            PaintSinlgleTile(objectTilmap, Deco3, position);
+                        break;
+                        case 3:
+                            PaintSinlgleTile(objectTilmap, Deco4, position);
+                        break;
+                        case 4:
+                            PaintSinlgleTile(objectTilmap, Deco5, position);
+                        break;
+                        case 5:
+                            PaintSinlgleTile(objectTilmap, Deco6, position);
+                        break;
+                        case 6:
                             PaintSinlgleTile(objectTilmap, ObjectLightTile, position);
                             light = Instantiate(Light, new Vector3(position.x + 0.56f,position.y + 0.56f, 0), Quaternion.identity);
                         
@@ -170,6 +195,8 @@ public class TilemapVisulazer : MonoBehaviour
                 }
                 rngNb = Random.Range(0, floorPositions.Count);
                 position = floorPositions.ElementAt(rngNb);
+               
+                
                
             }
 
@@ -187,5 +214,44 @@ public class TilemapVisulazer : MonoBehaviour
     internal void PaintExitPoint(Vector2Int exitPoint)
     {
         PaintSinlgleTile(TravelExit, ExitPointTile, exitPoint);
+    }
+
+    internal void PaintEnemiesSpawnPoint(HashSet<Vector2Int> floorPositions, List<BoundsInt> roomList)
+    {
+        var rngNb = Random.Range(0, floorPositions.Count);
+        var position = floorPositions.ElementAt(rngNb);
+        int wichObject = Random.Range(0, 2);
+        GameObject Enemie;
+
+
+
+
+
+        foreach (var room in roomList)
+        {
+            wichObject = Random.Range(0, 2);
+
+            for (int i = 0; i < 3; i++)
+            {
+
+                switch (wichObject)
+                {
+                    case 0:
+                        Enemie = Instantiate(Enemie1, new Vector3(position.x + 0.56f, position.y + 0.56f, 0), Quaternion.identity, GameObject.Find("enemies").transform);
+                        break;
+                    case 1:
+                        Enemie = Instantiate(Enemie2, new Vector3(position.x + 0.56f, position.y + 0.56f, 0), Quaternion.identity);
+                        break;
+                    default:
+                        break;
+                }
+                rngNb = Random.Range(0, floorPositions.Count);
+                position = floorPositions.ElementAt(rngNb);
+
+
+
+            }
+
+        }
     }
 }

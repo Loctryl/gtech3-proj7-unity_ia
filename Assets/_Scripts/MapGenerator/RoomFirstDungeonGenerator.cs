@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NavMeshPlus.Components;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -19,6 +20,8 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField]
     GameObject player;
 
+    [SerializeField] 
+    private GameObject navMesh;
 
 
 
@@ -63,9 +66,13 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         tilemapVisulazer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tilemapVisulazer);
-        ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
+        //ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
         ItemGenerator.CreateSpawnPoint(tilemapVisulazer, spawnPoint);
         ItemGenerator.CreateExitPoint(tilemapVisulazer, ExitPoint);
+        navMesh.GetComponent<NavMeshSurface>().BuildNavMesh();
+        ItemGenerator.CreateEnemiesSpawnPoint(tilemapVisulazer, floor, roomList);
+        
+        
         player.transform.position = new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, -5);
     }
 
