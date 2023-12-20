@@ -16,20 +16,22 @@ public class PlayerSpellManager : SpellManager
 
     [SerializeField] private Transform arrow;
     [SerializeField] private Player player;
+
+    [SerializeField] private SpellCD spellCD;
     
     private SpellType _choosedType = SpellType.Undefined;
 
     #region CoolDown
     
-    public float singleTargetCooldown;
-    public float areaOfEffectCooldown;
-    public float crowdControlCooldown;
-    public float utilityCooldown;
+    public float singleTargetCooldown = 0;
+    public float areaOfEffectCooldown = 0;
+    public float crowdControlCooldown = 0;
+    public float utilityCooldown = 0;
     
-    public float singleTargetTimer = 0;
-    public float areaOfEffectTimer = 0;
-    public float crowdControlTimer = 0;
-    public float utilityTimer = 0;
+    public float singleTargetTimer = 10;
+    public float areaOfEffectTimer = 10;
+    public float crowdControlTimer = 10;
+    public float utilityTimer = 10;
     
     public bool isSingleTargetCooldown = false;
     public bool isAreaOfEffectCooldown = false;
@@ -122,26 +124,22 @@ public class PlayerSpellManager : SpellManager
             {
                 case SpellType.SingleTarget:
                 {
-                    singleTargetCooldown = spellInst.cooldown;
-                    isSingleTargetCooldown = true;
+                    spellCD.UseSpellSingleTarget();
                     break;
                 }
                 case SpellType.AreaOfEffect:
                 {
-                    areaOfEffectCooldown = spellInst.cooldown;
-                    isAreaOfEffectCooldown = true;
+                    spellCD.UseSpellAreaOfEffect();
                     break;
                 }
                 case SpellType.CrowdControl:
                 {
-                    crowdControlCooldown = spellInst.cooldown;
-                    isCrowdControlCooldown = true;
+                    spellCD.UseSpellCrowdControl();
                     break;
                 }
                 case SpellType.Utility:
                 {
-                    utilityCooldown = spellInst.cooldown;
-                    isUtilityCooldown = true;
+                    spellCD.UseSpellUtility();
                     break;
                 }
                 
@@ -176,51 +174,5 @@ public class PlayerSpellManager : SpellManager
 
     private void Update()
     {
-        Debug.Log("ST CD : " + singleTargetTimer);
-        Debug.Log("AOE CD : " + areaOfEffectTimer);
-        Debug.Log("CC CD : " + crowdControlTimer);
-        Debug.Log("UT CD : " + utilityTimer);
-        
-        if(isSingleTargetCooldown)
-        {
-            singleTargetTimer += Time.deltaTime;
-            if (singleTargetTimer >= singleTargetCooldown)
-            {
-                isSingleTargetCooldown = false;
-                singleTargetTimer = 0;
-            }
-        }
-        
-        if(isAreaOfEffectCooldown)
-        {
-            areaOfEffectTimer += Time.deltaTime;
-            if (areaOfEffectTimer >= areaOfEffectCooldown)
-            {
-                isAreaOfEffectCooldown = false;
-                areaOfEffectTimer = 0;
-            }
-        }
-        
-        if(isCrowdControlCooldown)
-        {
-            crowdControlTimer += Time.deltaTime;
-            if (crowdControlTimer >= crowdControlCooldown)
-            {
-                isCrowdControlCooldown = false;
-                crowdControlTimer = 0;
-            }
-        }
-        
-        if(isUtilityCooldown)
-        {
-            utilityTimer += Time.deltaTime;
-            if (utilityTimer >= utilityCooldown)
-            {
-                isUtilityCooldown = false;
-                utilityTimer = 0;
-            }
-        }
-        
-        
     }
 }

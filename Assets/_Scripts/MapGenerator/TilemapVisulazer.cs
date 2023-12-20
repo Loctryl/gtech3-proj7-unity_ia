@@ -237,7 +237,7 @@ public class TilemapVisulazer : MonoBehaviour
                 switch (wichObject)
                 {
                     case 0:
-                        Enemie = Instantiate(Enemie1, new Vector3(position.x + 0.56f, position.y + 0.56f, 0), Quaternion.identity);
+                        Enemie = Instantiate(Enemie1, new Vector3(position.x + 0.56f, position.y + 0.56f, 0), Quaternion.identity, GameObject.Find("enemies").transform);
                         break;
                     case 1:
                         Enemie = Instantiate(Enemie2, new Vector3(position.x + 0.56f, position.y + 0.56f, 0), Quaternion.identity);
