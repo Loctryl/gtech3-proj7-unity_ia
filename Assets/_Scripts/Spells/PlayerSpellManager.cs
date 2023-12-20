@@ -64,6 +64,10 @@ public class PlayerSpellManager : SpellManager
         {
             if (isSingleTargetCooldown) return;
             _choosedType = SpellType.SingleTarget;
+            spellCD.SingleTargetElec.gameObject.SetActive(true);
+            spellCD.SingleTargetWind.gameObject.SetActive(true);
+            spellCD.ReturnLeft.gameObject.SetActive(true);
+            spellCD.ReturnRight.gameObject.SetActive(true);
         }
         else
         {
@@ -77,6 +81,10 @@ public class PlayerSpellManager : SpellManager
         {
             if (isCrowdControlCooldown) return;
             _choosedType = SpellType.CrowdControl;
+            spellCD.CCElec.gameObject.SetActive(true);
+            spellCD.CCWind.gameObject.SetActive(true);
+            spellCD.ReturnLeft.gameObject.SetActive(true);
+            spellCD.ReturnRight.gameObject.SetActive(true);
         }
         else
         {
@@ -90,6 +98,10 @@ public class PlayerSpellManager : SpellManager
         {
             if (isUtilityCooldown) return;
             _choosedType = SpellType.Utility;
+            spellCD.UtilityElec.gameObject.SetActive(true);
+            spellCD.UtilityWind.gameObject.SetActive(true);
+            spellCD.ReturnLeft.gameObject.SetActive(true);
+            spellCD.ReturnRight.gameObject.SetActive(true);
         }
         else
         {
@@ -103,6 +115,10 @@ public class PlayerSpellManager : SpellManager
         {
             if (isAreaOfEffectCooldown) return;
             _choosedType = SpellType.AreaOfEffect;
+            spellCD.AOEElec.gameObject.SetActive(true);
+            spellCD.AOEWind.gameObject.SetActive(true);
+            spellCD.ReturnLeft.gameObject.SetActive(true);
+            spellCD.ReturnRight.gameObject.SetActive(true);
         }
         else
         {
@@ -125,22 +141,39 @@ public class PlayerSpellManager : SpellManager
             {
                 case SpellType.SingleTarget:
                 {
-                    spellCD.UseSpellSingleTarget();
+                        spellCD.SingleTargetElec.gameObject.SetActive(false);
+                        spellCD.SingleTargetWind.gameObject.SetActive(false);
+                        spellCD.ReturnLeft.gameObject.SetActive(false);
+                        spellCD.ReturnRight.gameObject.SetActive(false);
+                        spellCD.UseSpellSingleTarget();
                     break;
                 }
                 case SpellType.AreaOfEffect:
                 {
-                    spellCD.UseSpellAreaOfEffect();
+                        spellCD.AOEElec.gameObject.SetActive(false);
+                        spellCD.AOEWind.gameObject.SetActive(false);
+                        spellCD.ReturnLeft.gameObject.SetActive(false);
+                        spellCD.ReturnRight.gameObject.SetActive(false);
+                        spellCD.UseSpellAreaOfEffect();
                     break;
                 }
                 case SpellType.CrowdControl:
                 {
-                    spellCD.UseSpellCrowdControl();
+
+                        spellCD.CCElec.gameObject.SetActive(false);
+                        spellCD.CCWind.gameObject.SetActive(false);
+                        spellCD.ReturnLeft.gameObject.SetActive(false);
+                        spellCD.ReturnRight.gameObject.SetActive(false);
+                        spellCD.UseSpellCrowdControl();
                     break;
                 }
                 case SpellType.Utility:
                 {
-                    spellCD.UseSpellUtility();
+                        spellCD.UtilityElec.gameObject.SetActive(false);
+                        spellCD.UtilityWind.gameObject.SetActive(false);
+                        spellCD.ReturnLeft.gameObject.SetActive(false);
+                        spellCD.ReturnRight.gameObject.SetActive(false);
+                        spellCD.UseSpellUtility();
                     break;
                 }
                 

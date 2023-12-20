@@ -25,6 +25,28 @@ public class SpellCD : MonoBehaviour
     private Image ImageCDUtility;
     [SerializeField]
     private TMP_Text TextCDUtility;
+    [SerializeField]
+    public Image CCElec;
+    [SerializeField]
+    public Image AOEElec;
+    [SerializeField]
+    public Image SingleTargetElec;
+    [SerializeField]
+    public Image UtilityElec;
+    [SerializeField]
+    public Image CCWind;
+    [SerializeField]
+    public Image AOEWind;
+    [SerializeField]
+    public Image SingleTargetWind;
+    [SerializeField]
+    public Image UtilityWind;
+    [SerializeField]
+    public Image ReturnLeft;
+    [SerializeField] 
+    public Image ReturnRight;
+
+
 
 
     [SerializeField]
