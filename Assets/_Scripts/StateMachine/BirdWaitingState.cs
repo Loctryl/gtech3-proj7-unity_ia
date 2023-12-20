@@ -9,7 +9,7 @@ public class BirdWaitingState : BaseState
 	}
 
 	public override void OnUpdate() {
-
+		Debug.Log("waiting");
 		//play animator movement
 	}
 

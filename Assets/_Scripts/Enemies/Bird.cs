@@ -17,6 +17,7 @@ public class Bird : Enemy {
     {
         float dist = CalculateDist(player.transform, this.transform);
 
+        Debug.Log("hein ?");
         if (dist <= range && !(stateMachine.currentState is BirdWaitingState)) {
             stateMachine.SwitchState(new BirdWaitingState());
         }
@@ -30,6 +31,5 @@ public class Bird : Enemy {
         if (other.gameObject.name == "Player") {
             other.gameObject.GetComponentInChildren<EntityHealth>().Damage(damage);
         }
-        Destroy(gameObject);
     }
 }

@@ -489,14 +489,14 @@ MonoBehaviour:
   arrow: {fileID: 1357882417265228398}
   player: {fileID: 4149738088793837380}
   spellCD: {fileID: 0}
-  singleTargetCooldown: 0
-  areaOfEffectCooldown: 0
-  crowdControlCooldown: 0
-  utilityCooldown: 0
-  singleTargetTimer: 10
-  areaOfEffectTimer: 10
-  crowdControlTimer: 10
-  utilityTimer: 10
+  singleTargetCooldown: 3
+  areaOfEffectCooldown: 3
+  crowdControlCooldown: 3
+  utilityCooldown: 3
+  singleTargetTimer: 3
+  areaOfEffectTimer: 3
+  crowdControlTimer: 3
+  utilityTimer: 3
   isSingleTargetCooldown: 0
   isAreaOfEffectCooldown: 0
   isCrowdControlCooldown: 0
@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 4149738088793837380}
   - component: {fileID: 6100524551472297076}
   - component: {fileID: 4582558674800351348}
+  - component: {fileID: 80514428452601200}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -686,3 +687,19 @@ MonoBehaviour:
   damageScalingRatio: 1.2
   entityHealth: {fileID: 6100524551472297076}
   spellManager: {fileID: 5152979603401074350}
+--- !u!114 &80514428452601200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993532950614305075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d820f695e38e84f919752928ddaa57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpPlayer: {fileID: 6100524551472297076}
+  chipSpeed: 2
+  frontHealthBar: {fileID: 0}
+  backHealthBar: {fileID: 0}
