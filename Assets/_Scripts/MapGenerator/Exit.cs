@@ -14,16 +14,20 @@ public   class Exit : MonoBehaviour
     private LevelCounter levelCounter;
   private void OnTriggerEnter2D(Collider2D other)
     {
-        if (levelCounter.count < 2)
+        if (other.gameObject == gameObject.CompareTag("Player"))
         {
-            roomGenerator.GetComponent<RoomFirstDungeonGenerator>().RunProceduralGeneration();
-            levelCounter.count++;
-        }
-        else
-        {
-            BossRoom.GetComponent<SimpleRandomWalkDungeonGenerator>().RunProceduralGeneration();
-            levelCounter.count = 0;
 
+                if (levelCounter.count < 2)
+            {
+                roomGenerator.GetComponent<RoomFirstDungeonGenerator>().RunProceduralGeneration();
+                levelCounter.count++;
+            }
+            else
+            {
+                BossRoom.GetComponent<SimpleRandomWalkDungeonGenerator>().RunProceduralGeneration();
+                levelCounter.count = 0;
+
+            }
         }
         
         
