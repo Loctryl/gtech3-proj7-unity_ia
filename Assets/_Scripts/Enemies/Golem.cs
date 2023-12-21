@@ -7,11 +7,15 @@ public class Golem : Enemy {
     [SerializeField] private float attackRange = 10;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject projectile;
+    [SerializeField] private float activationTime;
+    private SpriteRenderer spriteRenderer;
+    private bool inRange;
     
     // Start is called before the first frame update
     public override void Start()
     {
         player = GameObject.FindWithTag("Player");
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -19,11 +23,18 @@ public class Golem : Enemy {
     {
         float dist = CalculateDist(player.transform, this.transform);
 
-        if (dist <= attackRange) {
+        if (dist <= attackRange && !inRange) {
+            inRange = true;
             animator.SetBool("IsInRange", true);
+            //StartCoroutine(Activation(new Color(1,1,1,1)));
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         }
-        else 
+        else if (dist >= attackRange && inRange) {
+            inRange = false;
             animator.SetBool("IsInRange", false);
+            //StartCoroutine(Activation(new Color(0.5f,0.5f,0.5f,1)));
+            spriteRenderer.color = new Color(0.2f, 0.2f, 0.2f, 1f);
+        }
     }
 
     public void Shoot() {
@@ -33,5 +44,14 @@ public class Golem : Enemy {
         float angle = Vector2.Angle(Vector2.up, dir);
         bullet.transform.Rotate(Vector3.forward, angle);
         bullet.GetComponent<Rigidbody2D>().velocity = dir * 10;
+    }
+
+    IEnumerator Activation(Color attentedColor) {
+        Color starting = spriteRenderer.color;
+        float elapsedTime = 0;
+        while (spriteRenderer.color != attentedColor) {
+            spriteRenderer.color = Color.Lerp(starting, attentedColor, elapsedTime + Time.deltaTime);
+            yield return null;
+        }
     }
 }

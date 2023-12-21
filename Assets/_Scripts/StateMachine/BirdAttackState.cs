@@ -24,7 +24,6 @@ public class BirdAttackState : BaseState {
 	}
 
 	public override void OnUpdate() {
-		
 		Vector3 dir = attackPoint - self.transform.position;
 		dir.Normalize();
 		
@@ -33,8 +32,6 @@ public class BirdAttackState : BaseState {
 		if ((self.transform.position - attackPoint).magnitude <= 1) {
 			machine.SwitchState(new BirdWaitingState(player, side));
 		}
-		
-		//play animator movement
 	}
 
 	public override void OnExit() {

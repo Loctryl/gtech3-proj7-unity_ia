@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bird : Enemy {
     [SerializeField] private int range = 4;
     [SerializeField] private int damage = 2;
+    private EntityHealth health;
 
     private int side = 1;
 
@@ -13,6 +14,8 @@ public class Bird : Enemy {
     public override void Start()
     {
         base.Start();
+        
+        health = GetComponent<EntityHealth>();
     }
 
     // Update is called once per frame
@@ -36,6 +39,9 @@ public class Bird : Enemy {
             stateMachine.SwitchState(new BirdAttackState(player));
         }
         
+        if (health.currentHp <= 0) {
+            GetComponent<Animator>().SetBool("isDead", true);
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
