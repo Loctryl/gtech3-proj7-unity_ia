@@ -264,6 +264,7 @@ MonoBehaviour:
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
+  bossSpellKey: BossSpells
 --- !u!114 &-2301778197964285751
 MonoBehaviour:
   m_ObjectHideFlags: 0
