@@ -4899,10 +4899,10 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 158.82
+  m_PointLightInnerAngle: 160
   m_PointLightOuterAngle: 330
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1.5
+  m_PointLightOuterRadius: 5
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -4925,6 +4925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12cbbbba80bf3a499cbe720e4f3d055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blencColor1: {r: 1, g: 0.72671366, b: 0, a: 1}
+  blencColor2: {r: 0.8962264, g: 0.39117453, b: 0, a: 1}
   light2d: {fileID: 1356045980315950391}
 --- !u!1 &8716838608966836583
 GameObject:

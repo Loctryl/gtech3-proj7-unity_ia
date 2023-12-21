@@ -15,12 +15,19 @@ public class Golem : Enemy {
         player = GameObject.FindWithTag("Player");
         spriteRenderer = GetComponent<SpriteRenderer>();
         
+        selfHealth = GetComponent<EntityHealth>();
+        
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     public override void Update()
     {
+        if (!selfHealth.isAlive && !setToDead) {
+            setToDead = true;
+            Destroy(gameObject);
+        }
+        
         float dist = CalculateDist(player.transform, this.transform);
 
         if (dist <= attackRange && !inRange) {

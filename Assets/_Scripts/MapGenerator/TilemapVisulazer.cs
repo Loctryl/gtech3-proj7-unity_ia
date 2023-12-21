@@ -252,7 +252,7 @@ public class TilemapVisulazer : MonoBehaviour
                         Enemie = Instantiate(Enemy1, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
                         break;
                     case 2:
-                        //Enemie = Instantiate(Enemy2, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
+                        Enemie = Instantiate(Enemy2, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
                         break;
                     case 3:
                         if (isChestSpawned == false)
@@ -262,7 +262,7 @@ public class TilemapVisulazer : MonoBehaviour
                         }
                         break;
                     case 4:
-                        //Enemie = Instantiate(Enemy3, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
+                        Enemie = Instantiate(Enemy3, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
                         break;
                     default:
                         break;

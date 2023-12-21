@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour {
             setToDead = true;
             agent.enabled = false;
             animator.SetBool("isDead", true);
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
         if (setToDead) return;
         

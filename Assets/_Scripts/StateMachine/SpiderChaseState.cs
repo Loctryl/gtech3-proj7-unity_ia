@@ -21,11 +21,11 @@ public class SpiderChaseState : BaseState {
 		agent = self.GetComponent<Enemy>().agent;
 		animator = self.GetComponent<Animator>();
 
-		agent.isStopped = false;
+		if(agent.enabled) agent.isStopped = false;
 	}
 
 	public override void OnUpdate() {
-		agent.SetDestination(player.transform.position);
+		if(agent.enabled) agent.SetDestination(player.transform.position);
 
 		Vector3 dir = player.transform.position - self.transform.position;
 		Vector2 currentDir = new Vector2(dir.x > 0 ? 1 : -1, dir.y > 0 ? 1 : -1);
@@ -48,6 +48,6 @@ public class SpiderChaseState : BaseState {
 	}
 
 	public override void OnExit() {
-		agent.isStopped = true;
+		if(agent.enabled) agent.isStopped = true;
 	}
 }

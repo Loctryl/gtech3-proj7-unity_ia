@@ -27,12 +27,18 @@ public class Spider : Enemy {
 	}
 	
 	private void OnCollisionEnter2D(Collision2D other) {
-		if (other.gameObject == player) 
+		if (other.gameObject == player)
+		{
+			animator.SetBool("isAttacking", true);
 			stateMachine.SwitchState(new SpiderAttackState(player, playerHealth));
+		}
 	}
 
 	private void OnCollisionExit2D(Collision2D other) {
 		if (other.gameObject == player)
+		{
+			animator.SetBool("isAttacking", false);
 			stateMachine.SwitchState(new SpiderChaseState(player));
+		}
 	}
 }

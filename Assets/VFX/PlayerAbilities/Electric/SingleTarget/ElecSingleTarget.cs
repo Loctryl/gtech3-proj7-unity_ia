@@ -75,7 +75,7 @@ public class ElecSL : MonoBehaviour
                 bestTarget = potentialTarget;
             }
         }
-        Debug.Log(bestTarget);
+        //Debug.Log(bestTarget);
         return bestTarget;
     }
 }
