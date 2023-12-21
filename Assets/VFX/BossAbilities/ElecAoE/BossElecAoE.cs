@@ -17,6 +17,14 @@ public class BossElecAoE : MonoBehaviour
     float deltaTime;
     float lifetimeOffset = 0.4f;
 
+    private void Start()
+    {
+        foreach (GameObject obj in mVFXs)
+        {
+            VisualEffect vfx = obj.GetComponent<VisualEffect>();
+            vfx.SetFloat("VFXDelay", vfx.GetFloat("VFXDelay") + IndicatorLifetime);
+        }
+    }
     void Update()
     {
         damage = Mathf.RoundToInt(baseDamage * GetComponent<Spell>().damageRatio);
@@ -26,7 +34,6 @@ public class BossElecAoE : MonoBehaviour
         foreach (GameObject obj in mVFXs)
         {
             VisualEffect vfx = obj.GetComponent<VisualEffect>();
-            vfx.SetFloat("VFXDelay", vfx.GetFloat("VFXDelay") + IndicatorLifetime);
             StartCoroutine(IndicatorCoroutine(obj));
             if (deltaTime >= vfx.GetFloat("VFXDelay"))
             {
