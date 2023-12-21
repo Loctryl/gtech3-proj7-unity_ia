@@ -25,13 +25,14 @@ public class DashInNode : ActionNode
             timer = 0;
             return State.Success;
         }
-		
-        blackBoard.gameObject.transform.position += dir * speed * Time.deltaTime;
+
+        blackBoard.gameObject.transform.position += new Vector3(dir.x, dir.y, 0) * speed * Time.deltaTime;
 
         return State.Running;
     }
 
-    protected override void OnExit() {
-		
+    protected override void OnExit()
+    {
+
     }
 }

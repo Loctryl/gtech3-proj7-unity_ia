@@ -53,8 +53,8 @@ public class BossSpells : MonoBehaviour
 
     public void CastMeleeSL()
     {
-        Vector3 direction =  player.transform.position - transform.position;
-        Instantiate(MeleeSingleTarget, transform.position, Quaternion.FromToRotation(Vector3.forward, direction), transform);
+        Vector3 direction = player.transform.position - transform.position;
+        Instantiate(MeleeSingleTarget, transform.position, Quaternion.FromToRotation(Vector3.up, direction), transform);
     }
 
     public void CastTeleport()

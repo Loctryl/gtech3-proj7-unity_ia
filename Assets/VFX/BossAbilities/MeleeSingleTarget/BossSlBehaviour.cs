@@ -21,13 +21,14 @@ public class BossSLBehaviour : MonoBehaviour
 
     void Update()
     {
-        Vector3 direction = transform.position - player.transform.position;
-        transform.rotation = Quaternion.FromToRotation(Vector3.forward, direction);
+        /*transform.rotation = Quaternion.identity;
+        Vector3 direction = player.transform.position - transform.position;
+        transform.rotation *= Quaternion.FromToRotation(Vector3.up, direction);*/
 
         deltaTime += Time.deltaTime;
         if (deltaTime >= duration)
         {
-            Destroy(transform.gameObject);
+            Destroy(gameObject);
         }
     }
 
