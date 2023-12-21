@@ -6,6 +6,7 @@ public class BehaviourTreeRunner : MonoBehaviour {
 	public BehaviourTree tree;
 	
 	public GameObject player;
+	public GameObject EntityRoot;
 
 	[SerializeField] public string[] keyContextData;
 	[SerializeField] public Object[] valueContextData;
@@ -16,7 +17,7 @@ public class BehaviourTreeRunner : MonoBehaviour {
 		tree.Bind();
 		
 		tree.blackBoard.player = player;
-		tree.blackBoard.gameObject = this.gameObject;
+		tree.blackBoard.gameObject = EntityRoot;
 
 		InitData();
 

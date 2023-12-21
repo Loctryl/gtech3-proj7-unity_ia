@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7697738929082519401}
-  - component: {fileID: 9041263020552733444}
+  - component: {fileID: 1857715379125709409}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -138,7 +138,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7925674021210815711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9041263020552733444
+--- !u!114 &1857715379125709409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,11 +147,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2565617972671509320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3852953e9fc5f5c488a7e44efd029fe1, type: 3}
+  m_Script: {fileID: 11500000, guid: b96d43eadabb41943b9bc5df0d46596f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 300
-  hpEffect: {fileID: 7458998778295284173, guid: 3d0c542bc7fb55945b1831d5d62776db, type: 3}
+  tree: {fileID: 11400000, guid: dd8a663258caabe46904c53f10050a87, type: 2}
+  player: {fileID: 0}
+  EntityRoot: {fileID: 4776027344341037320}
+  keyContextData:
+  - BossHealth
+  valueContextData:
+  - {fileID: 3676703685701216589}
 --- !u!1 &4776027344341037320
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +167,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7925674021210815711}
   - component: {fileID: 4875194893746627873}
+  - component: {fileID: 3676703685701216589}
+  - component: {fileID: 5146178144462353296}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -183,7 +190,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5675998717496750038}
-  - {fileID: 280412223114318020}
   - {fileID: 7697738929082519401}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -214,46 +220,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!1 &5176846860517647290
-GameObject:
+--- !u!114 &3676703685701216589
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 280412223114318020}
-  - component: {fileID: 2058311233079978738}
-  - component: {fileID: 2188972932148692592}
-  m_Layer: 0
-  m_Name: Physic
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &280412223114318020
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5176846860517647290}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7925674021210815711}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &2058311233079978738
+  m_GameObject: {fileID: 4776027344341037320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3852953e9fc5f5c488a7e44efd029fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 300
+  hpEffect: {fileID: 7458998778295284173, guid: 3d0c542bc7fb55945b1831d5d62776db, type: 3}
+--- !u!70 &5146178144462353296
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5176846860517647290}
+  m_GameObject: {fileID: 4776027344341037320}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -282,17 +269,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0.022189617, y: -0.12758994}
   m_Size: {x: 0.7218957, y: 1.6102126}
   m_Direction: 0
---- !u!114 &2188972932148692592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5176846860517647290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b96d43eadabb41943b9bc5df0d46596f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tree: {fileID: 11400000, guid: dd8a663258caabe46904c53f10050a87, type: 2}
-  player: {fileID: 0}
