@@ -10,6 +10,7 @@ public class BossSpells : MonoBehaviour
     [SerializeField] GameObject MeleeSingleTarget;
     [SerializeField] GameObject MeleeAoE;
     [SerializeField] GameObject TeleportSpell;
+    [SerializeField] GameObject TeleportSpellTarget;
     [SerializeField] GameObject Golem;
 
     GameObject player;
@@ -74,5 +75,10 @@ public class BossSpells : MonoBehaviour
             Instantiate(Golem, new Vector3(rand.x, rand.y, transform.parent.position.z), Quaternion.identity);
             yield return new WaitForSeconds(delayBetweenInvocations);
         }
+    }
+
+    public void TeleportTo(Vector2 pos)
+    {
+        Instantiate(TeleportSpell, pos, Quaternion.identity);
     }
 }

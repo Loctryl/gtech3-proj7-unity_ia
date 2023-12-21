@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class BossSLBehaviour : MonoBehaviour
+public class BossMeleeAoEBehaviour : MonoBehaviour
 {
     float deltaTime;
     float duration;
@@ -31,7 +31,7 @@ public class BossSLBehaviour : MonoBehaviour
         EntityHealth hp = collision.transform.parent.GetComponentInChildren<EntityHealth>();
         if (hp != null && collision.transform.parent.GetComponentInChildren<Player>() != null)
         {
-            collision.transform.parent.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(damage * GetComponent<Spell>().damageRatio));
+            collision.transform.parent.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(damage * transform.parent.GetComponent<Spell>().damageRatio));
         }
     }
 }
