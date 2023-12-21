@@ -6,7 +6,9 @@ using UnityEngine.VFX;
 
 public class BossTeleportation : MonoBehaviour
 {
+    [SerializeField]
     GameObject boss;
+
     GameObject player;
     public float range = 4;
     float deltaTime;
@@ -16,7 +18,7 @@ public class BossTeleportation : MonoBehaviour
         Vector3 direction = Quaternion.AngleAxis(Random.Range(-60, 60), Vector3.forward) * Vector3.up * range + transform.position;
         duration = transform.gameObject.GetComponent<VisualEffect>().GetFloat("Duration");
 
-        boss = GameObject.Find("Boss");
+        //boss = GameObject.Find("Boss");
         player = GameObject.Find("Player");
         transform.position = direction;
 

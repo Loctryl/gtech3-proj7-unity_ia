@@ -597,33 +597,9 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1635118029}
-    - target: {fileID: 1857715379125709409, guid: 336994daed51f00478d430aeb20cc380, type: 3}
-      propertyPath: keyContextData.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857715379125709409, guid: 336994daed51f00478d430aeb20cc380, type: 3}
-      propertyPath: valueContextData.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857715379125709409, guid: 336994daed51f00478d430aeb20cc380, type: 3}
-      propertyPath: keyContextData.Array.data[1]
-      value: BossSpells
-      objectReference: {fileID: 0}
-    - target: {fileID: 1857715379125709409, guid: 336994daed51f00478d430aeb20cc380, type: 3}
-      propertyPath: valueContextData.Array.data[1]
-      value: 
-      objectReference: {fileID: 2499478062167111514}
     - target: {fileID: 4776027344341037320, guid: 336994daed51f00478d430aeb20cc380, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776027344341037320, guid: 336994daed51f00478d430aeb20cc380, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875194893746627873, guid: 336994daed51f00478d430aeb20cc380, type: 3}
-      propertyPath: m_BodyType
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7925674021210815711, guid: 336994daed51f00478d430aeb20cc380, type: 3}
       propertyPath: m_LocalPosition.x
@@ -668,40 +644,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2565617972671509320, guid: 336994daed51f00478d430aeb20cc380, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2499478062167111514}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 336994daed51f00478d430aeb20cc380, type: 3}
---- !u!1 &2499478062167111506 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2565617972671509320, guid: 336994daed51f00478d430aeb20cc380, type: 3}
-  m_PrefabInstance: {fileID: 2499478062167111504}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2499478062167111510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7925674021210815711, guid: 336994daed51f00478d430aeb20cc380, type: 3}
   m_PrefabInstance: {fileID: 2499478062167111504}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2499478062167111514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2499478062167111506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807ac342e0289144eadb8dbeec2cb8fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ElecAoE: {fileID: 6110177013614247222, guid: cb323ee41155e3b48871b0df85fdd2d2, type: 3}
-  WindAoE: {fileID: 8429826336645928658, guid: 6226c5bf4c76326488a7ae1e66de94fe, type: 3}
-  MeleeSingleTarget: {fileID: 3620763779719515141, guid: 40dc5c21bda23f449b2ace89922a506f, type: 3}
-  MeleeAoE: {fileID: 8338834566132648932, guid: 76bb390b43510f5468c8687f9ba6c9b7, type: 3}
-  TeleportSpell: {fileID: 5118302108849088092, guid: 489bc77bd9484594a92882703d4d4165, type: 3}
-  TeleportSpellTarget: {fileID: 0}
-  Golem: {fileID: 1273181442890739987, guid: d425dac955c6eae47a5163257acbd836, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering.VirtualTexturing;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
@@ -13,6 +14,8 @@ public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
 
     [SerializeField]
     protected SimpleRandomWalkSO randomWalkParameters;
+    [SerializeField]
+    private GameObject boss;
 
      private GameObject player;
     private GameObject Follower;
@@ -29,6 +32,9 @@ public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
 
     public override  void RunProceduralGeneration()
     {
+        GameObject spawningBoss;
+        Transform EnemiesParent = GameObject.Find("enemies").transform;
+
         var roomList = ProcduralGenration.BinarySpacePartitioning(new BoundsInt((Vector3Int)startPosition, new Vector3Int
            (50 , 50, 0)), 10, 10);
 
@@ -53,7 +59,7 @@ public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
         //ItemGenerator.CreateObject(tilemapVisulazer, floor, roomList);
         ItemGenerator.CreateSpawnPoint(tilemapVisulazer, spawnPoint);
 
-        ItemGenerator.CreateExitPoint(tilemapVisulazer, ExitPoint);
+        //ItemGenerator.CreateExitPoint(tilemapVisulazer, ExitPoint);
 
 
         player.transform.position = new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, 20);
@@ -61,8 +67,9 @@ public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
         Follower.GetComponent<Chaser>().target = player.transform;
         Follower.transform.position = new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, 20);
         Follower.gameObject.GetComponent<NavMeshAgent>().enabled = true;
-
-
+        spawningBoss = Instantiate(boss, new Vector3(0, 0, 20), Quaternion.identity, EnemiesParent);
+        spawningBoss.GetComponentInChildren<BehaviourTreeRunner>().player = player;
+        spawningBoss.GetComponentInChildren<BehaviourTreeRunner>().enabled = true;
     }
 
     protected HashSet<Vector2Int> RunRandomWalk(SimpleRandomWalkSO parameters, Vector2Int position)
