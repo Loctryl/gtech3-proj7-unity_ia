@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PartitionerNode : CompositeNode
 {
-	protected override void OnEnter() {
+	private EntityHealth _entityHealth;
+	protected override void OnEnter()
+	{
+		_entityHealth = (EntityHealth)blackBoard.dataContext["BossHealth"];
 	}
 
 	protected override void OnExit() {
@@ -12,22 +16,12 @@ public class PartitionerNode : CompositeNode
 
 	protected override State OnUpdate()
 	{
-		bool anyChildIsRunning = false;
+		float milestoneRatio = 1.0f / children.Count;
+		float healthRatio = (float)_entityHealth.currentHp / _entityHealth.maxHp;
 
-		foreach (var child in children)
-		{
-			switch (child.Update())
-			{
-				case State.Running:
-					anyChildIsRunning = true;
-					break;
-				case State.Failure:
-					return State.Failure;
-				case State.Success:
-					break;
-			}
-		}
+		int childToUdptateIndex = children.Count - Mathf.FloorToInt(healthRatio % milestoneRatio) - 1;
 
-		return anyChildIsRunning ? State.Running : State.Success;
+		return children[childToUdptateIndex].Update();
+
 	}
 }

@@ -18,9 +18,50 @@ MonoBehaviour:
   position: {x: 75, y: -51.59999}
   blackBoard:
     gameObject: {fileID: 0}
-    moveToObject: {fileID: 0}
-    speed: 0
+    player: {fileID: 0}
   child: {fileID: 1707986409892446518}
+--- !u!114 &-7365496335131365920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de8de0177932faf42b32da44b2710ecc, type: 3}
+  m_Name: PartitionerNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: a6c2cae47a79dfa47a4d0f07d28c9dba
+  position: {x: 433, y: -52}
+  blackBoard:
+    gameObject: {fileID: 0}
+    player: {fileID: 0}
+  children:
+  - {fileID: 6302808255500443038}
+  - {fileID: -3437008616031168215}
+--- !u!114 &-3437008616031168215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b943e18c76a0a0945a001c7d4d0dbba9, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: d5c3e2d11d7049e4382ae435fded8404
+  position: {x: 643, y: -129}
+  blackBoard:
+    gameObject: {fileID: 0}
+    player: {fileID: 0}
+  message: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,10 +79,33 @@ MonoBehaviour:
   nodes:
   - {fileID: -7544910925910704323}
   - {fileID: 1707986409892446518}
+  - {fileID: -7365496335131365920}
+  - {fileID: 6302808255500443038}
+  - {fileID: -3437008616031168215}
+  - {fileID: 311640643597257731}
   blackBoard:
     gameObject: {fileID: 0}
-    moveToObject: {fileID: 0}
-    speed: 0
+    player: {fileID: 0}
+--- !u!114 &311640643597257731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b943e18c76a0a0945a001c7d4d0dbba9, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 0c6625de5b6dcd84f98c4f769c466211
+  position: {x: 0, y: 0}
+  blackBoard:
+    gameObject: {fileID: 0}
+    player: {fileID: 0}
+  message: 
 --- !u!114 &1707986409892446518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +124,25 @@ MonoBehaviour:
   position: {x: 237.96, y: -52}
   blackBoard:
     gameObject: {fileID: 0}
-    moveToObject: {fileID: 0}
-    speed: 0
-  child: {fileID: 0}
+    player: {fileID: 0}
+  child: {fileID: -7365496335131365920}
+--- !u!114 &6302808255500443038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b943e18c76a0a0945a001c7d4d0dbba9, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: df971c3cb1211fc468bf28f7c3fdbe23
+  position: {x: 642.8, y: 73}
+  blackBoard:
+    gameObject: {fileID: 0}
+    player: {fileID: 0}
+  message: 
