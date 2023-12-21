@@ -3720,7 +3720,7 @@ MonoBehaviour:
   qualityDropdown: {fileID: 282346629}
   fullscreenToggle: {fileID: 2026844870}
   ConfirmationPrompt: {fileID: 397538456}
-  nameGameLevel: Game
+  nameGameLevel: GameFixed
   noSavedGameMenu: {fileID: 844569251}
   resolutionDropdown: {fileID: 1261922631}
 --- !u!4 &555856709
