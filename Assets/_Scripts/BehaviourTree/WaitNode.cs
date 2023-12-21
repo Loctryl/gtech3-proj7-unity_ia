@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class WaitNode : ActionNode {
 	public float duration = 1;
+	public bool UseRandom = false;
+	public float minDuration;
+	public float maxDuration;
 	float startTime;
 
-	protected override void OnEnter() {
+	protected override void OnEnter()
+	{
+		if (UseRandom)
+			duration = Random.Range(minDuration, maxDuration);
 		startTime = Time.time;
 	}
 
@@ -14,7 +20,8 @@ public class WaitNode : ActionNode {
 	}
 
 	protected override State OnUpdate() {
-		if (Time.time - startTime > duration) {
+		if (Time.time - startTime > duration)
+		{
 			return State.Success;
 		}
 

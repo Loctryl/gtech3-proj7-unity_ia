@@ -6,8 +6,6 @@ using UnityEngine.Rendering;
 public class BossSpells : MonoBehaviour
 {
     [SerializeField] GameObject ElecAoE;
-    [SerializeField] int numberLightning;
-    [SerializeField] float delayBetweenLightnings;
     [SerializeField] GameObject WindAoE;
     [SerializeField] GameObject MeleeSingleTarget;
     [SerializeField] GameObject MeleeAoE;
@@ -26,11 +24,11 @@ public class BossSpells : MonoBehaviour
         playerDirection = player.transform.position - transform.position;
     }
 
-    public void CastElecAoE()
+    public void CastElecAoE(int numberLightning, float delayBetweenLightnings)
     {
-        StartCoroutine(castElec());
+        StartCoroutine(castElec(numberLightning, delayBetweenLightnings));
     }
-    IEnumerator castElec()
+    IEnumerator castElec(int numberLightning, float delayBetweenLightnings)
     {
         for (int i = 0; i < numberLightning; i++)
         {
