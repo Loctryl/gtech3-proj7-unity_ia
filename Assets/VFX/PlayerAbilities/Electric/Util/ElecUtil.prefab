@@ -52,7 +52,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 0.5
+        m_Name: Duration
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -128,8 +131,8 @@ MonoBehaviour:
   element: 4
   spellType: 3
   spawnType: 1
-  currCooldown: 0
   cooldown: 1
+  damageRatio: 1.2
 --- !u!114 &-8611845193961277425
 MonoBehaviour:
   m_ObjectHideFlags: 0

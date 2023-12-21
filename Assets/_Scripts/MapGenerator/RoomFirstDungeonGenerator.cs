@@ -20,6 +20,9 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField]
     GameObject player;
 
+    [SerializeField]
+    GameObject Follower;
+
     [SerializeField] 
     private GameObject navMesh;
 
@@ -66,7 +69,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         tilemapVisulazer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tilemapVisulazer);
-        //ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
+        ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
         ItemGenerator.CreateSpawnPoint(tilemapVisulazer, spawnPoint);
         
         ItemGenerator.CreateExitPoint(tilemapVisulazer, ExitPoint);
@@ -76,6 +79,8 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         
         
         player.transform.position = new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, 20);
+        Follower = Instantiate(Follower, new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, 20), Quaternion.identity);
+        Follower.GetComponent<Chaser>().target = player.transform;
     }
 
     private HashSet<Vector2Int> CreateRoomRandomly(List<BoundsInt> roomList)

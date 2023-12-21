@@ -155,7 +155,7 @@ public class TilemapVisulazer : MonoBehaviour
         
         var rngNb = Random.Range(0, floorPositions.Count);
         var position = floorPositions.ElementAt(rngNb);
-        int wichObject = Random.Range(0, 6);
+        int wichObject = Random.Range(0, 7);
         GameObject light;
 
     
@@ -180,8 +180,8 @@ public class TilemapVisulazer : MonoBehaviour
                             PaintSinlgleTile(objectTilmap, Deco3, position);
                         break;
                         case 3:
-                            PaintSinlgleTile(objectTilmap, Deco4, position);
-                        break;
+                        PaintSinlgleTile(objectTilmap, ObjectLightTile, position);
+                        light = Instantiate(Light, new Vector3(position.x + 0.56f, position.y + 0.56f, 15), Quaternion.identity); break;
                         case 4:
                             PaintSinlgleTile(objectTilmap, Deco5, position);
                         break;
@@ -190,9 +190,10 @@ public class TilemapVisulazer : MonoBehaviour
                         break;
                         case 6:
                             PaintSinlgleTile(objectTilmap, ObjectLightTile, position);
-                            light = Instantiate(Light, new Vector3(position.x + 0.56f,position.y + 0.56f, 0), Quaternion.identity);
+                            light = Instantiate(Light, new Vector3(position.x + 0.56f,position.y + 0.56f, 15), Quaternion.identity);
                         
                         break;
+
                     default:
                         break;
                 }

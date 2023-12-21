@@ -57,10 +57,10 @@ MonoBehaviour:
   - title: Flash
     position:
       serializedVersion: 2
-      x: 1456
+      x: 1479
       y: -287
-      width: 691
-      height: 1613
+      width: 668
+      height: 1615
     contents:
     - model: {fileID: 8926484042661614703}
       id: 0
@@ -3051,13 +3051,15 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614778}
       inputSlot: {fileID: 8926484042661614758}
-    position: {x: 1481, y: 1124}
+    position: {x: 1504, y: 886}
     expandedSlots: []
     expanded: 1
   - m_Id: 2
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614778}
       inputSlot: {fileID: 8926484042661614828}
+    - outputSlot: {fileID: 8926484042661614778}
+      inputSlot: {fileID: 8926484042661614998}
     position: {x: 2261, y: 1124}
     expandedSlots: []
     expanded: 1
@@ -3065,6 +3067,8 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614778}
       inputSlot: {fileID: 8926484042661615022}
+    - outputSlot: {fileID: 8926484042661614778}
+      inputSlot: {fileID: 8926484042661615049}
     position: {x: 3064, y: 1373}
     expandedSlots: []
     expanded: 0
@@ -3109,6 +3113,8 @@ MonoBehaviour:
   - {fileID: 8926484042661614758}
   - {fileID: 8926484042661614828}
   - {fileID: 8926484042661615022}
+  - {fileID: 8926484042661615049}
+  - {fileID: 8926484042661614998}
 --- !u!114 &8926484042661614779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6892,7 +6898,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614778}
 --- !u!114 &8926484042661614999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7850,7 +7857,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614778}
 --- !u!114 &8926484042661615050
 MonoBehaviour:
   m_ObjectHideFlags: 0
