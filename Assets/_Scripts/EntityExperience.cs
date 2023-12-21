@@ -58,5 +58,4 @@ public class EntityExperience : MonoBehaviour
         
         currentLevel = level;
     }
-
 }

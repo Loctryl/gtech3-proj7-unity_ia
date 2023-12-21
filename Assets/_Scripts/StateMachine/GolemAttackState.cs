@@ -1,22 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class GolemAttackState : BaseState {
+public class GolemAttackState : MonoBehaviour {
 	private GameObject player;
-
-	public GolemAttackState(GameObject p) {
-		player = p;
+	
+	void Start() {
+		player = GameObject.FindWithTag("Player");
 	}
-	public override void OnEnter() {
-		
-	}
-
-	public override void OnUpdate() {
+	
+	void Update() {
 		//player take damage
-	}
-
-	public override void OnExit() {
-		
+		Debug.Log("Taper !");
 	}
 }

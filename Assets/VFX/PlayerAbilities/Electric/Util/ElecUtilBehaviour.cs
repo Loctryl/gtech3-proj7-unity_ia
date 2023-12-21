@@ -17,7 +17,6 @@ public class ElecUtilBehaviour : MonoBehaviour
         transform.position = direction;
         player = GameObject.Find("Player");
         Vector3 playerPos = player.transform.position;
-        Debug.Log(playerPos);
         player.transform.position = transform.position;
         transform.position = playerPos;
 

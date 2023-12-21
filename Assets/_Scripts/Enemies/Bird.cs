@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bird : Enemy
-{
-    public float detectRange;
-    public float orbitRange;
-    
+public class Bird : Enemy {
+    [SerializeField] private int range = 4;
+
+    [SerializeField] private int damage = 2;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -16,13 +15,21 @@ public class Bird : Enemy
     // Update is called once per frame
     public override void Update()
     {
-        base.Update();
-        
         float dist = CalculateDist(player.transform, this.transform);
 
-        if (dist <= detectRange) {
-            stateMachine.SwitchState(new BirdOrbitState(player, orbitRange));
+        if (dist <= range && !(stateMachine.currentState is BirdWaitingState)) {
+            stateMachine.SwitchState(new BirdWaitingState());
         }
-        
+
+        /*if (player.isAttacking) {
+            
+        }*/
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.name == "Player") {
+            other.gameObject.GetComponentInChildren<EntityHealth>().Damage(damage);
+        }
+        Destroy(gameObject);
     }
 }

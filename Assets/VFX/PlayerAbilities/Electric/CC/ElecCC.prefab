@@ -46,10 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 603128000732356829, guid: fb4061604bab4cb4fa8d115b3e174a7d, type: 3}
-  temp: {fileID: 8507998020912374123, guid: c214011a890caa5458b96ea1e858107f, type: 3}
+  temp: {fileID: 7652221519607345247, guid: 872b382273882ff47a8929a4ad677b76, type: 3}
   MaxChainAmount: 3
   currChainPos: 1
   maxDist: 8
+  damage: 8
 --- !u!114 &5209997757088099124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,5 +67,5 @@ MonoBehaviour:
   spellType: 2
   spawnType: 0
   currCooldown: 0
-  playable: 0
   cooldown: 1
+  damageRatio: 1.2

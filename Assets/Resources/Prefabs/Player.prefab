@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2247117432362555400}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,7 +284,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 293235491, guid: c9ce17157ee317646871e9084d2ce282, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -488,6 +488,19 @@ MonoBehaviour:
   spell4: {fileID: 226437422956010876, guid: 9f2a4101d0582254db0d62d047de5050, type: 3}
   arrow: {fileID: 1357882417265228398}
   player: {fileID: 4149738088793837380}
+  spellCD: {fileID: 0}
+  singleTargetCooldown: 0
+  areaOfEffectCooldown: 0
+  crowdControlCooldown: 0
+  utilityCooldown: 0
+  singleTargetTimer: 10
+  areaOfEffectTimer: 10
+  crowdControlTimer: 10
+  utilityTimer: 10
+  isSingleTargetCooldown: 0
+  isAreaOfEffectCooldown: 0
+  isCrowdControlCooldown: 0
+  isUtilityCooldown: 0
 --- !u!1 &8028418700916816792
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +574,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: bac4650f9b582cf4996d9a4be510e881, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_FlipX: 0

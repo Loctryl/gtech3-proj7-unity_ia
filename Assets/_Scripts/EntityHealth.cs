@@ -12,6 +12,7 @@ public class EntityHealth : MonoBehaviour
     
     private void Awake()
     {
+        currentHp = maxHp;
         isAlive = true;
     }
 

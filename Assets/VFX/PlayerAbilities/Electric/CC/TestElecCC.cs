@@ -1,3 +1,4 @@
+using SpellSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,28 +7,40 @@ using UnityEngine.VFX;
 public class TestElecCC : MonoBehaviour
 {
     [SerializeField] public GameObject prefab;
+    [SerializeField] public GameObject temp;
     GameObject go;
     Transform closestEnemy;
-    [SerializeField] GameObject temp;
+
 
     public int MaxChainAmount = 4;
     public int currChainPos = 1;
     public float maxDist = 8;
     float deltaTime;
+
+    private float damageRatio;
+    public int damage;
+
     void Start()
     {
         SetTargets();
     }
     void SetTargets()
     {
+        Spell spell;
+        if (transform.TryGetComponent(out spell))   damageRatio = spell.damageRatio;
+
+
         closestEnemy = GetClosestViableEnemy();
         if (closestEnemy != null)
         {
             go = Instantiate(prefab, transform);
-            go.GetComponent<VisualEffect>().SetVector3("Pos1", transform.parent.position);
-            go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.parent.position);
-            go.GetComponent<VisualEffect>().SetVector3("Pos3", closestEnemy.position);
-            go.GetComponent<VisualEffect>().SetVector3("Pos4", closestEnemy.position);
+            VisualEffect vfx = go.GetComponent<VisualEffect>();
+            vfx.SetVector3("Pos1", transform.parent.position);
+            vfx.SetVector3("Pos2", transform.parent.position);
+            vfx.SetVector3("Pos3", closestEnemy.position);
+            vfx.SetVector3("Pos4", closestEnemy.position);
+
+            closestEnemy.GetComponent<EntityHealth>().Damage(Mathf.RoundToInt(damage * damageRatio));
         }
     }
     public void IncreaseChainPos(int curchain)
@@ -38,17 +51,26 @@ public class TestElecCC : MonoBehaviour
     {
         if (closestEnemy != null)
         {
+            VisualEffect vfx = go.GetComponent<VisualEffect>();
+            vfx.SetVector3("Pos1", transform.parent.position);
+            vfx.SetVector3("Pos2", transform.parent.position);
+            vfx.SetVector3("Pos3", closestEnemy.position);
+            vfx.SetVector3("Pos4", closestEnemy.position);
+
             deltaTime += Time.deltaTime;
-            if (deltaTime >= transform.GetChild(0).GetComponent<VisualEffect>().GetFloat("Duration"))
+            float duration = transform.GetChild(0).GetComponent<VisualEffect>().GetFloat("Duration");
+
+            if (deltaTime >= duration)
             {
+                Destroy(go);
                 Destroy(transform.gameObject);
             }
-            go.GetComponent<VisualEffect>().SetVector3("Pos1", transform.parent.position);
-            go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.parent.position);
-            go.GetComponent<VisualEffect>().SetVector3("Pos3", closestEnemy.position);
-            go.GetComponent<VisualEffect>().SetVector3("Pos4", closestEnemy.position);
         }
-        else Destroy(transform.gameObject);
+        else
+        {
+            Destroy(go);
+            Destroy(transform.gameObject);
+        }
     }
     Transform GetClosestViableEnemy()
     {
@@ -58,12 +80,12 @@ public class TestElecCC : MonoBehaviour
         float closestDistance = Mathf.Infinity;
         Vector3 currentPosition = transform.parent.position;
         List<Transform> enemies = new();
-        
+
         for (int i = 0; i < enemyParent.transform.childCount; i++)
         {
             enemies.Add(enemyParent.transform.GetChild(i));
         }
-        
+
         foreach (Transform potentialTarget in enemies)
         {
             if (potentialTarget.Find("ElecCC") != null) continue;
@@ -78,16 +100,14 @@ public class TestElecCC : MonoBehaviour
 
         if (currChainPos < MaxChainAmount && bestTarget != null)
         {
-            GameObject go = Instantiate(temp, bestTarget.transform);
+            GameObject go = Instantiate(temp, bestTarget);
+            TestElecCC spell = go.GetComponent<TestElecCC>();
+            spell.prefab = prefab;
+            spell.temp = temp;
+            spell.damage = damage;
+            spell.damageRatio = damageRatio;
+            spell.IncreaseChainPos(currChainPos);
             go.name = "ElecCC";
-            go.AddComponent<TestElecCC>();
-            go.transform.position = bestTarget.transform.position;
-            TestElecCC targetSpell = go.GetComponent<TestElecCC>();
-            targetSpell.IncreaseChainPos(currChainPos);
-            targetSpell.prefab = prefab;
-            targetSpell.temp = temp;
-            //targetSpell.SetTargets();
-            Debug.Log(bestTarget.name);
         }
 
         return bestTarget;

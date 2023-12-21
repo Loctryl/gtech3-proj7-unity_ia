@@ -1,3 +1,4 @@
+using SpellSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,10 @@ public class ElecSL : MonoBehaviour
     GameObject go;
     Transform closestEnemy;
     public float spellRange = 10;
-    public float aimRange = 4;
-    public float autoAimRange = 5;
+    public float aimRange = 3;
+    public float autoAimRange = 2;
+
+    public float damage;
     float deltaTime;
     void Start()
     {
@@ -26,6 +29,7 @@ public class ElecSL : MonoBehaviour
             go.GetComponent<VisualEffect>().SetVector3("Pos2", transform.parent.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos3", closestEnemy.position);
             go.GetComponent<VisualEffect>().SetVector3("Pos4", closestEnemy.position);
+            closestEnemy.GetComponent<EntityHealth>().Damage(Mathf.RoundToInt(damage * GetComponent<Spell>().damageRatio));
         }
     }
     void Update()
@@ -48,8 +52,7 @@ public class ElecSL : MonoBehaviour
     {
         GameObject enemyParent = GameObject.Find("enemies");
 
-        Vector3 direction = transform.rotation * Vector3.up * aimRange + transform.position - new Vector3(0,0,transform.position.z);
-        Debug.Log(direction);
+        Vector3 direction = transform.rotation * Vector3.up * aimRange + transform.position;
 
         Transform bestTarget = null;
         float closestDistance = Mathf.Infinity;
@@ -68,7 +71,6 @@ public class ElecSL : MonoBehaviour
 
             if (AimDistance < closestDistance && distance < spellRange && AimDistance < autoAimRange)
             {
-                Debug.Log("ok");
                 closestDistance = AimDistance;
                 bestTarget = potentialTarget;
             }

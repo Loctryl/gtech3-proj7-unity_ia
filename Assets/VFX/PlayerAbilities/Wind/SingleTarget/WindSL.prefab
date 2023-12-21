@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 2660011549156349258}
   - component: {fileID: 4983241780179784907}
   - component: {fileID: -3933434256384204842}
-  m_Layer: 0
+  - component: {fileID: 2922912254954920351}
+  m_Layer: 9
   m_Name: WindSL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,6 +131,7 @@ MonoBehaviour:
   spawnType: 0
   currCooldown: 0
   cooldown: 1
+  damageRatio: 1.2
 --- !u!114 &-3933434256384204842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,3 +144,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f92487cd6740b99439074d389201bf01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3
+--- !u!60 &2922912254954920351
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5621558254979491026}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.24667871, y: 4.0972896}
+      - {x: -0.22250956, y: 4.1063557}
+      - {x: -0.44704896, y: 1.1115932}
+      - {x: -0.65962166, y: 0.63004243}
+      - {x: 0.7379965, y: 0.63937855}
+      - {x: 0.46625993, y: 1.115133}
+  m_UseDelaunayMesh: 0

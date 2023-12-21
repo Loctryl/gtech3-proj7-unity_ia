@@ -13,14 +13,14 @@ TagManager:
   - Player
   - Water
   - UI
+  - Ennemies
+  - Flying
   - Minimap
   - wall
+  - Spider
   - Light
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Projectile
+  - Cobweb
   - 
   - 
   - 

@@ -11,7 +11,7 @@ namespace SpellSystem
         public Elements element;
         public SpellType spellType = SpellType.Undefined;
         public SpawnType spawnType;
-        [SerializeField] public float cooldown = 1;
+         public float cooldown = 10;
         public float damageRatio;
     }
 }
