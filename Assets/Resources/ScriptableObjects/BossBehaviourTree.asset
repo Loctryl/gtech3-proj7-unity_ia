@@ -44,8 +44,8 @@ MonoBehaviour:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   children:
-  - {fileID: 4051422458194320132}
   - {fileID: -3008289316135963881}
+  - {fileID: 4051422458194320132}
 --- !u!114 &-7917519732724569774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,10 +521,13 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: e7a385986ca70f84f99f1b9af3b1e62e
-  position: {x: 976, y: -965}
+  position: {x: 983, y: -944.8102}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
+  numberLightning: 7
+  delayBetweenLightnings: 0.5
+  bossSpellKey: BossSpells
 --- !u!114 &4404432108177487840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,6 +567,9 @@ MonoBehaviour:
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
+  numberLightning: 0
+  delayBetweenLightnings: 0
+  bossSpellKey: 
 --- !u!114 &6954615373041319672
 MonoBehaviour:
   m_ObjectHideFlags: 0
