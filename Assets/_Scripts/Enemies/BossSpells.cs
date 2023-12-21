@@ -77,7 +77,7 @@ public class BossSpells : MonoBehaviour
         }
     }
 
-    public void TeleportTo(Vector2 pos)
+    public void TeleportTo(Vector3 pos)
     {
         Instantiate(TeleportSpell, pos, Quaternion.identity);
     }

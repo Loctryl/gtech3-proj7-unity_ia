@@ -71,14 +71,14 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 5
+      - m_Value: 20
         m_Name: Duration
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 14.34, y: 10, z: 10}
+      - m_Value: {x: 6, y: 10, z: 10}
         m_Name: Scale
         m_Overridden: 1
     m_Vector4f:
@@ -190,12 +190,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.24667871, y: 4.0972896}
-      - {x: -0.22250956, y: 4.1063557}
-      - {x: -0.44704896, y: 1.1115932}
-      - {x: -0.65962166, y: 0.63004243}
-      - {x: 0.7379965, y: 0.63937855}
-      - {x: 0.46625993, y: 1.115133}
+    - - {x: 0.10714321, y: 4.1969576}
+      - {x: -0.13280818, y: 4.196057}
+      - {x: -0.3274471, y: 1.0816928}
+      - {x: -0.46960807, y: 0.6458769}
+      - {x: 0.47672778, y: 0.6472957}
+      - {x: 0.30679083, y: 1.0752656}
   m_UseDelaunayMesh: 0
 --- !u!114 &1732692829070382151
 MonoBehaviour:
