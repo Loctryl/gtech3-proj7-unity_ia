@@ -37,8 +37,11 @@ public class BossWindAoE: MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EntityHealth entityHealth;
-        if (collision.TryGetComponent(out entityHealth)) entityHealth.Damage(Mathf.RoundToInt(damage * GetComponent<Spell>().damageRatio));
+        EntityHealth hp = collision.transform.parent.gameObject.GetComponentInChildren<EntityHealth>();
+        if (hp != null && collision.transform.parent.GetComponentInChildren<Player>() != null)
+        {
+            collision.transform.parent.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(damage * GetComponent<Spell>().damageRatio));
+        }
     }
 
     IEnumerator IndicatorCoroutine()

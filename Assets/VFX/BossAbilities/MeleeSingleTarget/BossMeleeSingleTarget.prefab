@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8853128739889879635}
   - component: {fileID: 7472007008555739269}
   - component: {fileID: -2103016684188025878}
+  - component: {fileID: 1732692829070382151}
   m_Layer: 0
   m_Name: BossMeleeSingleTarget
   m_TagString: Untagged
@@ -196,3 +197,16 @@ PolygonCollider2D:
       - {x: 0.7379965, y: 0.63937855}
       - {x: 0.46625993, y: 1.115133}
   m_UseDelaunayMesh: 0
+--- !u!114 &1732692829070382151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3620763779719515141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c914626f5dc77ac4b8e1ec413bbd1127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 18
