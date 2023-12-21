@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class EntityHealth : MonoBehaviour
@@ -7,6 +8,7 @@ public class EntityHealth : MonoBehaviour
     [SerializeField] public int maxHp;
     [SerializeField] private GameObject hpEffect;
     
+    private GameObject _player;
     public int currentHp { get; private set; }
     public bool isAlive { get; private set; }
     
@@ -14,6 +16,7 @@ public class EntityHealth : MonoBehaviour
     {
         currentHp = maxHp;
         isAlive = true;
+        _player = GameObject.Find("Player");
     }
 
     public void Heal(int hp)
@@ -39,6 +42,14 @@ public class EntityHealth : MonoBehaviour
     {
         currentHp -= damage;
         if (currentHp <= 0) isAlive = false;
+        if (gameObject == _player)
+        {
+           
+        }
+        else
+        {
+            if (!isAlive) Destroy(gameObject);
+        }
         
         SendHpEffect(-damage);
     }

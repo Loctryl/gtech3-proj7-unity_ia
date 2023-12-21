@@ -35,15 +35,16 @@ public class BossSpells : MonoBehaviour
         for (int i = 0; i < numberLightning; i++)
         {
             Vector2 rand = Random.insideUnitCircle * 6 + new Vector2(player.transform.position.x, player.transform.position.y);
-            Instantiate(ElecAoE, new Vector3(rand.x,rand.y,player.transform.position.z) ,Quaternion.identity);
+            Instantiate(ElecAoE, new Vector3(rand.x, rand.y, player.transform.position.z), Quaternion.identity);
             yield return new WaitForSeconds(delayBetweenLightnings);
         }
     }
 
     public void CastWindAoE()
     {
-        Vector3 direction = player.transform.position -transform.position;
-        Instantiate(WindAoE, transform.position, Quaternion.FromToRotation(Vector3.up, direction));
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        GameObject go = Instantiate(WindAoE, transform.position, Quaternion.FromToRotation(Vector3.up, direction));
+        go.transform.rotation = Quaternion.Euler(0, 0, go.transform.rotation.eulerAngles.z);
     }
 
     public void CastMeleeAoE()
@@ -53,8 +54,9 @@ public class BossSpells : MonoBehaviour
 
     public void CastMeleeSL()
     {
-        Vector3 direction = player.transform.position - transform.position;
-        Instantiate(MeleeSingleTarget, transform.position, Quaternion.FromToRotation(Vector3.up, direction), transform);
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        GameObject go = Instantiate(MeleeSingleTarget, transform.position, Quaternion.FromToRotation(Vector3.up, direction), transform);
+        go.transform.rotation = Quaternion.Euler(0, 0, go.transform.rotation.eulerAngles.z);
     }
 
     public void CastTeleport()

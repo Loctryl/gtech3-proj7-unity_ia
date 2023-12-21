@@ -55,7 +55,7 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 1.5
+      - m_Value: 2.5
         m_Name: Duration
         m_Overridden: 1
       - m_Value: 2
@@ -165,6 +165,7 @@ MonoBehaviour:
   speed: 20
   damage: 12
   IndicatorLifetime: 1
+  player: {fileID: 0}
 --- !u!50 &5969963523127279798
 Rigidbody2D:
   serializedVersion: 4

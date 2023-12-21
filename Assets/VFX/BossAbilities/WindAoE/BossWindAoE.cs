@@ -11,6 +11,7 @@ public class BossWindAoE: MonoBehaviour
     float duration;
     public float damage;
     public float IndicatorLifetime;
+    public GameObject player;
     void Start()
     {
         transform.gameObject.GetComponent<VisualEffect>().SetFloat("Delay", IndicatorLifetime);
@@ -19,6 +20,7 @@ public class BossWindAoE: MonoBehaviour
         effect.SetVector3("Orientation", angle);
         duration = effect.GetFloat("Duration");
         StartCoroutine(IndicatorCoroutine());
+        player = GameObject.Find("Player");
     }
     void Update()
     {
@@ -31,17 +33,18 @@ public class BossWindAoE: MonoBehaviour
 
         if (deltaTime >= duration + IndicatorLifetime)
         {
-            Destroy(transform.parent.gameObject);
+            Destroy(transform.parent.parent.gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EntityHealth hp = collision.transform.parent.gameObject.GetComponentInChildren<EntityHealth>();
-        if (hp != null && collision.transform.parent.GetComponentInChildren<Player>() != null)
+
+        if (collision == player.GetComponent<Collider2D>())
         {
-            collision.transform.parent.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(damage * GetComponent<Spell>().damageRatio));
+            collision.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(damage * GetComponent<Spell>().damageRatio));
         }
+
     }
 
     IEnumerator IndicatorCoroutine()

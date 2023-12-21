@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public   class Exit : MonoBehaviour
@@ -12,9 +13,12 @@ public   class Exit : MonoBehaviour
     public bool levelEnd = false;
     [SerializeField]
     private LevelCounter levelCounter;
+    [SerializeField]
+    private GameObject player;
   private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == gameObject.CompareTag("Player"))
+        
+        if (other == player.GetComponent<Collider2D>())
         {
 
                 if (levelCounter.count < 2)
