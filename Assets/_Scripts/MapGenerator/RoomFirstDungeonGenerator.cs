@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using NavMeshPlus.Components;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 {
     [SerializeField]
-    private int minRoomWidth = 4, minRoomHeight = 4;
+    public int minRoomWidth = 4, minRoomHeight = 4;
     [SerializeField]
-    private int dungeonWidth = 20, dungeonHeight = 20;
+    public int dungeonWidth = 20, dungeonHeight = 20;
     [SerializeField]
     [Range(0, 10)]
     private int offset = 1;
@@ -18,17 +19,20 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     private bool randomWalkRoom = false;
 
     [SerializeField]
-    GameObject player;
+    public GameObject player;
+
+    [SerializeField]
+    public GameObject Follower;
 
     [SerializeField] 
-    private GameObject navMesh;
+    public GameObject navMesh;
 
 
 
     private void Start()
     {
         tilemapVisulazer.Clear();
-        RunProceduralGeneration();
+        
     }
     public override void RunProceduralGeneration()
     {
@@ -38,6 +42,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     private void CreateRoom()
     {
+        
         var  roomList = ProcduralGenration.BinarySpacePartitioning(new BoundsInt((Vector3Int)startPosition, new Vector3Int
             (dungeonWidth, dungeonHeight, 0)), minRoomWidth, minRoomHeight);
 
@@ -66,7 +71,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         tilemapVisulazer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tilemapVisulazer);
-        //ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
+        ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
         ItemGenerator.CreateSpawnPoint(tilemapVisulazer, spawnPoint);
         
         ItemGenerator.CreateExitPoint(tilemapVisulazer, ExitPoint);
@@ -76,6 +81,12 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         
         
         player.transform.position = new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, 20);
+        Follower.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        Follower.GetComponent<Chaser>().target = player.transform;
+        Follower.transform.position = new Vector3(spawnPoint.x + 0.56f, spawnPoint.y + 0.56f, 20);
+        Follower.gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        
+
     }
 
     private HashSet<Vector2Int> CreateRoomRandomly(List<BoundsInt> roomList)
