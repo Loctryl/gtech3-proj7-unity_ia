@@ -101,6 +101,7 @@ public class TilemapVisulazer : MonoBehaviour
 
 
 
+
         objectTilmap.ClearAllTiles();
         floorTilmap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
