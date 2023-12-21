@@ -10,6 +10,7 @@ public class BossSpells : MonoBehaviour
     [SerializeField] GameObject MeleeSingleTarget;
     [SerializeField] GameObject MeleeAoE;
     [SerializeField] GameObject TeleportSpell;
+    [SerializeField] GameObject Golem;
 
     GameObject player;
     Vector3 playerDirection;
@@ -58,5 +59,20 @@ public class BossSpells : MonoBehaviour
     public void CastTeleport()
     {
         Instantiate(TeleportSpell, transform.position, Quaternion.identity);
+    }
+
+    public void InvokeGolems(int numberGolems, float delayBetweenInvocations)
+    {
+        StartCoroutine(CastGolems(numberGolems, delayBetweenInvocations));
+    }
+
+    IEnumerator CastGolems(int numberGolems, float delayBetweenInvocations)
+    {
+        for (int i = 0; i < numberGolems; i++)
+        {
+            Vector2 rand = Random.insideUnitCircle * 3 + new Vector2(transform.parent.position.x, transform.parent.position.y);
+            Instantiate(ElecAoE, new Vector3(rand.x, rand.y, transform.parent.position.z), Quaternion.identity);
+            yield return new WaitForSeconds(delayBetweenInvocations);
+        }
     }
 }
