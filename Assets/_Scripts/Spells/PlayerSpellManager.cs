@@ -64,7 +64,7 @@ public class PlayerSpellManager : SpellManager
         {
             if (isSingleTargetCooldown) return;
             _choosedType = SpellType.SingleTarget;
-            spellCD.SingleTargetElec.gameObject.SetActive(true);
+            spellCD.SingleTargetElec.gameObject.SetActive(true);    
             spellCD.SingleTargetWind.gameObject.SetActive(true);
             spellCD.ReturnLeft.gameObject.SetActive(true);
             spellCD.ReturnRight.gameObject.SetActive(true);

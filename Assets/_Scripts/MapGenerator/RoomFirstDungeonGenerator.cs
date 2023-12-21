@@ -66,7 +66,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         tilemapVisulazer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tilemapVisulazer);
-        //ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
+        ItemGenerator.CreateObject(tilemapVisulazer, floor , roomList);
         ItemGenerator.CreateSpawnPoint(tilemapVisulazer, spawnPoint);
         
         ItemGenerator.CreateExitPoint(tilemapVisulazer, ExitPoint);
