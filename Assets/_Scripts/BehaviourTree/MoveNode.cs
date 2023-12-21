@@ -7,20 +7,37 @@ using UnityEngine;
 public class MoveNode : ActionNode
 {
 	public float speed;
-	protected override void OnEnter() {
-		
+	public float range;
+	public float duration;
+
+	private float timer;
+	private Vector3 randPos;
+	protected override void OnEnter()
+	{
+		timer = 0;
+		randPos = (Random.insideUnitSphere * range) + blackBoard.gameObject.transform.position;
 	}
 
-	protected override State OnUpdate() {
-		Vector3 player = blackBoard.player.transform.position;
+	protected override State OnUpdate()
+	{
+		timer += Time.deltaTime;
 		Vector3 self = blackBoard.gameObject.transform.position;
 
-		Vector3 dir = player - self;
+		if (timer > duration)
+		{
+			timer = 0;
+			randPos = (Random.insideUnitSphere * range) + self;
+			return State.Success;
+		}
+		
+		randPos.z = 0;
+		
+		Vector3 dir = randPos - self;
 		dir.Normalize();
 		dir *= speed * Time.deltaTime;
 		blackBoard.gameObject.transform.position += dir;
 
-		return State.Success;
+		return State.Running;
 	}
 
 	protected override void OnExit() {

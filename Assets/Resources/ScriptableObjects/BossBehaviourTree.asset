@@ -39,13 +39,33 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 6deb5816bd04e4f4688c7e87fca80012
-  position: {x: 781.0001, y: -824.0001}
+  position: {x: 978, y: -825}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   children:
   - {fileID: 4051422458194320132}
   - {fileID: -3008289316135963881}
+--- !u!114 &-8587064632053153137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836a1974e9e84d4e92e987136d4e9359, type: 3}
+  m_Name: SpikeArmorNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 48f6123fc3afbae45995167be061f9a7
+  position: {x: 1136, y: -220}
+  blackBoard:
+    gameObject: {fileID: 0}
+    player: {fileID: 0}
+  bossSpellKey: BossSpells
 --- !u!114 &-7917519732724569774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +126,6 @@ MonoBehaviour:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   children:
-  - {fileID: -2301778197964285751}
   - {fileID: -5742038846448052604}
   - {fileID: 9121986382787674093}
   entityHealthKey: BossHealth
@@ -125,7 +144,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 6bfb808d2a0d4c84cbba2e0f14b19644
-  position: {x: 563.40015, y: -824.0001}
+  position: {x: 781, y: -825.3225}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
@@ -173,7 +192,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: dc09c78ab86ff744ea744ebafef2cc3e
-  position: {x: 1454.56, y: -644}
+  position: {x: 1455, y: -721}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
@@ -199,7 +218,7 @@ MonoBehaviour:
     player: {fileID: 0}
   testWithPlayer: 1
   gameObjectKey: 
-  range: 5
+  range: 3
 --- !u!114 &-3302151600986587360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +240,7 @@ MonoBehaviour:
     player: {fileID: 0}
   children:
   - {fileID: 8686661192112063333}
-  - {fileID: 182949147800532003}
+  - {fileID: 4771508629330523549}
 --- !u!114 &-3089112902871622682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +260,7 @@ MonoBehaviour:
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
-  duration: 0.5
+  duration: 2
   UseRandom: 0
   minDuration: 0
   maxDuration: 0
@@ -260,7 +279,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 1a44be146f09e8f46ada59f1b3aebab3
-  position: {x: 976, y: -824}
+  position: {x: 1173, y: -825}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
@@ -341,43 +360,22 @@ MonoBehaviour:
   - {fileID: 2482993552234962101}
   - {fileID: 8686661192112063333}
   - {fileID: 9163197044258163193}
-  - {fileID: 6655348024112569431}
   - {fileID: -2301778197964285751}
   - {fileID: -3089112902871622682}
   - {fileID: -7229778480644545003}
   - {fileID: 3655260730945524664}
   - {fileID: -1160422293706683314}
   - {fileID: -5077657182366195461}
-  - {fileID: 4404432108177487840}
   - {fileID: -5742038846448052604}
   - {fileID: 6954615373041319672}
   - {fileID: -3302151600986587360}
-  - {fileID: 182949147800532003}
+  - {fileID: -8587064632053153137}
+  - {fileID: 5442271619302973633}
+  - {fileID: 4771508629330523549}
+  - {fileID: 6149512991655955450}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
---- !u!114 &182949147800532003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b2f57e7a4d906468e0c210aa75fb6a, type: 3}
-  m_Name: SequencerNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 34c40cc56cb7ed24f83254667657b721
-  position: {x: 933, y: 63.550003}
-  blackBoard:
-    gameObject: {fileID: 0}
-    player: {fileID: 0}
-  children: []
-  endOnFailure: 0
-  waitChildToFinish: 1
 --- !u!114 &1439943005369340567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,7 +411,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 4e461d1c9b853d14090b7c6655d1f483
-  position: {x: 781, y: -965.0001}
+  position: {x: 978, y: -927}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
@@ -456,14 +454,14 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 8cad01e1ce3cc314aa7ee36f36abe5a3
-  position: {x: 983, y: -535}
+  position: {x: 976, y: -542.00006}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   duration: 1
   UseRandom: 1
-  minDuration: 2
-  maxDuration: 4
+  minDuration: 1
+  maxDuration: 2
 --- !u!114 &2482993552234962101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,11 +477,13 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: f248de98c266c93428c63f710f83e93a
-  position: {x: 983, y: -446}
+  position: {x: 976, y: -446.00006}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
-  speed: 5
+  speed: 7
+  range: 7
+  duration: 0.5
 --- !u!114 &3655260730945524664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,14 +523,14 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: e7a385986ca70f84f99f1b9af3b1e62e
-  position: {x: 983, y: -944.8102}
+  position: {x: 1180, y: -946}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   numberLightning: 7
   delayBetweenLightnings: 0.5
   bossSpellKey: BossSpells
---- !u!114 &4404432108177487840
+--- !u!114 &4771508629330523549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -539,18 +539,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b943e18c76a0a0945a001c7d4d0dbba9, type: 3}
-  m_Name: DebugLogNode
+  m_Script: {fileID: 11500000, guid: 11b2f57e7a4d906468e0c210aa75fb6a, type: 3}
+  m_Name: SequencerNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: 50d15faaff20f0f44930348a54a1a17d
-  position: {x: 1436.96, y: -458}
+  guid: 9d0781e3bcf2b8b438379bf459150a93
+  position: {x: 933, y: 64.77686}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
-  message: move
---- !u!114 &6655348024112569431
+  children:
+  - {fileID: 6149512991655955450}
+  endOnFailure: 1
+  waitChildToFinish: 1
+--- !u!114 &5442271619302973633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -559,19 +562,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc389bb91926b714084b7d44e1b2652b, type: 3}
-  m_Name: ThunderRainNode
+  m_Script: {fileID: 11500000, guid: c349274877c92b044834450c33d7a167, type: 3}
+  m_Name: DashInNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: de11a6dd4dc52704d8f82d7dec9310e1
-  position: {x: 1136, y: -135}
+  guid: dfb86792d76223948bfb6e8de507c92e
+  position: {x: 1136, y: -132}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
-  numberLightning: 0
-  delayBetweenLightnings: 0
-  bossSpellKey: 
+  speed: 10
+  duration: 2
+--- !u!114 &6149512991655955450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497cb1db86de69e448f7cb1805bf8ea0, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 288f05fcc4ccc5641919bac5779e9c6f
+  position: {x: 1136, y: 64.99999}
+  blackBoard:
+    gameObject: {fileID: 0}
+    player: {fileID: 0}
+  duration: 1
+  UseRandom: 0
+  minDuration: 0
+  maxDuration: 0
 --- !u!114 &6954615373041319672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,7 +617,7 @@ MonoBehaviour:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   duration: 1
-  UseRandom: 0
+  UseRandom: 1
   minDuration: 4
   maxDuration: 10
 --- !u!114 &8686661192112063333
@@ -616,7 +641,8 @@ MonoBehaviour:
     player: {fileID: 0}
   children:
   - {fileID: 9163197044258163193}
-  - {fileID: 6655348024112569431}
+  - {fileID: -8587064632053153137}
+  - {fileID: 5442271619302973633}
   - {fileID: -3089112902871622682}
   endOnFailure: 0
   waitChildToFinish: 1
@@ -656,7 +682,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: e1cd501fb7bac6346b58a79285a0ebba
-  position: {x: 1136, y: -251}
+  position: {x: 1136, y: -297}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
