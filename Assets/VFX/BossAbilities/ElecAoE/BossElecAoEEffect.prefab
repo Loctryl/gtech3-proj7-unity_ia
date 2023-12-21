@@ -871,7 +871,7 @@ MonoBehaviour:
   - {fileID: 7383515929835006693}
   baseDamage: 15
   damage: 0
-  IndicatorLifetime: 1
+  IndicatorLifetime: 0.75
   indicatorGrowth: 0.1
 --- !u!114 &-6476733765720849759
 MonoBehaviour:
