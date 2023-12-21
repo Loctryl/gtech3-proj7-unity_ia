@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SequencerNode : CompositeNode {
-
+public class SequencerNode : CompositeNode
+{
+	public bool endOnFailure = true;
 	protected override void OnEnter() {
 	}
 
@@ -12,22 +13,24 @@ public class SequencerNode : CompositeNode {
 
 	protected override State OnUpdate()
 	{
-		bool anyChildIsRunning = false;
+		State state = State.Success;
 
 		foreach (var child in children)
 		{
 			switch (child.Update())
 			{
 				case State.Running:
-					anyChildIsRunning = true;
+					if (state == State.Success) state = State.Running;
 					break;
 				case State.Failure:
-					return State.Failure;
+					if(endOnFailure) return State.Failure;
+					state = State.Failure;
+					break;
 				case State.Success:
 					break;
 			}
 		}
 
-		return anyChildIsRunning ? State.Running : State.Success;
+		return state;
 	}
 }
