@@ -32,7 +32,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     private void Start()
     {
         tilemapVisulazer.Clear();
-        
+        RunProceduralGeneration();
     }
     public override void RunProceduralGeneration()
     {
