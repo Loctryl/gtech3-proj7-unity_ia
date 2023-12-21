@@ -7,6 +7,9 @@ public class PartitionerNode : CompositeNode
 {
 	private EntityHealth _entityHealth;
 	public string entityHealthKey;
+	
+	private Node runningNode = null;
+	
 	protected override void OnEnter()
 	{
 		_entityHealth = (EntityHealth)blackBoard.dataContext[entityHealthKey];
@@ -17,11 +20,32 @@ public class PartitionerNode : CompositeNode
 	
 	protected override State OnUpdate()
 	{
-		float milestoneRatio = (float)_entityHealth.maxHp / children.Count;
+		
+		if (runningNode == null)
+		{
+			float milestoneRatio = (float)_entityHealth.maxHp / children.Count;
 
-		int childToUdptateIndex = children.Count - Mathf.RoundToInt(_entityHealth.currentHp / milestoneRatio);
+			int childToUdptateIndex = children.Count - Mathf.RoundToInt(_entityHealth.currentHp / milestoneRatio);
 
-		return children[childToUdptateIndex].Update();
+			runningNode = children[childToUdptateIndex];
+		}
+
+		switch (runningNode.Update())
+		{
+			case State.Success:
+				runningNode = null;
+				return State.Success;
+            
+			case State.Running:
+				return State.Running;
+            
+			case State.Failure:
+				runningNode = null;
+				return State.Failure;
+            
+			default:
+				return State.Success;
+		}
 
 	}
 }

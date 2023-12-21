@@ -15,12 +15,11 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 89f88e18947631d478a539f66501a474
-  position: {x: 827.3002, y: -128.99997}
+  position: {x: 745, y: 102}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   children:
-  - {fileID: -3437008616031168215}
   - {fileID: -4520336169872572046}
 --- !u!114 &-7917519732724569774
 MonoBehaviour:
@@ -77,14 +76,14 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: a6c2cae47a79dfa47a4d0f07d28c9dba
-  position: {x: 433, y: -52}
+  position: {x: 413.1625, y: -52.000004}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   children:
   - {fileID: 9121986382787674093}
   - {fileID: 311640643597257731}
-  - {fileID: 6302808255500443038}
+  - {fileID: -8964138503660086357}
   entityHealthKey: BossHealth
 --- !u!114 &-4520336169872572046
 MonoBehaviour:
@@ -101,33 +100,13 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: a03b1a418adce2f4e896b23ed49fbe56
-  position: {x: 1038.6001, y: -129.00003}
+  position: {x: 941, y: 102}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   testWithPlayer: 1
   gameObjectKey: 
   range: 5
---- !u!114 &-3437008616031168215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b943e18c76a0a0945a001c7d4d0dbba9, type: 3}
-  m_Name: DebugLogNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: d5c3e2d11d7049e4382ae435fded8404
-  position: {x: 1039, y: -222.97604}
-  blackBoard:
-    gameObject: {fileID: 0}
-    player: {fileID: 0}
-  message: test 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,13 +125,12 @@ MonoBehaviour:
   - {fileID: -7544910925910704323}
   - {fileID: 1707986409892446518}
   - {fileID: -7365496335131365920}
-  - {fileID: 6302808255500443038}
-  - {fileID: -3437008616031168215}
   - {fileID: 311640643597257731}
   - {fileID: -4520336169872572046}
   - {fileID: -8964138503660086357}
   - {fileID: 9121986382787674093}
   - {fileID: -7917519732724569774}
+  - {fileID: 3804117522171106283}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
@@ -171,7 +149,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 0c6625de5b6dcd84f98c4f769c466211
-  position: {x: 643, y: -27}
+  position: {x: 643, y: -51.999992}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
@@ -196,7 +174,7 @@ MonoBehaviour:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   child: {fileID: -7365496335131365920}
---- !u!114 &6302808255500443038
+--- !u!114 &3804117522171106283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,17 +183,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b943e18c76a0a0945a001c7d4d0dbba9, type: 3}
-  m_Name: DebugLogNode
+  m_Script: {fileID: 11500000, guid: 5e8d8a0517df5d244885b73d2998c4e4, type: 3}
+  m_Name: SelectorNode
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: df971c3cb1211fc468bf28f7c3fdbe23
-  position: {x: 643, y: 62}
+  guid: 0e03d449c435c1a42b39f4a254190264
+  position: {x: 0, y: 0}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
-  message: test3
+  children: []
 --- !u!114 &9121986382787674093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,10 +209,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: aa1320f3f87f7224892f93d0f3325895
-  position: {x: 654.99994, y: -129}
+  position: {x: 643, y: -129}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   children:
-  - {fileID: -8964138503660086357}
   - {fileID: -7917519732724569774}
