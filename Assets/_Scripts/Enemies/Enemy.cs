@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour {
     protected GameObject player;
     protected EntityHealth playerHealth;
+    protected EntityHealth selfHealth;
     public int speed;
-
-
+    
     [HideInInspector] public NavMeshAgent agent;
 
     public StateMachine stateMachine;
