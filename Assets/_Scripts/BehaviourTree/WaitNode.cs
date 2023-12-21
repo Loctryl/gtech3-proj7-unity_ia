@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaitNode : DecoratorNode {
+public class WaitNode : ActionNode {
 	public float duration = 1;
 	public bool UseRandom = false;
 	public float minDuration;
@@ -22,9 +22,9 @@ public class WaitNode : DecoratorNode {
 	protected override State OnUpdate() {
 		if (Time.time - startTime > duration)
 		{
-			return child.Update();
+			return State.Success;
 		}
 
-		return State.Failure;
+		return State.Running;
 	}
 }
