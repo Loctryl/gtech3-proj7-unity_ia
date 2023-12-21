@@ -26,8 +26,8 @@ public class Cobweb : MonoBehaviour {
 			
 			foreach (var el in _spiders.Object.Select(i => i.GetComponentInParent<Spider>())) 
 			{
-				if (!(el.stateMachine.currentState is CommonChaseState)) {
-					el.stateMachine.SwitchState(new CommonChaseState(player));
+				if (!(el.stateMachine.currentState is SpiderChaseState)) {
+					el.stateMachine.SwitchState(new SpiderChaseState(player));
 					el.isTrigger = true;
 				}
 			}

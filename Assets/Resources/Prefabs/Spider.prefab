@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1994176524020688303}
   - component: {fileID: 6323693409962557547}
   - component: {fileID: 6999019132938535745}
+  - component: {fileID: 272040334239269991}
   m_Layer: 6
   m_Name: Spider
   m_TagString: Enemies
@@ -215,6 +216,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 10
   hpEffect: {fileID: 7458998778295284173, guid: 3d0c542bc7fb55945b1831d5d62776db, type: 3}
+--- !u!95 &272040334239269991
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826649651686475194}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20c66f526db878e4cbacb53b340518b8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9182014514577630487
 GameObject:
   m_ObjectHideFlags: 0

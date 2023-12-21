@@ -56,4 +56,8 @@ public class EntityHealth : MonoBehaviour
         GameObject go = Instantiate(hpEffect, transform);
         go.GetComponent<EntityHpEffect>().SetHpValue(hp);
     }
+
+    public void ToDestroy() {
+        Destroy(gameObject);
+    }
 }

@@ -31,9 +31,7 @@ public class Bird : Enemy {
                 stateMachine.SwitchState(new BirdWaitingState(player, side));
                 agent.enabled = false;
             }
-        }
-
-        if (delay >= 5) {
+        } else if (delay >= 5) {
             delay = 0;
             stateMachine.SwitchState(new BirdAttackState(player));
         }
