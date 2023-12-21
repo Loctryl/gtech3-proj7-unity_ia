@@ -12,7 +12,6 @@ public class CommonIdleState : BaseState {
 	public override void OnEnter() {
 		agent = self.GetComponent<Enemy>().agent;
 		animator = self.GetComponent<Animator>();
-
 	}
 
 	public override void OnUpdate() {

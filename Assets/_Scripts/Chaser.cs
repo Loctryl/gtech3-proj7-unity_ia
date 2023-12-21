@@ -3,31 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Chaser : Enemy
+public class Chaser : MonoBehaviour
 {
-    [SerializeField]
-    private NavMeshAgent navMesh = null;
+    private NavMeshAgent agent = null;
 
     [SerializeField]
     public Transform target = null;
-
-    public override void Start()
-    {
-        base.Start();
-
-        stateMachine.SwitchState(new FollowerFollowState( gameObject.transform, target, navMesh));
-
-    }
-
-    public override void Update()
-    {
-        base.Update();
-
-        float dist = CalculateDist(player.transform, this.transform);
-
-
-    }
-
-
     
+    private StateMachine stateMachine;
+
+    public  void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        
+        stateMachine = new StateMachine(gameObject);
+        stateMachine.currentState = new FollowerFollowState(gameObject.transform, target, agent);
+        stateMachine.currentState.self = gameObject;
+        stateMachine.currentState.machine = stateMachine;
+    }
+
+    public void Update()
+    {
+        stateMachine.Update();
+    }
 }

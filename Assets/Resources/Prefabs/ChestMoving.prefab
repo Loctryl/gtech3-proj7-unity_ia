@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 338478439803771180}
   - component: {fileID: 7793515430040722177}
   - component: {fileID: 1687677083731549633}
+  - component: {fileID: 1415933133476641740}
   m_Layer: 0
   m_Name: ChestMoving
   m_TagString: Untagged
@@ -131,9 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c026888dcff40b4982f291f265436ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 3
   agent: {fileID: 7793515430040722177}
-  navMesh: {fileID: 7793515430040722177}
   chaser: {fileID: 0}
   runAwayDistance: 5
 --- !u!195 &7793515430040722177
@@ -185,3 +185,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1415933133476641740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6840119589501328913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3852953e9fc5f5c488a7e44efd029fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 2
+  hpEffect: {fileID: 7458998778295284173, guid: 3d0c542bc7fb55945b1831d5d62776db, type: 3}

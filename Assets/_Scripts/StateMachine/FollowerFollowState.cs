@@ -17,9 +17,7 @@ public class FollowerFollowState : BaseState
     }
     public override void OnEnter()
     {
-
         self.position = target.position;
-
     }
 
     public override void OnUpdate()

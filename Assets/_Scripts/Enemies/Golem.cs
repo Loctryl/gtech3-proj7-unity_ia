@@ -5,9 +5,7 @@ using UnityEngine;
 
 public class Golem : Enemy {
     [SerializeField] private float attackRange = 10;
-    [SerializeField] private Animator animator;
     [SerializeField] private GameObject projectile;
-    [SerializeField] private float activationTime;
     private SpriteRenderer spriteRenderer;
     private bool inRange;
     
@@ -16,6 +14,8 @@ public class Golem : Enemy {
     {
         player = GameObject.FindWithTag("Player");
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

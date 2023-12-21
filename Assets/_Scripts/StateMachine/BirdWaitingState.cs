@@ -9,6 +9,7 @@ public class BirdWaitingState : BaseState {
 	private GameObject player;
 	private Rigidbody2D rBody;
 	private Animator animator;
+	private int range = 2;
 
 	public BirdWaitingState(GameObject p, int s) {
 		player = p;
@@ -21,20 +22,20 @@ public class BirdWaitingState : BaseState {
 		
 		animator.SetFloat("xMove", -side);
 		animator.SetBool("asChanged", true);
+
+		range = Random.Range(1, 4);
 	}
 
 	public override void OnUpdate() {
 		animator.SetBool("asChanged", false);
 
 		Vector3 point;
-		point = player.transform.position + new Vector3(2 * side, 2, 0);
+		point = player.transform.position + new Vector3(range * side, range, 0);
 		
 		Vector3 dir = point - self.transform.position;
 		dir.Normalize();
 		
 		rBody.velocity = dir * speed;
-		
-		//play animator movement
 	}
 
 	public override void OnExit() {
