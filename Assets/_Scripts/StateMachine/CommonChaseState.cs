@@ -6,7 +6,6 @@ using UnityEngine.AI;
 
 public class CommonChaseState : BaseState {
 	private GameObject player;
-	private int speed;
 	private Rigidbody2D rBody;
 	private NavMeshAgent agent;
 
@@ -15,7 +14,6 @@ public class CommonChaseState : BaseState {
 	}
 	
 	public override void OnEnter() {
-		speed = self.GetComponent<Enemy>().speed;
 		rBody = self.GetComponent<Rigidbody2D>();
 		agent = self.GetComponent<Enemy>().agent;
 

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Bird : Enemy {
     [SerializeField] private int range = 4;
-
     [SerializeField] private int damage = 2;
+
+    private int side = 1;
+
+    private float delay;
     // Start is called before the first frame update
     public override void Start()
     {
@@ -15,21 +18,31 @@ public class Bird : Enemy {
     // Update is called once per frame
     public override void Update()
     {
-        float dist = CalculateDist(player.transform, this.transform);
+        base.Update();
 
-        Debug.Log("hein ?");
-        if (dist <= range && !(stateMachine.currentState is BirdWaitingState)) {
-            stateMachine.SwitchState(new BirdWaitingState());
+        delay += Time.deltaTime;
+
+        if (stateMachine.currentState is CommonIdleState) {
+            float dist = CalculateDist(player.transform, this.transform);
+        
+            if (dist <= range) {
+                if (player.transform.position.x - transform.position.x > 0)
+                    side *= -1;
+                stateMachine.SwitchState(new BirdWaitingState(player, side));
+                agent.enabled = false;
+            }
         }
 
-        /*if (player.isAttacking) {
-            
-        }*/
+        if (delay >= 5) {
+            delay = 0;
+            stateMachine.SwitchState(new BirdAttackState(player));
+        }
+        
     }
     
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.name == "Player") {
-            other.gameObject.GetComponentInChildren<EntityHealth>().Damage(damage);
+        if (other.gameObject.name == "Physic") {
+            other.transform.parent.GetComponentInChildren<EntityHealth>().Damage(damage);
         }
     }
 }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 232358628604663071}
   - component: {fileID: 7933426409453974189}
   - component: {fileID: 4880479740581190764}
-  - component: {fileID: 8059523827495440878}
   - component: {fileID: 307877767805645320}
-  m_Layer: 0
+  - component: {fileID: 1691077640778942242}
+  m_Layer: 7
   m_Name: Bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,28 +150,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!195 &8059523827495440878
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7442175518311586690}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.3
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.5
-  m_BaseOffset: 0.25
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &307877767805645320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +162,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e16d6099297f0418e835ab1b13e607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  agent: {fileID: 8059523827495440878}
+  speed: 5
+  agent: {fileID: 0}
   range: 10
   damage: 2
+--- !u!195 &1691077640778942242
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7442175518311586690}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.3
+  m_Speed: 3
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.25
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
