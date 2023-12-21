@@ -21,6 +21,8 @@ public class Spider : Enemy {
 	// Update is called once per frame
 	public override void Update()
 	{
+		if(!health.isAlive) return;
+		
 		base.Update();
 
 		float dist = CalculateDist(player.transform, this.transform);

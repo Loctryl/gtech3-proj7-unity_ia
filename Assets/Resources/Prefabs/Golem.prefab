@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   agent: {fileID: 0}
-  attackRange: 7
+  attackRange: 5
   animator: {fileID: 6601963772272719411}
   projectile: {fileID: 3897307396744981713, guid: 0df3d5542658b6344b2ab78bd74286a8, type: 3}
   activationTime: 5

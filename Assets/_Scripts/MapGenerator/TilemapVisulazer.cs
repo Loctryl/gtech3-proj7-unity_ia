@@ -31,6 +31,8 @@ public class TilemapVisulazer : MonoBehaviour
     [SerializeField]
     private GameObject Enemy2;
     [SerializeField]
+    private GameObject Enemy3;
+    [SerializeField]
     private GameObject ChestMimic;
 
 
@@ -236,9 +238,9 @@ public class TilemapVisulazer : MonoBehaviour
 
         foreach (var room in roomList)
         {
-            wichObject = Random.Range(0, 4);
+            wichObject = Random.Range(0, 5);
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
 
                 switch (wichObject)
@@ -258,6 +260,9 @@ public class TilemapVisulazer : MonoBehaviour
                             Enemie = Instantiate(ChestMimic, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
                             isChestSpawned = true;
                         }
+                        break;
+                    case 4:
+                        Enemie = Instantiate(Enemy3, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
                         break;
                     default:
                         break;

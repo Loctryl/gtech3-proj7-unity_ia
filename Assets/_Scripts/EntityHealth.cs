@@ -39,11 +39,6 @@ public class EntityHealth : MonoBehaviour
     {
         currentHp -= damage;
         if (currentHp <= 0) isAlive = false;
-
-        if(!isAlive)
-        {
-            Destroy(gameObject);
-        }
         
         SendHpEffect(-damage);
     }

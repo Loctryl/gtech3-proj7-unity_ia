@@ -21,6 +21,8 @@ public class Bird : Enemy {
     // Update is called once per frame
     public override void Update()
     {
+        if(!health.isAlive) return;
+        
         base.Update();
 
         delay += Time.deltaTime;
