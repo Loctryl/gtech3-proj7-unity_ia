@@ -6,6 +6,7 @@ using UnityEngine;
 using SpellSystem;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using TMPro;
 
 public class PlayerSpellManager : SpellManager
 {
@@ -88,6 +89,16 @@ public class PlayerSpellManager : SpellManager
         }
         else
         {
+            spellCD.AOEElec.gameObject.SetActive(false);
+            spellCD.AOEWind.gameObject.SetActive(false);
+            spellCD.UtilityElec.gameObject.SetActive(false);
+            spellCD.UtilityWind.gameObject.SetActive(false);
+            spellCD.SingleTargetElec.gameObject.SetActive(false);
+            spellCD.SingleTargetWind.gameObject.SetActive(false);
+            spellCD.CCElec.gameObject.SetActive(false);
+            spellCD.CCWind.gameObject.SetActive(false);
+            spellCD.ReturnLeft.gameObject.SetActive(false);
+            spellCD.ReturnRight.gameObject.SetActive(false);
             _choosedType = SpellType.Undefined;
         }
     }
@@ -122,6 +133,16 @@ public class PlayerSpellManager : SpellManager
         }
         else
         {
+            spellCD.AOEElec.gameObject.SetActive(false);
+            spellCD.AOEWind.gameObject.SetActive(false);
+            spellCD.UtilityElec.gameObject.SetActive(false);
+            spellCD.UtilityWind.gameObject.SetActive(false);
+            spellCD.SingleTargetElec.gameObject.SetActive(false);
+            spellCD.SingleTargetWind.gameObject.SetActive(false);
+            spellCD.CCElec.gameObject.SetActive(false);
+            spellCD.CCWind.gameObject.SetActive(false);
+            spellCD.ReturnLeft.gameObject.SetActive(false);
+            spellCD.ReturnRight.gameObject.SetActive(false);
             _choosedType = SpellType.Undefined;
         }
     }
