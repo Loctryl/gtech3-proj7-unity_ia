@@ -22,7 +22,7 @@ public class BossSLBehaviour : MonoBehaviour
     void Update()
     {
         Vector3 direction = transform.position - player.transform.position;
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+        transform.rotation = Quaternion.FromToRotation(Vector3.forward, direction);
 
         deltaTime += Time.deltaTime;
         if (deltaTime >= duration)
