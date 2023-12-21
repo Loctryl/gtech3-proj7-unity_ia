@@ -34,7 +34,7 @@ public class BossSpells : MonoBehaviour
     {
         for (int i = 0; i < numberLightning; i++)
         {
-            Vector2 rand = Random.insideUnitCircle * 3 + new Vector2(player.transform.position.x, player.transform.position.y);
+            Vector2 rand = Random.insideUnitCircle * 6 + new Vector2(player.transform.position.x, player.transform.position.y);
             Instantiate(ElecAoE, new Vector3(rand.x,rand.y,player.transform.position.z) ,Quaternion.identity);
             yield return new WaitForSeconds(delayBetweenLightnings);
         }
