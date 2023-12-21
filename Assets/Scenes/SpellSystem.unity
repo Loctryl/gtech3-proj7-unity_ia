@@ -484,7 +484,7 @@ MonoBehaviour:
   WindAoE: {fileID: 8429826336645928658, guid: 6226c5bf4c76326488a7ae1e66de94fe, type: 3}
   MeleeSingleTarget: {fileID: 3620763779719515141, guid: 40dc5c21bda23f449b2ace89922a506f, type: 3}
   MeleeAoE: {fileID: 8338834566132648932, guid: 76bb390b43510f5468c8687f9ba6c9b7, type: 3}
-  TeleportSpell: {fileID: 0}
+  TeleportSpell: {fileID: 5118302108849088092, guid: 489bc77bd9484594a92882703d4d4165, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

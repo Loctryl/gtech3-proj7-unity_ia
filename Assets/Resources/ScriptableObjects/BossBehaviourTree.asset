@@ -44,8 +44,8 @@ MonoBehaviour:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   children:
-  - {fileID: -3008289316135963881}
   - {fileID: 4051422458194320132}
+  - {fileID: -3008289316135963881}
 --- !u!114 &-7917519732724569774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +397,7 @@ MonoBehaviour:
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
+  bossSpellKey: BossSpells
 --- !u!114 &1448788594638087384
 MonoBehaviour:
   m_ObjectHideFlags: 0
