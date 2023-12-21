@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Boss : MonoBehaviour
+public class BossSpells : MonoBehaviour
 {
     [SerializeField] GameObject ElecAoE;
     [SerializeField] int numberLightning;
@@ -26,7 +26,7 @@ public class Boss : MonoBehaviour
         playerDirection = player.transform.position - transform.position;
     }
 
-    void CastElecAoE()
+    public void CastElecAoE()
     {
         StartCoroutine(castElec());
     }
@@ -40,25 +40,25 @@ public class Boss : MonoBehaviour
         }
     }
 
-    void CastWindAoE()
+    public void CastWindAoE()
     {
         Vector3 direction = player.transform.position - transform.position;
         Instantiate(WindAoE, transform.position, Quaternion.FromToRotation(Vector3.forward, direction));
     }
 
-    void CastMeleeAoE()
+    public void CastMeleeAoE()
     {
         Instantiate(MeleeAoE, transform);
     }
 
-    void CastMeleeSL()
+    public void CastMeleeSL()
     {
         Vector3 direction = player.transform.position - transform.position;
         Instantiate(MeleeSingleTarget, transform.position, Quaternion.FromToRotation(Vector3.forward, direction));
     }
 
-    void Teleport()
+    public void CastTeleport()
     {
-
+        Instantiate(TeleportSpell, transform.position, Quaternion.identity);
     }
 }
