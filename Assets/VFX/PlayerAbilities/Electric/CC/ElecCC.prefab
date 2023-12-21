@@ -66,6 +66,5 @@ MonoBehaviour:
   element: 4
   spellType: 2
   spawnType: 0
-  currCooldown: 0
   cooldown: 1
   damageRatio: 1.2
