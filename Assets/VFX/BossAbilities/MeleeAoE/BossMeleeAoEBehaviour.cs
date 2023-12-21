@@ -28,10 +28,9 @@ public class BossMeleeAoEBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EntityHealth hp = collision.transform.parent.GetComponentInChildren<EntityHealth>();
-        if (hp != null && collision.transform.parent.GetComponentInChildren<Player>() != null)
+        if (collision.transform.name == "Player")
         {
-            collision.transform.parent.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(damage * transform.parent.GetComponent<Spell>().damageRatio));
+            collision.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(damage * GetComponent<Spell>().damageRatio));
         }
     }
 }

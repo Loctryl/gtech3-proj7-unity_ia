@@ -10,10 +10,9 @@ public class BossElecAoECollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EntityHealth hp = collision.transform.parent.gameObject.GetComponentInChildren<EntityHealth>();
-        if (hp != null && collision.transform.parent.GetComponentInChildren<Player>() != null)
+        if (collision.transform.name == "Player")
         {
-            collision.transform.parent.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(aoEspell.damage * aoEspell.GetComponent<Spell>().damageRatio));
+            collision.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(aoEspell.damage * aoEspell.GetComponent<Spell>().damageRatio));
         }
     }
 }

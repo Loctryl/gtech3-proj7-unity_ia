@@ -33,7 +33,7 @@ public class BossWindAoE: MonoBehaviour
 
         if (deltaTime >= duration + IndicatorLifetime)
         {
-            Destroy(transform.parent.gameObject);
+            Destroy(transform.parent.parent.gameObject);
         }
     }
 
@@ -42,7 +42,7 @@ public class BossWindAoE: MonoBehaviour
 
         if (collision == player.GetComponent<Collider2D>())
         {
-            collision.transform.parent.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(damage * GetComponent<Spell>().damageRatio));
+            collision.GetComponentInChildren<EntityHealth>().Damage(Mathf.RoundToInt(damage * GetComponent<Spell>().damageRatio));
         }
 
     }
