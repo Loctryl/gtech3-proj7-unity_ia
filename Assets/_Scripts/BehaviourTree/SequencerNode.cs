@@ -40,7 +40,7 @@ public class SequencerNode : CompositeNode
 			if (currentChild >= children.Count)
 			{
 				currentChild = 0;
-				return state;
+				return state == State.Failure ? State.Failure : State.Success;
 			}
 
 			return State.Running;

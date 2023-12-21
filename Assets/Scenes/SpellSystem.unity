@@ -617,6 +617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 4875194893746627873, guid: 336994daed51f00478d430aeb20cc380, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7925674021210815711, guid: 336994daed51f00478d430aeb20cc380, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.87
@@ -692,6 +696,7 @@ MonoBehaviour:
   MeleeSingleTarget: {fileID: 3620763779719515141, guid: 40dc5c21bda23f449b2ace89922a506f, type: 3}
   MeleeAoE: {fileID: 8338834566132648932, guid: 76bb390b43510f5468c8687f9ba6c9b7, type: 3}
   TeleportSpell: {fileID: 5118302108849088092, guid: 489bc77bd9484594a92882703d4d4165, type: 3}
+  TeleportSpellTarget: {fileID: 0}
   Golem: {fileID: 1273181442890739987, guid: d425dac955c6eae47a5163257acbd836, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
