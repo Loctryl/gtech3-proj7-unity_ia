@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class DashOutNode : ActionNode
 {
+    public string bossSpellKey;
+    private BossSpells _spells;
     protected override void OnEnter()
     {
-        
+        _spells = (BossSpells)blackBoard.dataContext[bossSpellKey];
+        _spells.CastTeleport();
     }
 
     protected override State OnUpdate()
     {
-        return State.Running;
+        return State.Success;
     }
 
     protected override void OnExit()
