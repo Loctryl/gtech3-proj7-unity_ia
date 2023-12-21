@@ -16,11 +16,11 @@ public class TilemapVisulazer : MonoBehaviour
     [SerializeField]
     private Tilemap floorTilmap, wallTilemap, objectTilmap, TravelSpawn, TravelExit;
     [SerializeField]
-    private TileBase SpawnPointTile, ExitPointTile, 
-        floorTile1, floorTile2, floorTile3, floorTile4, floorTile5, floorTile6, floorTile7, floorTile8, floorTile9, floorTile10, floorTile11, floorTile12, floorTile13, floorTile14, 
+    private TileBase SpawnPointTile, ExitPointTile,
+        floorTile1, floorTile2, floorTile3, floorTile4, floorTile5, floorTile6, floorTile7, floorTile8, floorTile9, floorTile10, floorTile11, floorTile12, floorTile13, floorTile14,
         wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornnerDownLeft,
         wallInnerCornnerDownRight, wallDiagonalCornerDownRight, wallDiagonalCornnerDownLeft,
-        wallDiagonalUpRight, wallDiagonalUpLeft, 
+        wallDiagonalUpRight, wallDiagonalUpLeft,
         Deco1, Deco2, Deco3, Deco4, Deco5, Deco6, ObjectLightTile;
     [SerializeField]
     private GameObject Light;
@@ -30,11 +30,13 @@ public class TilemapVisulazer : MonoBehaviour
     private GameObject Enemy1;
     [SerializeField]
     private GameObject Enemy2;
+    [SerializeField]
+    private GameObject ChestMimic;
 
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
-      PaintTiles(floorPositions, floorTilmap);
+        PaintTiles(floorPositions, floorTilmap);
     }
 
     private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap)
@@ -52,7 +54,7 @@ public class TilemapVisulazer : MonoBehaviour
     private void PaintSinlgleTile(Tilemap tilemap, TileBase tile, Vector2Int position)
     {
         var tilePosition = tilemap.WorldToCell((Vector3Int)position);
-        tilemap.SetTile(tilePosition, tile);    
+        tilemap.SetTile(tilePosition, tile);
     }
 
     public void PaintSingleBasicWall(Vector2Int position, string binaryType)
@@ -153,13 +155,13 @@ public class TilemapVisulazer : MonoBehaviour
 
     internal void PaintSingleObject(HashSet<Vector2Int> floorPositions, List<BoundsInt> Roomlist)
     {
-        
+
         var rngNb = Random.Range(0, floorPositions.Count);
         var position = floorPositions.ElementAt(rngNb);
         int wichObject = Random.Range(0, 7);
         GameObject light;
 
-    
+
 
 
 
@@ -171,28 +173,28 @@ public class TilemapVisulazer : MonoBehaviour
 
                 switch (wichObject)
                 {
-                    case 0: 
+                    case 0:
                         PaintSinlgleTile(objectTilmap, Deco1, position);
                         break;
-                        case 1:
-                            PaintSinlgleTile(objectTilmap, Deco2, position);
+                    case 1:
+                        PaintSinlgleTile(objectTilmap, Deco2, position);
                         break;
-                        case 2:
-                            PaintSinlgleTile(objectTilmap, Deco3, position);
+                    case 2:
+                        PaintSinlgleTile(objectTilmap, Deco3, position);
                         break;
-                        case 3:
+                    case 3:
                         PaintSinlgleTile(objectTilmap, ObjectLightTile, position);
                         light = Instantiate(Light, new Vector3(position.x + 0.56f, position.y + 0.56f, 15), Quaternion.identity); break;
-                        case 4:
-                            PaintSinlgleTile(objectTilmap, Deco5, position);
+                    case 4:
+                        PaintSinlgleTile(objectTilmap, Deco5, position);
                         break;
-                        case 5:
-                            PaintSinlgleTile(objectTilmap, Deco6, position);
+                    case 5:
+                        PaintSinlgleTile(objectTilmap, Deco6, position);
                         break;
-                        case 6:
-                            PaintSinlgleTile(objectTilmap, ObjectLightTile, position);
-                            light = Instantiate(Light, new Vector3(position.x + 0.56f,position.y + 0.56f, 15), Quaternion.identity);
-                        
+                    case 6:
+                        PaintSinlgleTile(objectTilmap, ObjectLightTile, position);
+                        light = Instantiate(Light, new Vector3(position.x + 0.56f, position.y + 0.56f, 15), Quaternion.identity);
+
                         break;
 
                     default:
@@ -200,19 +202,19 @@ public class TilemapVisulazer : MonoBehaviour
                 }
                 rngNb = Random.Range(0, floorPositions.Count);
                 position = floorPositions.ElementAt(rngNb);
-               
-                
-               
+
+
+
             }
 
         }
-        
+
     }
 
     internal void PaintSpawnPoint(Vector2Int spawnPoint)
     {
-        
-       PaintSinlgleTile(TravelSpawn, SpawnPointTile, spawnPoint);
+
+        PaintSinlgleTile(TravelSpawn, SpawnPointTile, spawnPoint);
 
     }
 
@@ -225,15 +227,16 @@ public class TilemapVisulazer : MonoBehaviour
     {
         var rngNb = Random.Range(0, floorPositions.Count);
         var position = floorPositions.ElementAt(rngNb);
-        int wichObject = Random.Range(0, 2);
+        int wichObject = Random.Range(0, 4);
         GameObject Enemie;
+        bool isChestSpawned = false;
 
         Transform EnemiesParent = GameObject.Find("enemies").transform;
 
-        
+
         foreach (var room in roomList)
         {
-            wichObject = Random.Range(0, 3);
+            wichObject = Random.Range(0, 4);
 
             for (int i = 0; i < 4; i++)
             {
@@ -248,6 +251,13 @@ public class TilemapVisulazer : MonoBehaviour
                         break;
                     case 2:
                         Enemie = Instantiate(Enemy2, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
+                        break;
+                    case 3:
+                        if (isChestSpawned == false)
+                        {
+                            Enemie = Instantiate(ChestMimic, new Vector3(position.x + 0.56f, position.y + 0.56f, 20), Quaternion.identity, EnemiesParent);
+                            isChestSpawned = true;
+                        }
                         break;
                     default:
                         break;
