@@ -71,7 +71,7 @@ public class BossSpells : MonoBehaviour
         for (int i = 0; i < numberGolems; i++)
         {
             Vector2 rand = Random.insideUnitCircle * 3 + new Vector2(transform.parent.position.x, transform.parent.position.y);
-            Instantiate(ElecAoE, new Vector3(rand.x, rand.y, transform.parent.position.z), Quaternion.identity);
+            Instantiate(Golem, new Vector3(rand.x, rand.y, transform.parent.position.z), Quaternion.identity);
             yield return new WaitForSeconds(delayBetweenInvocations);
         }
     }

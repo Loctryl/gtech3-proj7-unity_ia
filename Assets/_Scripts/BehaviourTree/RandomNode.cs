@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RandomNode : CompositeNode
 {
     private Node runningNode = null;
     protected override void OnEnter()
     {
+        Random.InitState(DateTime.UtcNow.Millisecond);
     }
 
     protected override State OnUpdate()

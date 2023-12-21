@@ -153,6 +153,29 @@ MonoBehaviour:
   - {fileID: -8864190019068962915}
   endOnFailure: 0
   waitChildToFinish: 1
+--- !u!114 &-5987595397011360415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497cb1db86de69e448f7cb1805bf8ea0, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: df122e85362630445a643487ae94760a
+  position: {x: 1136.0002, y: 253.40004}
+  blackBoard:
+    gameObject: {fileID: 0}
+    player: {fileID: 0}
+  duration: 4
+  UseRandom: 0
+  minDuration: 0
+  maxDuration: 0
 --- !u!114 &-5742038846448052604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +200,28 @@ MonoBehaviour:
   - {fileID: -3302151600986587360}
   endOnFailure: 0
   waitChildToFinish: 1
+--- !u!114 &-5611707906469908495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015f14dff591e4845bc71fb5c9ea2f76, type: 3}
+  m_Name: SummonGolemNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 2a9ba70df8ee7884c8219839662dbac0
+  position: {x: 1136, y: 157.78879}
+  blackBoard:
+    gameObject: {fileID: 0}
+    player: {fileID: 0}
+  golemQuantity: 5
+  delay: 1
+  bossSpellKey: BossSpells
 --- !u!114 &-5077657182366195461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,13 +279,13 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: c4f569f85153fd048a21937d86c9c7fb
-  position: {x: 712.99994, y: -42.99992}
+  position: {x: 713.0001, y: -42.99998}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
   children:
-  - {fileID: 8686661192112063333}
   - {fileID: 4771508629330523549}
+  - {fileID: 8686661192112063333}
 --- !u!114 &-3089112902871622682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +305,7 @@ MonoBehaviour:
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
-  duration: 2
+  duration: 4
   UseRandom: 0
   minDuration: 0
   maxDuration: 0
@@ -373,6 +418,8 @@ MonoBehaviour:
   - {fileID: 5442271619302973633}
   - {fileID: 4771508629330523549}
   - {fileID: 6149512991655955450}
+  - {fileID: -5611707906469908495}
+  - {fileID: -5987595397011360415}
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
@@ -551,6 +598,7 @@ MonoBehaviour:
     player: {fileID: 0}
   children:
   - {fileID: 6149512991655955450}
+  - {fileID: -5611707906469908495}
   endOnFailure: 1
   waitChildToFinish: 1
 --- !u!114 &5442271619302973633
@@ -618,8 +666,8 @@ MonoBehaviour:
     player: {fileID: 0}
   duration: 1
   UseRandom: 1
-  minDuration: 4
-  maxDuration: 10
+  minDuration: 3
+  maxDuration: 6
 --- !u!114 &8686661192112063333
 MonoBehaviour:
   m_ObjectHideFlags: 0
