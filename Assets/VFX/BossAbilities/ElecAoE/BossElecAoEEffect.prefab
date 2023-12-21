@@ -62,10 +62,10 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 6.232901, y: 0, z: 2.9624496, w: 0.77254903}
+      - m_Value: {x: 0.8124138, y: 0, z: 2.8261397, w: 1}
         m_Name: FlashColor
         m_Overridden: 1
-      - m_Value: {x: 5.358491, y: 0.5255476, z: 0.33665913, w: 0}
+      - m_Value: {x: 0.075343624, y: 0, z: 1.3160672, w: 0}
         m_Name: LightningColor
         m_Overridden: 1
     m_Uint:
@@ -184,10 +184,10 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 0.024157226, y: 0, z: 2.8261395, w: 1}
+      - m_Value: {x: 0.8124138, y: 0, z: 2.8261397, w: 1}
         m_Name: FlashColor
         m_Overridden: 1
-      - m_Value: {x: 0.23661388, y: 0, z: 1.3160673, w: 0}
+      - m_Value: {x: 0.075343624, y: 0, z: 1.3160672, w: 0}
         m_Name: LightningColor
         m_Overridden: 1
     m_Uint:
@@ -387,10 +387,10 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 6.232901, y: 0, z: 2.9624496, w: 0.77254903}
+      - m_Value: {x: 0.8124138, y: 0, z: 2.8261397, w: 1}
         m_Name: FlashColor
         m_Overridden: 1
-      - m_Value: {x: 5.358491, y: 0.5255476, z: 0.33665913, w: 0}
+      - m_Value: {x: 0.075343624, y: 0, z: 1.3160672, w: 0}
         m_Name: LightningColor
         m_Overridden: 1
     m_Uint:
@@ -509,10 +509,10 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 6.232901, y: 0, z: 2.9624496, w: 0.77254903}
+      - m_Value: {x: 0.8124138, y: 0, z: 2.8261397, w: 1}
         m_Name: FlashColor
         m_Overridden: 1
-      - m_Value: {x: 5.358491, y: 0.5255476, z: 0.33665913, w: 0}
+      - m_Value: {x: 0.075343624, y: 0, z: 1.3160672, w: 0}
         m_Name: LightningColor
         m_Overridden: 1
     m_Uint:
@@ -965,10 +965,10 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 6.232901, y: 0, z: 2.9624496, w: 0.77254903}
+      - m_Value: {x: 0.8124138, y: 0, z: 2.8261397, w: 1}
         m_Name: FlashColor
         m_Overridden: 1
-      - m_Value: {x: 5.358491, y: 0.5255476, z: 0.33665913, w: 0}
+      - m_Value: {x: 0.075343624, y: 0, z: 1.3160672, w: 0}
         m_Name: LightningColor
         m_Overridden: 1
     m_Uint:
