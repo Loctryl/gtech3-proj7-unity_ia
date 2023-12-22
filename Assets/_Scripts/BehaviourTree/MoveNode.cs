@@ -12,10 +12,13 @@ public class MoveNode : ActionNode
 
 	private float timer;
 	private Vector3 randPos;
+
+	private Rigidbody2D rigidbody;
 	protected override void OnEnter()
 	{
 		timer = 0;
 		randPos = (Random.insideUnitSphere * range) + blackBoard.gameObject.transform.position;
+		rigidbody = blackBoard.gameObject.GetComponent<Rigidbody2D>();
 	}
 
 	protected override State OnUpdate()
@@ -35,7 +38,7 @@ public class MoveNode : ActionNode
 		Vector3 dir = randPos - self;
 		dir.Normalize();
 		dir *= speed * Time.deltaTime;
-		blackBoard.gameObject.transform.position += dir;
+		rigidbody.velocity =  dir;
 
 		return State.Running;
 	}

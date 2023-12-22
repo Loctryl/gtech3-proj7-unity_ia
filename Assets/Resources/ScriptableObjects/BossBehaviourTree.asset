@@ -594,8 +594,8 @@ MonoBehaviour:
     player: {fileID: 0}
   duration: 1
   UseRandom: 1
-  minDuration: 1
-  maxDuration: 3
+  minDuration: 2.5
+  maxDuration: 4.5
 --- !u!114 &1707986409892446518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,7 +660,7 @@ MonoBehaviour:
   blackBoard:
     gameObject: {fileID: 0}
     player: {fileID: 0}
-  speed: 10
+  speed: 100
   range: 12
   duration: 0.7
 --- !u!114 &3655260730945524664

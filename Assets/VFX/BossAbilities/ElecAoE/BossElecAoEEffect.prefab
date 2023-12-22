@@ -1257,7 +1257,7 @@ MonoBehaviour:
   - {fileID: 229710988091617468}
   - {fileID: 2772980294420696058}
   - {fileID: 7383515929835006693}
-  baseDamage: 15
+  baseDamage: 4
   damage: 0
   IndicatorLifetime: 0.75
   indicatorGrowth: 0.1
