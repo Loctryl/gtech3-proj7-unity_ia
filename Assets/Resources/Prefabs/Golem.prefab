@@ -197,9 +197,7 @@ MonoBehaviour:
   speed: 0
   agent: {fileID: 0}
   attackRange: 5
-  animator: {fileID: 6601963772272719411}
   projectile: {fileID: 3897307396744981713, guid: 0df3d5542658b6344b2ab78bd74286a8, type: 3}
-  activationTime: 5
 --- !u!114 &7372398515936783049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,5 +210,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3852953e9fc5f5c488a7e44efd029fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 20
+  maxHp: 12
   hpEffect: {fileID: 7458998778295284173, guid: 3d0c542bc7fb55945b1831d5d62776db, type: 3}

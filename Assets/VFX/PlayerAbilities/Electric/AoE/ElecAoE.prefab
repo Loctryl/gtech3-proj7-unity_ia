@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 132865681749962975}
   - component: {fileID: 709087135472389763}
   - component: {fileID: 4068339778731137939}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hitbox (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 53741583878931086}
   - component: {fileID: 394603896158857629}
   - component: {fileID: 218443164802012119}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 5699176152399918153}
   - component: {fileID: 7452146036197921466}
   - component: {fileID: 6946334557625065786}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hitbox (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1114,7 +1114,7 @@ GameObject:
   - component: {fileID: 1384740123584641534}
   - component: {fileID: 2867976129449085320}
   - component: {fileID: 118561319519787252}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hitbox (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1240,7 +1240,7 @@ MonoBehaviour:
   - {fileID: 229710988091617468}
   - {fileID: 2772980294420696058}
   - {fileID: 7383515929835006693}
-  baseDamage: 5
+  baseDamage: 3
   damage: 0
 --- !u!114 &3337663867854549386
 MonoBehaviour:
@@ -1257,8 +1257,8 @@ MonoBehaviour:
   element: 4
   spellType: 1
   spawnType: 2
-  cooldown: 5
-  damageRatio: 1
+  cooldown: 3
+  damageRatio: 1.2
 --- !u!1 &7383515929835006693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,7 +1485,7 @@ GameObject:
   - component: {fileID: 5689637441657959893}
   - component: {fileID: 5858487547715808801}
   - component: {fileID: 760123686393679956}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hitbox (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -51,7 +51,7 @@ MonoBehaviour:
   MaxChainAmount: 3
   currChainPos: 1
   maxDist: 8
-  damage: 8
+  damage: 2
 --- !u!114 &5209997757088099124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
   element: 4
   spellType: 2
   spawnType: 0
-  cooldown: 1
+  cooldown: 2
   damageRatio: 1.2
 --- !u!82 &8923467505621258270
 AudioSource:

@@ -139,8 +139,8 @@ MonoBehaviour:
   element: 3
   spellType: 2
   spawnType: 2
-  cooldown: 1
-  damageRatio: 0
+  cooldown: 2
+  damageRatio: 1.2
 --- !u!114 &6167780266634664915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cdb4c6ac8c6a742963432d9a984b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 12
+  Range: 7
   AttractionForce: 0.6
   damagePerTick: 2
   tickTime: 0.75

@@ -50,7 +50,7 @@ MonoBehaviour:
   spellRange: 6
   aimRange: 3
   autoAimRange: 3
-  damage: 12
+  damage: 7
 --- !u!114 &-2516194968668816561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,8 +66,8 @@ MonoBehaviour:
   element: 4
   spellType: 0
   spawnType: 0
-  cooldown: 1
-  damageRatio: 0
+  cooldown: 2
+  damageRatio: 1.2
 --- !u!82 &-3880612460888248393
 AudioSource:
   m_ObjectHideFlags: 0

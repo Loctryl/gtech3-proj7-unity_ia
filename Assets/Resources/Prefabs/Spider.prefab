@@ -177,7 +177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   agent: {fileID: 6323693409962557547}
-  attackRange: 1
   damage: 1
   isTrigger: 0
 --- !u!195 &6323693409962557547
@@ -214,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3852953e9fc5f5c488a7e44efd029fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
+  maxHp: 8
   hpEffect: {fileID: 7458998778295284173, guid: 3d0c542bc7fb55945b1831d5d62776db, type: 3}
 --- !u!95 &272040334239269991
 Animator:

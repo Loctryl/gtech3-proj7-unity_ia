@@ -132,7 +132,7 @@ MonoBehaviour:
   element: 4
   spellType: 3
   spawnType: 1
-  cooldown: 1
+  cooldown: 4
   damageRatio: 1.2
 --- !u!114 &-8611845193961277425
 MonoBehaviour:
