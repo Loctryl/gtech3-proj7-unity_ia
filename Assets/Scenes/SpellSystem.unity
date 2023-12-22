@@ -407,6 +407,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 80514428452601200, guid: 2f48e949c554fa942a7e3800a7b1e905, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 435537099833462311, guid: 2f48e949c554fa942a7e3800a7b1e905, type: 3}
       propertyPath: camera
       value: 
@@ -597,6 +601,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1635118029}
+    - target: {fileID: 1857715379125709409, guid: 336994daed51f00478d430aeb20cc380, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4776027344341037320, guid: 336994daed51f00478d430aeb20cc380, type: 3}
       propertyPath: m_Name
       value: Boss

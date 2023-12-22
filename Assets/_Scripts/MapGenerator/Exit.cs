@@ -15,13 +15,13 @@ public   class Exit : MonoBehaviour
     private LevelCounter levelCounter;
     [SerializeField]
     private GameObject player;
-  private void OnTriggerEnter2D(Collider2D other)
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
         
         if (other == player.GetComponent<Collider2D>())
         {
-
-                if (levelCounter.count < 2)
+            if (levelCounter.count < 2)
             {
                 roomGenerator.GetComponent<RoomFirstDungeonGenerator>().RunProceduralGeneration();
                 levelCounter.count++;
@@ -30,10 +30,7 @@ public   class Exit : MonoBehaviour
             {
                 BossRoom.GetComponent<SimpleRandomWalkDungeonGenerator>().RunProceduralGeneration();
                 levelCounter.count = 0;
-
             }
         }
-        
-        
     }
 }

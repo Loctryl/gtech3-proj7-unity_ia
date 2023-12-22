@@ -1,14 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Rendering;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
-using UnityEngine.UIElements;
+
 using Random = UnityEngine.Random;
 
 public class TilemapVisulazer : MonoBehaviour
@@ -240,7 +235,7 @@ public class TilemapVisulazer : MonoBehaviour
         {
             wichObject = Random.Range(0, 5);
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
 
                 switch (wichObject)
@@ -269,11 +264,7 @@ public class TilemapVisulazer : MonoBehaviour
                 }
                 rngNb = Random.Range(0, floorPositions.Count);
                 position = floorPositions.ElementAt(rngNb);
-
-
-
             }
-
         }
     }
 }
