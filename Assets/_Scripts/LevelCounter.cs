@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class LevelCounter : MonoBehaviour
 {
-    public int count = 3;
+    public int count = 0;
 }
