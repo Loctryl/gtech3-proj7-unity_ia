@@ -30,7 +30,7 @@ public class MoveNode : ActionNode
 			return State.Success;
 		}
 		
-		randPos.z = 0;
+		randPos.z = 20;
 		
 		Vector3 dir = randPos - self;
 		dir.Normalize();
